@@ -1,0 +1,9 @@
+{
+  "name": "Poker.ixi",
+  "version": "0.1",
+  "main_class": "org.iota.ict.ixi.PokerIxi",
+  "description": "A description about Poker.ixi",
+  "repository": "ixuz/Poker.ixi",
+  "gui_port": -1,
+  "supported_versions": ["0.4"]
+}

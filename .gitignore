@@ -1,0 +1,25 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Vscode
+.vscode/
+
+# Mac
+.DS_Store
+
+# Gradle
+.gradle
+
+# Report.ixi
+*.jar
+ict.cfg
+report.ixi.cfg
+out
+build
