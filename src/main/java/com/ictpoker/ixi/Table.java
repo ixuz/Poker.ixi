@@ -64,6 +64,22 @@ public class Table {
         return false;
     }
 
+    public List<Seat> getSeats() {
+
+        return seats;
+    }
+
+    public int getNumberOfSeatedPlayers() {
+
+        int nSeatedPlayers = 0;
+        for (final Seat seat : seats) {
+            if (seat != null) {
+                nSeatedPlayers++;
+            }
+        }
+        return nSeatedPlayers;
+    }
+
     public class NoSeatAvailableException extends Exception {}
     public class PlayerAlreadySeatedException extends Exception {}
     public class PlayerNotSeatedException extends Exception {}

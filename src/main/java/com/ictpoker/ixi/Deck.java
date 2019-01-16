@@ -17,6 +17,12 @@ public class Deck extends Stack<Card> {
                 push(new Card(rank, suit));
             }
         }
+
+        shuffle();
+    }
+
+    public void shuffle() {
+
         Collections.shuffle(this);
     }
 }

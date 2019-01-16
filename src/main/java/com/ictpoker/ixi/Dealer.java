@@ -4,16 +4,16 @@ import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
-public abstract class Dealer implements Runnable, IDealer {
+public abstract class Dealer extends Thread implements Runnable, IDealer {
 
     public final static float DEFAULT_DEALER_SPEED = 1f;
     private final static Logger LOGGER = LogManager.getLogger(Dealer.class);
     private final Table table;
     private final float speed;
     private final Deck deck = new Deck();
-    private final PriorityBlockingQueue<PlayerEvent> playerEventQueue = new PriorityBlockingQueue<>();
+    private final LinkedBlockingQueue<PlayerEvent> playerEventQueue = new LinkedBlockingQueue<>();
     private boolean active = true;
 
     public Dealer(@NotNull final Table table, @NotNull final float speed) {
@@ -28,39 +28,29 @@ public abstract class Dealer implements Runnable, IDealer {
             PlayerEvent playerEvent = null;
 
             try {
-                playerEventQueue.take();
-                System.out.print("Took");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-/*            try {
-                synchronized (playerEventQueue) {
-                    if (!playerEventQueue.isEmpty()) {
-                        playerEvent = playerEventQueue.take();
-                        System.out.println("took");
-                        handlePlayerEvent(playerEvent);
-                        playerEvent.doCallback(null);
-                    } else {
-                        playerEventQueue.wait((long) (1.0f / Dealer.DEFAULT_DEALER_SPEED));
-                    }
-                }
-            } catch (PlayerEventException e) {
-                playerEvent.doCallback(e);
+                playerEvent = playerEventQueue.take();
+                handlePlayerEvent(playerEvent);
+                playerEvent.doCallback(null);
             } catch (InterruptedException e) {
                 // TODO: Unhandled exception
                 e.printStackTrace();
-            }*/
+                break;
+            } catch (PlayerEventException e) {
+                playerEvent.doCallback(e);
+            }
         }
     }
 
     public void pushPlayerEvent(@NotNull final PlayerEvent playerEvent) {
 
-        playerEventQueue.put(playerEvent);
+        try {
+            playerEventQueue.put(playerEvent);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    // TODO: Make this method private
-    public void handlePlayerEvent(@NotNull final PlayerEvent playerEvent)
+    private void handlePlayerEvent(@NotNull final PlayerEvent playerEvent)
             throws PlayerEventException {
 
         switch (playerEvent.getPlayerAction()) {
@@ -85,5 +75,10 @@ public abstract class Dealer implements Runnable, IDealer {
 
     protected Deck getDeck() {
         return deck;
+    }
+
+    protected void shuffleDeck() {
+
+        deck.shuffle();
     }
 }

@@ -6,11 +6,15 @@ import org.apache.logging.log4j.Logger;
 
 public class TexasHoldemDealer extends Dealer {
 
+    public final static int DEFAULT_CARDS_PER_SEAT = 2;
     private final static Logger LOGGER = LogManager.getLogger(TexasHoldemDealer.class);
+    private final int buyIn;
 
-    public TexasHoldemDealer(@NotNull final Table table, @NotNull final float speed) {
+    public TexasHoldemDealer(@NotNull final Table table, @NotNull final float speed, @NotNull final int buyIn) {
 
         super(table, speed);
+
+        this.buyIn = buyIn;
     }
 
     @Override
@@ -18,8 +22,13 @@ public class TexasHoldemDealer extends Dealer {
             throws PlayerEventException {
 
         try {
-            // TODO: Temporary stack value
-            getTable().join(playerEvent.getPlayer(), 1000);
+            playerEvent.getPlayer().deductBalance(buyIn);
+        } catch (Player.InsufficientBalanceException e) {
+            throw new PlayerEventException("Player has insufficient balance", e);
+        }
+
+        try {
+            getTable().join(playerEvent.getPlayer(), buyIn);
             LOGGER.info(String.format("Welcome to the table %s.", playerEvent.getPlayer().getName()));
         } catch (Table.NoSeatAvailableException e) {
             throw new PlayerEventException("Sorry Sir, the table is full.", e);
@@ -37,6 +46,32 @@ public class TexasHoldemDealer extends Dealer {
             LOGGER.info(String.format("Thank you for playing %s. See you next time!", playerEvent.getPlayer().getName()));
         } catch (Table.PlayerNotSeatedException e) {
             throw new PlayerEventException("Sorry Sir, you can't occupy more than one seat.", e);
+        }
+    }
+
+    @Override
+    public void deal() {
+
+        shuffleDeck();
+
+        for (int i=0; i<DEFAULT_CARDS_PER_SEAT; i++) {
+            for (final Seat seat : getTable().getSeats()) {
+                if (seat != null) {
+                    seat.pushCard(getDeck().pop());
+                }
+            }
+        }
+    }
+
+    @Override
+    public void cleanUp() {
+
+        for (final Seat seat : getTable().getSeats()) {
+            if (seat != null) {
+                while (seat.getCards().size() > 0) {
+                        getDeck().push(seat.popCard());
+                }
+            }
         }
     }
 }

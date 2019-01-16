@@ -26,7 +26,7 @@ public class Player implements IPlayer {
         return balance;
     }
 
-    private void deductBalance(@NotNull final int amount)
+    public synchronized void deductBalance(@NotNull final int amount)
             throws InsufficientBalanceException {
 
         if (balance-amount < 0) {
