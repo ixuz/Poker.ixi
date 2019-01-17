@@ -1,5 +1,6 @@
 package com.ictpoker.ixi;
 
+import com.ictpoker.ixi.DealerEvent.DealerEventException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,17 +10,13 @@ public class DealerTest {
     public void testPlayerJoin() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player player = new Player("Adam Broker", 1000);
 
             table.pushEvent(new PlayerEvent(player, PlayerEvent.PlayerAction.JOIN, 1000));
 
-            try {
-                table.handleEventQueue();
-            } catch (PlayerEventException e) {
-                Assert.fail();
-            }
+            table.handleEventQueue();
 
             try {
                 final Seat seat = table.getPlayerSeat(player);
@@ -29,10 +26,10 @@ public class DealerTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -40,18 +37,14 @@ public class DealerTest {
     public void testPlayerLeave() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player player = new Player("Adam Broker", 1000);
 
             table.pushEvent(new PlayerEvent(player, PlayerEvent.PlayerAction.JOIN, 1000));
             table.pushEvent(new PlayerEvent(player, PlayerEvent.PlayerAction.LEAVE, 0));
 
-            try {
-                table.handleEventQueue();
-            } catch (PlayerEventException e) {
-                Assert.fail("The player should be able to join and leave a table");
-            }
+            table.handleEventQueue();
 
             try {
                 final Seat seat = table.getPlayerSeat(player);
@@ -61,10 +54,10 @@ public class DealerTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -72,7 +65,7 @@ public class DealerTest {
     public void testPlayerDoubleJoin() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player player = new Player("Adam Broker", 1000);
 
@@ -82,15 +75,15 @@ public class DealerTest {
             try {
                 table.handleEventQueue();
                 Assert.fail("The player should not be able to join a table twice");
-            } catch (PlayerEventException e) {
+            } catch (com.ictpoker.ixi.PlayerEventException e) {
                 // Intended exception thrown, the player has already joined the table
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -98,7 +91,7 @@ public class DealerTest {
     public void testPlayerDoubleLeave() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player player = new Player("Adam Broker", 1000);
 
@@ -109,35 +102,35 @@ public class DealerTest {
             try {
                 table.handleEventQueue();
                 Assert.fail("The player should not be able to leave a table twice");
-            } catch (PlayerEventException e) {
+            } catch (com.ictpoker.ixi.PlayerEventException e) {
                 // Intended exception thrown, the player has already left the table
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
     @Test
-    public void testPlayerInsufficientFunds() throws InterruptedException {
+    public void testPlayerInsufficientFunds() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player player = new Player("Adam Broker", 200);
 
             try {
                 table.pushEvent(new PlayerEvent(player, PlayerEvent.PlayerAction.JOIN, 1000));
-            } catch (PlayerEventException e) {
+            } catch (com.ictpoker.ixi.PlayerEventException e) {
                 // Intended exception thrown, the player has insufficient funds
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -145,7 +138,7 @@ public class DealerTest {
     public void testDealHoleCards() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player playerA = new Player("Adam Broker", 1000);
             final Player playerB = new Player("Carry Davis", 1000);
@@ -155,31 +148,27 @@ public class DealerTest {
             table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.JOIN, 1000));
             table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.JOIN, 1000));
 
-            try {
-                table.handleEventQueue();
-            } catch (PlayerEventException e) {
-                Assert.fail("Three distinct players should be able to join a table");
-            }
+            table.handleEventQueue();
 
             table.getDealer().dealHoleCards(table);
 
             try {
-                Assert.assertEquals(table.getPlayerSeat(playerA).getCards().size(), TexasHoldemDealer.CARDS_PER_SEAT);
-                Assert.assertEquals(table.getPlayerSeat(playerB).getCards().size(), TexasHoldemDealer.CARDS_PER_SEAT);
-                Assert.assertEquals(table.getPlayerSeat(playerC).getCards().size(), TexasHoldemDealer.CARDS_PER_SEAT);
+                Assert.assertEquals(table.getPlayerSeat(playerA).getCards().size(), Dealer.CARDS_PER_SEAT);
+                Assert.assertEquals(table.getPlayerSeat(playerB).getCards().size(), Dealer.CARDS_PER_SEAT);
+                Assert.assertEquals(table.getPlayerSeat(playerC).getCards().size(), Dealer.CARDS_PER_SEAT);
             } catch (Table.PlayerNotSeatedException e) {
                 Assert.fail("Failed to verify that each player got the correct amount of cards");
             }
 
             Assert.assertEquals("Incorrect amount of cards remains in deck after dealHoleCards",
                     table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT);
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -187,29 +176,29 @@ public class DealerTest {
     public void testDealFlopTurnRiver() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             Assert.assertEquals(table.getDealer().getDeck().size(), Deck.DECK_SIZE);
 
             table.getDealer().dealFlop(table);
-            Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - TexasHoldemDealer.CARDS_FLOP);
+            Assert.assertEquals(Deck.DECK_SIZE - Dealer.CARDS_FLOP,
+                    table.getDealer().getDeck().size());
 
             table.getDealer().dealTurn(table);
-            Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - TexasHoldemDealer.CARDS_FLOP - TexasHoldemDealer.CARDS_TURN);
+            Assert.assertEquals(Deck.DECK_SIZE - Dealer.CARDS_FLOP - Dealer.CARDS_TURN,
+                    table.getDealer().getDeck().size());
 
             table.getDealer().dealRiver(table);
-            Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - TexasHoldemDealer.CARDS_FLOP - TexasHoldemDealer.CARDS_TURN - TexasHoldemDealer.CARDS_RIVER);
+            Assert.assertEquals(Deck.DECK_SIZE - Dealer.CARDS_FLOP - Dealer.CARDS_TURN - Dealer.CARDS_RIVER,
+                    table.getDealer().getDeck().size());
 
             table.getDealer().cleanUp(table);
             Assert.assertEquals(table.getDealer().getDeck().size(), Deck.DECK_SIZE);
 
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpectedly failed to create player events");
         }
     }
 
@@ -217,7 +206,7 @@ public class DealerTest {
     public void testDealPlayersFlopTurnRiver() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player playerA = new Player("Adam Broker", 1000);
             final Player playerB = new Player("Carry Davis", 1000);
@@ -227,41 +216,37 @@ public class DealerTest {
             table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.JOIN, 1000));
             table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.JOIN, 1000));
 
-            try {
-                table.handleEventQueue();
-            } catch (PlayerEventException e) {
-                Assert.fail("Three distinct players should be able to join a table");
-            }
+            table.handleEventQueue();
 
             table.getDealer().dealHoleCards(table);
 
             Assert.assertEquals("Incorrect amount of cards remains in deck after dealHoleCards",
                     table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT);
 
             Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT);
 
             table.getDealer().dealFlop(table);
             Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT - TexasHoldemDealer.CARDS_FLOP);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT - Dealer.CARDS_FLOP);
 
             table.getDealer().dealTurn(table);
             Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT - TexasHoldemDealer.CARDS_FLOP - TexasHoldemDealer.CARDS_TURN);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT - Dealer.CARDS_FLOP - Dealer.CARDS_TURN);
 
             table.getDealer().dealRiver(table);
             Assert.assertEquals(table.getDealer().getDeck().size(),
-                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * TexasHoldemDealer.CARDS_PER_SEAT - TexasHoldemDealer.CARDS_FLOP - TexasHoldemDealer.CARDS_TURN - TexasHoldemDealer.CARDS_RIVER);
+                    Deck.DECK_SIZE - table.getNumberOfSeatedPlayers() * Dealer.CARDS_PER_SEAT - Dealer.CARDS_FLOP - Dealer.CARDS_TURN - Dealer.CARDS_RIVER);
 
             table.getDealer().cleanUp(table);
             Assert.assertEquals(table.getDealer().getDeck().size(), Deck.DECK_SIZE);
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             Assert.fail("Unexpectedly failed to create player events");
+        } catch (DealerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.ictpoker.ixi;
 
+import com.ictpoker.ixi.DealerEvent.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ public class PokerTest {
     public void testHand1() {
 
         try {
-            final Table table = new Table(4, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
             final Player playerA = new Player("Adam Broker", 2000);
             final Player playerB = new Player("Carry Davis", 1000);
             final Player playerC = new Player("Eric Flores", 1000);
@@ -17,29 +18,66 @@ public class PokerTest {
             table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.JOIN, 1000));
             table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.JOIN, 1000));
             table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.JOIN, 1000));
+            table.pushEvent(new MoveButtonDealerEvent(0));
+            table.pushEvent(new DealDealerEvent());
+            table.pushEvent(new SmallBlindDealerEvent());
+            table.pushEvent(new BigBlindDealerEvent());
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.CALL, 20));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.CALL, 10));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.CHECK, 0));
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.CHECK, 0));
 
-            table.getState().setButtonPosition(0);
-
-            try {
-                table.handleEventQueue();
-            } catch (PlayerEventException e) {
-                Assert.fail("Three distinct players should be able to join a table");
-            }
-
-            table.getDealer().dealHoleCards(table);
-
-            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.JOIN, 1000));
-
-
+            table.handleEventQueue();
         } catch (Table.InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            e.printStackTrace();
-            Assert.fail("Unexpectedly failed to initialize Dealer");
         } catch (PlayerEventException e) {
             e.printStackTrace();
-            Assert.fail("Unexpectedly failed to create player events");
+            Assert.fail("Unexpected player exception");
+        } catch (DealerEventException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected dealer exception");
+        }
+    }
+
+    @Test
+    public void testHand2() {
+
+        try {
+            final Table table = new Table(4, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            final Player playerA = new Player("Adam Broker", 2000);
+            final Player playerB = new Player("Carry Davis", 1000);
+            final Player playerC = new Player("Eric Flores", 1000);
+
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.JOIN, 1000));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.JOIN, 1000));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.JOIN, 1000));
+            table.pushEvent(new MoveButtonDealerEvent(0));
+            table.pushEvent(new DealDealerEvent());
+            table.pushEvent(new SmallBlindDealerEvent());
+            table.pushEvent(new BigBlindDealerEvent());
+            table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.RAISE, 40));
+            table.pushEvent(new PlayerEvent(playerB, PlayerEvent.PlayerAction.FOLD, 0));
+            table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.FOLD, 0));
+
+            table.handleEventQueue();
+        } catch (Table.InvalidSeatCountException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpectedly failed to create table");
+        } catch (PlayerEventException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected player exception");
+        } catch (DealerEventException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected dealer exception");
         }
     }
 }

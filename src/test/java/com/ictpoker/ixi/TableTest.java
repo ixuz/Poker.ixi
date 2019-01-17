@@ -9,30 +9,30 @@ public class TableTest {
     public void testInvalidSeatCounts() {
 
         try {
-            new Table(0, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            new Table(0, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
             Assert.fail("A table with zero seats is not allowed");
         } catch (Table.InvalidSeatCountException e) {
             // Intended exception thrown, a table with zero seats is not allowed
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
 
         try {
-            new Table(Table.MAXIMUM_SEATS+1, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            new Table(Table.MAXIMUM_SEATS+1, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
             Assert.fail("A table with more seats than the maximum amount is not allowed");
         } catch (Table.InvalidSeatCountException e) {
             // Intended exception thrown, a table with more seats than the maximum amount is not allowed
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
 
         try {
-            new Table(-1, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            new Table(-1, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
             Assert.fail("A table with negative seat count doesn't make sense");
         } catch (Table.InvalidSeatCountException e) {
             // Intended exception thrown, a table with negative seats doesn't make sense
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -40,7 +40,7 @@ public class TableTest {
     public void testSingleJoin() {
 
         try {
-            final Table table = new Table(2, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             try {
                 table.join(new Player("Adam Broker", 1000), 1000);
@@ -49,8 +49,8 @@ public class TableTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -58,7 +58,7 @@ public class TableTest {
     public void testDoubleJoin() {
 
         try {
-            final Table table = new Table(2, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player playerA = new Player("Adam Broker", 1000);
 
@@ -78,8 +78,8 @@ public class TableTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -87,7 +87,7 @@ public class TableTest {
     public void testFullTable() {
 
         try {
-            final Table table = new Table(2, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             try {
                 table.join(new Player("Adam Broker", 1000), 1000);
@@ -105,8 +105,8 @@ public class TableTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 
@@ -114,7 +114,7 @@ public class TableTest {
     public void testFindPlayerSeat() {
 
         try {
-            final Table table = new Table(2, new TexasHoldemDealer(Dealer.DEFAULT_DEALER_SPEED, 1000));
+            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
 
             final Player playerA = new Player("Adam Broker", 1000);
 
@@ -147,8 +147,8 @@ public class TableTest {
             }
         } catch (Table.InvalidSeatCountException e) {
             Assert.fail("Unexpectedly failed to create table");
-        } catch (Dealer.DealerException e) {
-            Assert.fail("Unexpectedly failed to initialize Dealer");
+        } catch (PlayerEventException e) {
+            Assert.fail("Unexpected dealer exception");
         }
     }
 }

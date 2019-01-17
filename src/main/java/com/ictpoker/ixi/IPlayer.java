@@ -4,5 +4,7 @@ import com.sun.istack.internal.NotNull;
 
 public interface IPlayer {
 
-    public void onJoinTable(@NotNull final Table table);
+    String getName();
+    int getBalance();
+    void onJoinTable(@NotNull final Table table);
 }
