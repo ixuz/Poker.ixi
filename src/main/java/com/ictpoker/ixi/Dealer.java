@@ -4,74 +4,92 @@ import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public abstract class Dealer extends Thread implements Runnable, IDealer {
+public abstract class Dealer implements IDealer {
 
     public final static float DEFAULT_DEALER_SPEED = 1f;
     private final static Logger LOGGER = LogManager.getLogger(Dealer.class);
-    private final Table table;
     private final float speed;
-    private final Deck deck = new Deck();
-    private final LinkedBlockingQueue<PlayerEvent> playerEventQueue = new LinkedBlockingQueue<>();
-    private boolean active = true;
+    private final Deck deck;
 
-    public Dealer(@NotNull final Table table, @NotNull final float speed) {
+    private final Queue<PlayerEvent> playerEventQueue = new LinkedList<>();
 
-        this.table = table;
+    public Dealer(@NotNull final float speed)
+            throws DealerException {
+
         this.speed = speed;
-    }
-
-    @Override
-    public void run() {
-        while (active) {
-            PlayerEvent playerEvent = null;
-
-            try {
-                playerEvent = playerEventQueue.take();
-                handlePlayerEvent(playerEvent);
-                playerEvent.doCallback(null);
-            } catch (InterruptedException e) {
-                // TODO: Unhandled exception
-                e.printStackTrace();
-                break;
-            } catch (PlayerEventException e) {
-                playerEvent.doCallback(e);
-            }
-        }
-    }
-
-    public void pushPlayerEvent(@NotNull final PlayerEvent playerEvent) {
 
         try {
-            playerEventQueue.put(playerEvent);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            deck = new Deck();
+        } catch (Deck.DuplicateCardException e) {
+            throw new DealerException("Failed to initialize Dealer", e);
         }
     }
 
-    private void handlePlayerEvent(@NotNull final PlayerEvent playerEvent)
+    public boolean update(@NotNull final Table.State state) {
+
+        // Check if all seats have acted at least once in this round.
+        boolean allSeatsActed = true;
+        for (final Seat seat : state.getSeats()) {
+            if (seat != null && !seat.hasActed()) {
+                allSeatsActed = false;
+            }
+        }
+
+        if (allSeatsActed) {
+            LOGGER.info("All seats have acted at least once this round");
+        } else {
+            LOGGER.info("Not all seats have acted at least once this round");
+        }
+
+        return false;
+    }
+
+    public void handleEventQueue(@NotNull final Table table)
+            throws PlayerEventException {
+
+        while (!playerEventQueue.isEmpty()) {
+            final PlayerEvent playerEvent = playerEventQueue.remove();
+            handlePlayerEvent(table, playerEvent);
+            update(table.getState());
+        }
+    }
+
+    public void pushPlayerEvent(@NotNull final Table table, @NotNull final PlayerEvent playerEvent) {
+
+        playerEventQueue.add(playerEvent);
+    }
+
+    private void handlePlayerEvent(@NotNull final Table table, @NotNull final PlayerEvent playerEvent)
             throws PlayerEventException {
 
         switch (playerEvent.getPlayerAction()) {
             case JOIN:
-                handleJoin(playerEvent);
+                handleJoin(table, playerEvent);
                 break;
             case LEAVE:
-                handleLeave(playerEvent);
+                handleLeave(table, playerEvent);
+                break;
+            case CHECK:
+                break;
+            case CALL:
+                break;
+            case BET:
+                break;
+            case RAISE:
+                break;
+            case FOLD:
                 break;
         }
     }
 
-    protected abstract void handleJoin(@NotNull final PlayerEvent playerEvent)
+    protected abstract void handleJoin(@NotNull final Table table, @NotNull final PlayerEvent playerEvent)
             throws PlayerEventException;
 
-    protected abstract void handleLeave(@NotNull final PlayerEvent playerEvent)
+    protected abstract void handleLeave(@NotNull final Table table, @NotNull final PlayerEvent playerEvent)
             throws PlayerEventException;
-
-    protected Table getTable() {
-        return table;
-    }
 
     protected Deck getDeck() {
         return deck;
@@ -80,5 +98,22 @@ public abstract class Dealer extends Thread implements Runnable, IDealer {
     protected void shuffleDeck() {
 
         deck.shuffle();
+    }
+
+    protected void isRoundFinished() {
+
+    }
+
+    protected void moveDealerButton() {
+
+
+    }
+
+    public class DealerException extends Exception {
+
+        public DealerException(@NotNull final String message, Exception e) {
+
+            super(message, e);
+        }
     }
 }

@@ -11,6 +11,8 @@ public class Seat {
     private final IPlayer player;
     private int stack = 0;
     private Stack<Card> cards = new Stack<>();
+    private boolean folded = false;
+    private boolean acted = false;
 
     public Seat(@NotNull final Table table, @NotNull final IPlayer player, @NotNull final int stack)
             throws IllegalArgumentException {
@@ -52,6 +54,24 @@ public class Seat {
     public Card popCard() {
 
         return cards.pop();
+    }
+
+    public boolean isFolded() {
+
+        return folded;
+    }
+
+    public void setFolded(@NotNull final boolean folded) {
+
+        this.folded = folded;
+    }
+
+    public boolean hasActed() {
+        return acted;
+    }
+
+    public void setActed(boolean acted) {
+        this.acted = acted;
     }
 
     public class InsufficientStackException extends Exception {}
