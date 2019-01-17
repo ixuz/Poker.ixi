@@ -1,6 +1,12 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.DealerEvent.*;
+import com.ictpoker.ixi.Dealer.Dealer;
+import com.ictpoker.ixi.Dealer.DealerEvent.*;
+import com.ictpoker.ixi.Player.Player;
+import com.ictpoker.ixi.Player.PlayerEvent.PlayerEvent;
+import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
+import com.ictpoker.ixi.Table.Table;
+import com.ictpoker.ixi.Table.TableException.InvalidSeatCountException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +42,7 @@ public class PokerTest {
             table.pushEvent(new PlayerEvent(playerA, PlayerEvent.PlayerAction.CHECK, 0));
 
             table.handleEventQueue();
-        } catch (Table.InvalidSeatCountException e) {
+        } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
         } catch (PlayerEventException e) {
@@ -69,7 +75,7 @@ public class PokerTest {
             table.pushEvent(new PlayerEvent(playerC, PlayerEvent.PlayerAction.FOLD, 0));
 
             table.handleEventQueue();
-        } catch (Table.InvalidSeatCountException e) {
+        } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
         } catch (PlayerEventException e) {

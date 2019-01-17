@@ -1,8 +1,8 @@
 package org.iota.ict.ixi;
 
 import com.ictpoker.ixi.PokerIxiGossipListener;
-import com.ictpoker.ixi.Constants;
-import com.ictpoker.ixi.Properties;
+import com.ictpoker.ixi.Commons.Constants;
+import com.ictpoker.ixi.Commons.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
