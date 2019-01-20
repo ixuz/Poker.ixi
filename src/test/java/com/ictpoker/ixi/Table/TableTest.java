@@ -1,12 +1,10 @@
 package com.ictpoker.ixi.Table;
 
-import com.ictpoker.ixi.Dealer.Dealer;
 import com.ictpoker.ixi.Player.Player;
+import com.ictpoker.ixi.Player.PlayerEvent.JoinPlayerEvent;
+import com.ictpoker.ixi.Player.PlayerEvent.LeavePlayerEvent;
 import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
-import com.ictpoker.ixi.Table.TableException.InvalidSeatCountException;
-import com.ictpoker.ixi.Table.TableException.NoSeatAvailableException;
-import com.ictpoker.ixi.Table.TableException.PlayerAlreadySeatedException;
-import com.ictpoker.ixi.Table.TableException.PlayerNotSeatedException;
+import com.ictpoker.ixi.Table.TableException.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,48 +14,70 @@ public class TableTest {
     public void testInvalidSeatCounts() {
 
         try {
-            new Table(0, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            new Table(0, 500, 1000, 5, 10);
             Assert.fail("A table with zero seats is not allowed");
         } catch (InvalidSeatCountException e) {
             // Intended exception thrown, a table with zero seats is not allowed
-        } catch (PlayerEventException e) {
-            Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            Assert.fail("Unexpectedly failed to create table");
         }
 
         try {
-            new Table(TableState.MAXIMUM_SEATS+1, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            new Table(1, 500, 1000, 5, 10);
+            Assert.fail("A table with one seat is not allowed");
+        } catch (InvalidSeatCountException e) {
+            // Intended exception thrown, a table with zero seats is not allowed
+        } catch (TableException e) {
+            Assert.fail("Unexpectedly failed to create table");
+        }
+
+        try {
+            new Table(Table.MAXIMUM_SEATS+1, 500, 1000, 5, 10);
             Assert.fail("A table with more seats than the maximum amount is not allowed");
         } catch (InvalidSeatCountException e) {
             // Intended exception thrown, a table with more seats than the maximum amount is not allowed
-        } catch (PlayerEventException e) {
-            Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            Assert.fail("Unexpectedly failed to create table");
         }
 
         try {
-            new Table(-1, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            new Table(-1, 500, 1000, 5, 10);
             Assert.fail("A table with negative seat count doesn't make sense");
         } catch (InvalidSeatCountException e) {
             // Intended exception thrown, a table with negative seats doesn't make sense
-        } catch (PlayerEventException e) {
-            Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            Assert.fail("Unexpectedly failed to create table");
         }
     }
 
     @Test
-    public void testSingleJoin() {
+    public void testJoin() {
 
         try {
-            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            final Table table = new Table(2, 500, 1000, 5, 10);
 
             try {
-                table.join(new Player("Adam Broker", 1000), 1000);
-            } catch (Exception e) {
-                Assert.fail("Player unexpectedly failed to join table");
+                final Player playerA = new Player("Adam Broker", 1000);
+                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+
+                table.update();
+
+                try {
+                    Assert.assertEquals(0, table.getPlayerSeatIndex(playerA));
+                } catch (PlayerNotSeatedException e) {
+                    e.printStackTrace();
+                    Assert.fail("Player should already be seated");
+                }
+            } catch (PlayerEventException e) {
+                e.printStackTrace();
+                Assert.fail("Unexpectedly failed to handle player event");
             }
         } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
-        } catch (PlayerEventException e) {
-            Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected table exception");
         }
     }
 
@@ -65,28 +85,22 @@ public class TableTest {
     public void testDoubleJoin() {
 
         try {
-            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            final Table table = new Table(2, 500, 1000, 5, 10);
 
             final Player playerA = new Player("Adam Broker", 1000);
 
-            try {
-                table.join(playerA, 1000);
-            } catch (Exception e) {
-                Assert.fail("Player unexpectedly failed to join table");
-            }
+            table.pushEvent(new JoinPlayerEvent(playerA, 500, 0));
+            table.pushEvent(new JoinPlayerEvent(playerA, 500, 0));
 
-            try {
-                table.join(playerA, 2000);
-                Assert.fail("Player can't join same table twice");
-            } catch (PlayerAlreadySeatedException e) {
-                // Intended exception thrown, player should not be able to join the same table twice.
-            } catch (Exception e) {
-                Assert.fail("Incorrect exception thrown");
-            }
+            table.update();
         } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
         } catch (PlayerEventException e) {
+            e.printStackTrace();
             Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            // Inteded exception, the player should not be able to join a table twice.
         }
     }
 
@@ -94,68 +108,148 @@ public class TableTest {
     public void testFullTable() {
 
         try {
-            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
+            final Table table = new Table(2, 500, 1000, 5, 10);
+
+            final Player playerA = new Player("Adam Broker", 1000);
+            final Player playerB = new Player("Carry Davis", 1000);
+
+            table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+            table.pushEvent(new JoinPlayerEvent(playerB, 1000, 1));
+
+            table.update();
 
             try {
-                table.join(new Player("Adam Broker", 1000), 1000);
-                table.join(new Player("Carry Davis", 1000), 1000);
-            } catch (Exception e) {
-                Assert.fail("Incorrect exception thrown");
+                Assert.assertEquals(0, table.getPlayerSeatIndex(playerA));
+                Assert.assertEquals(1, table.getPlayerSeatIndex(playerB));
+            } catch (PlayerNotSeatedException e) {
+                e.printStackTrace();
+                Assert.fail("Two players should already be seated");
             }
 
             try {
-                table.join(new Player("Eric Flores", 1000), 1000);
-            } catch (NoSeatAvailableException e) {
-                // Intended exception thrown, the table is full
-            } catch (Exception e) {
-                Assert.fail("Incorrect exception thrown");
+                final Player playerC = new Player("Eric Flores", 1000);
+                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 0));
+                table.update();
+            } catch (TableException e) {
+                // Intended exception, the player should not be able to join an already occupied seat.
+            }
+
+            try {
+                final Player playerC = new Player("Eric Flores", 1000);
+                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 1));
+                table.update();
+            } catch (TableException e) {
+                // Intended exception, the player should not be able to join an already occupied seat.
+            }
+
+            try {
+                final Player playerC = new Player("Eric Flores", 1000);
+                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 2));
+                table.update();
+            } catch (TableException e) {
+                // Intended exception, the player should not be able to join a non-existant seat.
             }
         } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
         } catch (PlayerEventException e) {
+            e.printStackTrace();
             Assert.fail("Unexpected dealer exception");
+        } catch (TableException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected table exception");
         }
     }
 
     @Test
-    public void testFindPlayerSeat() {
+    public void testJoinLeave() {
 
         try {
-            final Table table = new Table(2, 500, 1000, new Dealer(Dealer.DEFAULT_DEALER_SPEED));
-
-            final Player playerA = new Player("Adam Broker", 1000);
-
-            if (table.isPlayerSeated(playerA)) {
-                Assert.fail("Player has not joined the table yet");
-            }
+            final Table table = new Table(2, 500, 1000, 5, 10);
 
             try {
-                table.join(playerA, 1000);
+                final Player playerA = new Player("Adam Broker", 1000);
+                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+                table.pushEvent(new LeavePlayerEvent(playerA));
 
-                if (!table.isPlayerSeated(playerA)) {
-                    Assert.fail("Player has joined the table");
+                table.update();
+
+                try {
+                    table.getPlayerSeatIndex(playerA);
+                    Assert.fail("Two player has already left the table and should therefore not be seated anymore");
+                } catch (PlayerNotSeatedException e) {
+                    // Intended exception thrown, the player should already have left the table.
                 }
-
-            } catch (Exception e) {
-                Assert.fail("Player unexpectedly failed to join table");
-            }
-
-            try {
-                table.getPlayerSeat(playerA);
-            } catch (PlayerNotSeatedException e) {
-                Assert.fail("Player was not found at the table");
-            }
-
-            try {
-                table.getPlayerSeat(new Player("Carry Davis", 1000));
-                Assert.fail("Player should not be found at the table.");
-            } catch (PlayerNotSeatedException e) {
-                // Intended exception thrown, the player never joined the table
+            } catch (PlayerEventException e) {
+                e.printStackTrace();
+                Assert.fail("Unexpectedly failed to handle player event");
             }
         } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpectedly failed to create table");
+        } catch (TableException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected table exception");
+        }
+    }
+
+    @Test
+    public void testInsufficientBalance() {
+
+        try {
+            final Table table = new Table(2, 500, 1000, 5, 10);
+
+            try {
+                final Player playerA = new Player("Adam Broker", 250);
+                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+
+                table.update();
+                Assert.fail("The player doesn't have enough balance to join this table.");
+            } catch (PlayerEventException e) {
+                // Intended exception thrown, the player should not have enough balance to join this table.
+            }
+        } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpectedly failed to create table");
+        } catch (TableException e) {
+            e.printStackTrace();
+            Assert.fail("Unexpected table exception");
+        }
+    }
+
+    @Test
+    public void testInvalidBuyIn() {
+
+        try {
+            final Table table = new Table(2, 500, 1000, 5, 10);
+
+            try {
+                final Player playerA = new Player("Adam Broker", 5000);
+                table.pushEvent(new JoinPlayerEvent(playerA, 200, 0));
+
+                table.update();
+                Assert.fail("The buy in is too small for this table");
+            } catch (TableException e) {
+                // Intended exception thrown, the player must buy in with an acceptable amount.
+            }
+
+            try {
+                final Player playerB = new Player("Carry Davis", 5000);
+                table.pushEvent(new JoinPlayerEvent(playerB, 3000, 0));
+
+                table.update();
+                Assert.fail("The buy in is too big for this table");
+            } catch (TableException e) {
+                // Intended exception thrown, the player must buy in with an acceptable amount.
+            }
+        } catch (InvalidSeatCountException e) {
+            e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
         } catch (PlayerEventException e) {
-            Assert.fail("Unexpected dealer exception");
+            e.printStackTrace();
+            Assert.fail("Unexpectedly failed to handle player event");
+        } catch (TableException e) {
+            Assert.fail("Unexpectedly failed to create table");
         }
     }
 }

@@ -5,7 +5,7 @@ import com.sun.istack.internal.NotNull;
 
 public class DealerEvent implements ITableEvent {
 
-    public enum DealerAction { MOVE_BUTTON, DEAL, SMALL_BLIND, BIG_BLIND }
+    public enum DealerAction { MOVE_BUTTON, DEAL, SMALL_BLIND, BIG_BLIND, NEXT_PLAYER_TO_ACT }
 
     private final DealerAction dealerAction;
 

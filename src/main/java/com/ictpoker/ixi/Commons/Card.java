@@ -1,7 +1,5 @@
 package com.ictpoker.ixi.Commons;
 
-import com.ictpoker.ixi.Commons.Rank;
-import com.ictpoker.ixi.Commons.Suit;
 import com.sun.istack.internal.NotNull;
 
 public class Card {

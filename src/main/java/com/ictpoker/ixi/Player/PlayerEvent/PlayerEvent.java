@@ -6,7 +6,7 @@ import com.sun.istack.internal.NotNull;
 
 public class PlayerEvent implements ITableEvent {
 
-    public enum PlayerAction { JOIN, LEAVE, CHECK, BET, CALL, RAISE, FOLD }
+    public enum PlayerAction { JOIN, LEAVE, CHECK, BET, CALL, RAISE, FOLD, SMALL_BLIND, BIG_BLIND }
 
     private final Player player;
     private final PlayerAction playerAction;

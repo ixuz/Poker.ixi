@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.Player;
 
+import com.ictpoker.ixi.Player.PlayerEvent.InsufficientBalanceException;
 import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,7 @@ public class Player implements IPlayer {
         return balance;
     }
 
-    public synchronized void deductBalance(@NotNull final int amount)
+    public synchronized int deductBalance(@NotNull final int amount)
             throws InsufficientBalanceException {
 
         if (balance-amount < 0) {
@@ -35,6 +36,7 @@ public class Player implements IPlayer {
         }
 
         balance -= amount;
+        return amount;
     }
 
     @Override
@@ -42,6 +44,4 @@ public class Player implements IPlayer {
 
         LOGGER.info("Let's go I'm ready!");
     }
-
-    public class InsufficientBalanceException extends Exception {}
 }

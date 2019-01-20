@@ -12,7 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class DealerTest {
-
+/*
     @Test
     public void testPlayerJoin() {
 
@@ -256,4 +256,5 @@ public class DealerTest {
             Assert.fail("Unexpected dealer exception");
         }
     }
+    */
 }
