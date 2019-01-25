@@ -396,9 +396,7 @@ public class Table {
         final Seat seat = getSeat(player);
 
         final int requiredAmountToCall = Math.min(seat.getStack(), getHighestCommitAmount() - seat.getCommitted());
-        LOGGER.info("required to call: " + requiredAmountToCall);
         final int requiredAmountToRaise = requiredAmountToCall + getLastRaiseAmount();
-        LOGGER.info("required to raise: " + requiredAmountToRaise);
 
         if (requiredAmountToRaise > seat.getStack()) {
             throw new PlayerEventException("Player does not have sufficient stack to raise");
@@ -408,18 +406,30 @@ public class Table {
             throw new PlayerEventException("Player can't raise more than the stack");
         }
 
+        final int raiseAmount = betPlayerEvent.getAmount() - requiredAmountToCall;
+
+        if (betPlayerEvent.getAmount() < requiredAmountToRaise) {
+            throw new PlayerEventException(String.format("Player must commit at least %d to raise",
+                    requiredAmountToRaise));
+        }
+
+        setLastRaiseAmount(raiseAmount);
         seat.setStack(seat.getStack()-betPlayerEvent.getAmount());
         seat.setCommitted(seat.getCommitted()+betPlayerEvent.getAmount());
         seat.setActed(true);
 
         if (seat.getStack() == 0) {
-            LOGGER.info(String.format("%s raised %d and is all-in",
+            LOGGER.info(String.format("%s committed %d (raised %d for a total commitment of %d) and is all-in",
                     player.getName(),
-                    betPlayerEvent.getAmount()));
+                    betPlayerEvent.getAmount(),
+                    raiseAmount,
+                    seat.getCommitted()));
         } else {
-            LOGGER.info(String.format("%s raised %d",
+            LOGGER.info(String.format("%s committed %d (raised %d for a total commitment of %d)",
                     player.getName(),
-                    betPlayerEvent.getAmount()));
+                    betPlayerEvent.getAmount(),
+                    raiseAmount,
+                    seat.getCommitted()));
         }
 
         try {
@@ -523,6 +533,10 @@ public class Table {
     private Seat getNextSeatToAct(@NotNull final int seatIndex, @NotNull int skip)
             throws InvalidSeatException, TableException, BettingRoundFinishedException {
 
+        if (getNumberOfActiveSeats() <= 1) {
+            throw new BettingRoundFinishedException();
+        }
+
         for (int i=0; i<seats.size(); i++) {
             final Seat seat = getSeat((seatIndex+i+1)%seats.size());
             if (!hasSeatActed(seat)) {
@@ -624,7 +638,7 @@ public class Table {
 
     private int getLastRaiseAmount() {
 
-        return lastRaiseAmount;
+        return (lastRaiseAmount >= getBigBlindAmount() ? lastRaiseAmount : getBigBlindAmount());
     }
 
     public Seat getSeatToAct() {
@@ -635,7 +649,9 @@ public class Table {
     public void setSeatToAct(@NotNull final Seat seatToAct) {
 
         this.seatToAct = seatToAct;
-        LOGGER.info(String.format("%s is next to act...", seatToAct.getPlayer().getName()));
+        LOGGER.info(String.format("%s is next to act... %d required to play...",
+                seatToAct.getPlayer().getName(),
+                getHighestCommitAmount() - seatToAct.getCommitted()));
     }
 
     public String toString() {
@@ -648,9 +664,10 @@ public class Table {
                 maximumBuyIn));
 
         for (final Seat seat : getOccupiedSeats()) {
-            sb.append(String.format("\n %s, stack: %d",
+            sb.append(String.format("\n %s, stack: %d, committed: %d",
                     seat.getPlayer().getName(),
-                    seat.getStack()));
+                    seat.getStack(),
+                    seat.getCommitted()));
         }
 
         return sb.toString();
