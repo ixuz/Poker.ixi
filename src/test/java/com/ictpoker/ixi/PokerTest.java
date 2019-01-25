@@ -1,11 +1,11 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.Dealer.DealerEvent.*;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Player.PlayerEvent.*;
 import com.ictpoker.ixi.Table.Table;
-import com.ictpoker.ixi.Table.TableException.InvalidSeatCountException;
-import com.ictpoker.ixi.Table.TableException.TableException;
+import com.ictpoker.ixi.Table.Exception.InvalidSeatCountException;
+import com.ictpoker.ixi.Table.Exception.TableException;
+import com.ictpoker.ixi.Table.TableEvent.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,25 +20,25 @@ public class PokerTest {
             final Player carryDavis = new Player("Carry Davis", 1000);
             final Player ericFlores = new Player("Eric Flores", 1000);
 
-            table.pushEvent(new JoinPlayerEvent(adamBroker, 1000, 0));
-            table.pushEvent(new JoinPlayerEvent(carryDavis, 1000, 1));
-            table.pushEvent(new JoinPlayerEvent(ericFlores, 1000, 2));
-            table.pushEvent(new MoveButtonDealerEvent(0));
-            table.pushEvent(new DealDealerEvent());
-            table.pushEvent(new SmallBlindPlayerEvent(carryDavis));
-            table.pushEvent(new BigBlindPlayerEvent(ericFlores));
-            table.pushEvent(new CallPlayerEvent(adamBroker));
-            table.pushEvent(new CallPlayerEvent(carryDavis));
-            table.pushEvent(new CheckPlayerEvent(ericFlores));
-            table.pushEvent(new CheckPlayerEvent(carryDavis));
-            table.pushEvent(new CheckPlayerEvent(ericFlores));
-            table.pushEvent(new CheckPlayerEvent(adamBroker));
-            table.pushEvent(new CheckPlayerEvent(carryDavis));
-            table.pushEvent(new CheckPlayerEvent(ericFlores));
-            table.pushEvent(new CheckPlayerEvent(adamBroker));
-            table.pushEvent(new CheckPlayerEvent(carryDavis));
-            table.pushEvent(new CheckPlayerEvent(ericFlores));
-            table.pushEvent(new CheckPlayerEvent(adamBroker));
+            table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+            table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+            table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+            table.pushEvent(new MoveButtonEvent(0));
+            table.pushEvent(new DealEvent());
+            table.pushEvent(new SmallBlindEvent(carryDavis));
+            table.pushEvent(new BigBlindEvent(ericFlores));
+            table.pushEvent(new CallEvent(adamBroker));
+            table.pushEvent(new CallEvent(carryDavis));
+            table.pushEvent(new CheckEvent(ericFlores));
+            table.pushEvent(new CheckEvent(carryDavis));
+            table.pushEvent(new CheckEvent(ericFlores));
+            table.pushEvent(new CheckEvent(adamBroker));
+            table.pushEvent(new CheckEvent(carryDavis));
+            table.pushEvent(new CheckEvent(ericFlores));
+            table.pushEvent(new CheckEvent(adamBroker));
+            table.pushEvent(new CheckEvent(carryDavis));
+            table.pushEvent(new CheckEvent(ericFlores));
+            table.pushEvent(new CheckEvent(adamBroker));
 
             table.update();
         } catch (InvalidSeatCountException e) {
@@ -62,16 +62,16 @@ public class PokerTest {
             final Player carryDavis = new Player("Carry Davis", 1000);
             final Player ericFlores = new Player("Eric Flores", 1000);
 
-            table.pushEvent(new JoinPlayerEvent(adamBroker, 1000, 0));
-            table.pushEvent(new JoinPlayerEvent(carryDavis, 1000, 1));
-            table.pushEvent(new JoinPlayerEvent(ericFlores, 1000, 2));
-            table.pushEvent(new MoveButtonDealerEvent(0));
-            table.pushEvent(new DealDealerEvent());
-            table.pushEvent(new SmallBlindPlayerEvent(carryDavis));
-            table.pushEvent(new BigBlindPlayerEvent(ericFlores));
-            table.pushEvent(new RaisePlayerEvent(adamBroker, 40));
-            table.pushEvent(new FoldPlayerEvent(carryDavis));
-            table.pushEvent(new FoldPlayerEvent(ericFlores));
+            table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+            table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+            table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+            table.pushEvent(new MoveButtonEvent(0));
+            table.pushEvent(new DealEvent());
+            table.pushEvent(new SmallBlindEvent(carryDavis));
+            table.pushEvent(new BigBlindEvent(ericFlores));
+            table.pushEvent(new RaiseEvent(adamBroker, 40));
+            table.pushEvent(new FoldEvent(carryDavis));
+            table.pushEvent(new FoldEvent(ericFlores));
 
             table.update();
         } catch (InvalidSeatCountException e) {
@@ -94,16 +94,16 @@ public class PokerTest {
             final Player carryDavis = new Player("Carry Davis", 500);
             final Player ericFlores = new Player("Eric Flores", 500);
 
-            table.pushEvent(new JoinPlayerEvent(adamBroker, 1000, 0));
-            table.pushEvent(new JoinPlayerEvent(carryDavis, 500, 1));
-            table.pushEvent(new JoinPlayerEvent(ericFlores, 500, 2));
-            table.pushEvent(new MoveButtonDealerEvent(0));
-            table.pushEvent(new DealDealerEvent());
-            table.pushEvent(new SmallBlindPlayerEvent(carryDavis));
-            table.pushEvent(new BigBlindPlayerEvent(ericFlores));
-            table.pushEvent(new RaisePlayerEvent(adamBroker, 950));
-            table.pushEvent(new CallPlayerEvent(carryDavis));
-            table.pushEvent(new CallPlayerEvent(ericFlores));
+            table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+            table.pushEvent(new JoinEvent(carryDavis, 500, 1));
+            table.pushEvent(new JoinEvent(ericFlores, 500, 2));
+            table.pushEvent(new MoveButtonEvent(0));
+            table.pushEvent(new DealEvent());
+            table.pushEvent(new SmallBlindEvent(carryDavis));
+            table.pushEvent(new BigBlindEvent(ericFlores));
+            table.pushEvent(new RaiseEvent(adamBroker, 950));
+            table.pushEvent(new CallEvent(carryDavis));
+            table.pushEvent(new CallEvent(ericFlores));
 
             table.update();
         } catch (InvalidSeatCountException e) {
@@ -125,13 +125,13 @@ public class PokerTest {
         final Player adamBroker = new Player("Adam Broker", 1000);
         final Player carryDavis = new Player("Carry Davis", 500);
 
-        table.pushEvent(new JoinPlayerEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinPlayerEvent(carryDavis, 500, 1));
-        table.pushEvent(new MoveButtonDealerEvent(0));
-        table.pushEvent(new DealDealerEvent());
-        table.pushEvent(new SmallBlindPlayerEvent(carryDavis));
-        table.pushEvent(new BigBlindPlayerEvent(adamBroker));
-        table.pushEvent(new FoldPlayerEvent(carryDavis));
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new SmallBlindEvent(carryDavis));
+        table.pushEvent(new BigBlindEvent(adamBroker));
+        table.pushEvent(new FoldEvent(carryDavis));
 
         table.update();
     }
@@ -144,17 +144,17 @@ public class PokerTest {
         final Player adamBroker = new Player("Adam Broker", 1000);
         final Player carryDavis = new Player("Carry Davis", 500);
 
-        table.pushEvent(new JoinPlayerEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinPlayerEvent(carryDavis, 500, 1));
-        table.pushEvent(new MoveButtonDealerEvent(0));
-        table.pushEvent(new DealDealerEvent());
-        table.pushEvent(new SmallBlindPlayerEvent(carryDavis));
-        table.pushEvent(new BigBlindPlayerEvent(adamBroker));
-        table.pushEvent(new RaisePlayerEvent(carryDavis, 15));
-        table.pushEvent(new RaisePlayerEvent(adamBroker, 20));
-        table.pushEvent(new RaisePlayerEvent(carryDavis, 20));
-        table.pushEvent(new RaisePlayerEvent(adamBroker, 100));
-        table.pushEvent(new FoldPlayerEvent(carryDavis));
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new SmallBlindEvent(carryDavis));
+        table.pushEvent(new BigBlindEvent(adamBroker));
+        table.pushEvent(new RaiseEvent(carryDavis, 15));
+        table.pushEvent(new RaiseEvent(adamBroker, 20));
+        table.pushEvent(new RaiseEvent(carryDavis, 20));
+        table.pushEvent(new RaiseEvent(adamBroker, 100));
+        table.pushEvent(new FoldEvent(carryDavis));
 
         table.update();
 

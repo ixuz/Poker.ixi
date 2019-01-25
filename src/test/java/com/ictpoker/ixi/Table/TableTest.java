@@ -1,10 +1,12 @@
 package com.ictpoker.ixi.Table;
 
+import com.ictpoker.ixi.Table.Exception.InvalidSeatCountException;
+import com.ictpoker.ixi.Table.Exception.PlayerNotSeatedException;
+import com.ictpoker.ixi.Table.Exception.TableException;
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.PlayerEvent.JoinPlayerEvent;
-import com.ictpoker.ixi.Player.PlayerEvent.LeavePlayerEvent;
+import com.ictpoker.ixi.Table.TableEvent.JoinEvent;
+import com.ictpoker.ixi.Table.TableEvent.LeaveEvent;
 import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
-import com.ictpoker.ixi.Table.TableException.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -58,7 +60,7 @@ public class TableTest {
 
             try {
                 final Player playerA = new Player("Adam Broker", 1000);
-                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+                table.pushEvent(new JoinEvent(playerA, 1000, 0));
 
                 table.update();
 
@@ -89,8 +91,8 @@ public class TableTest {
 
             final Player playerA = new Player("Adam Broker", 1000);
 
-            table.pushEvent(new JoinPlayerEvent(playerA, 500, 0));
-            table.pushEvent(new JoinPlayerEvent(playerA, 500, 0));
+            table.pushEvent(new JoinEvent(playerA, 500, 0));
+            table.pushEvent(new JoinEvent(playerA, 500, 0));
 
             table.update();
         } catch (InvalidSeatCountException e) {
@@ -113,8 +115,8 @@ public class TableTest {
             final Player playerA = new Player("Adam Broker", 1000);
             final Player playerB = new Player("Carry Davis", 1000);
 
-            table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
-            table.pushEvent(new JoinPlayerEvent(playerB, 1000, 1));
+            table.pushEvent(new JoinEvent(playerA, 1000, 0));
+            table.pushEvent(new JoinEvent(playerB, 1000, 1));
 
             table.update();
 
@@ -128,7 +130,7 @@ public class TableTest {
 
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
-                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 0));
+                table.pushEvent(new JoinEvent(playerC, 1000, 0));
                 table.update();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join an already occupied seat.
@@ -136,7 +138,7 @@ public class TableTest {
 
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
-                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 1));
+                table.pushEvent(new JoinEvent(playerC, 1000, 1));
                 table.update();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join an already occupied seat.
@@ -144,7 +146,7 @@ public class TableTest {
 
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
-                table.pushEvent(new JoinPlayerEvent(playerC, 1000, 2));
+                table.pushEvent(new JoinEvent(playerC, 1000, 2));
                 table.update();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join a non-existant seat.
@@ -169,8 +171,8 @@ public class TableTest {
 
             try {
                 final Player playerA = new Player("Adam Broker", 1000);
-                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
-                table.pushEvent(new LeavePlayerEvent(playerA));
+                table.pushEvent(new JoinEvent(playerA, 1000, 0));
+                table.pushEvent(new LeaveEvent(playerA));
 
                 table.update();
 
@@ -201,7 +203,7 @@ public class TableTest {
 
             try {
                 final Player playerA = new Player("Adam Broker", 250);
-                table.pushEvent(new JoinPlayerEvent(playerA, 1000, 0));
+                table.pushEvent(new JoinEvent(playerA, 1000, 0));
 
                 table.update();
                 Assert.fail("The player doesn't have enough balance to join this table.");
@@ -225,7 +227,7 @@ public class TableTest {
 
             try {
                 final Player playerA = new Player("Adam Broker", 5000);
-                table.pushEvent(new JoinPlayerEvent(playerA, 200, 0));
+                table.pushEvent(new JoinEvent(playerA, 200, 0));
 
                 table.update();
                 Assert.fail("The buy in is too small for this table");
@@ -235,7 +237,7 @@ public class TableTest {
 
             try {
                 final Player playerB = new Player("Carry Davis", 5000);
-                table.pushEvent(new JoinPlayerEvent(playerB, 3000, 0));
+                table.pushEvent(new JoinEvent(playerB, 3000, 0));
 
                 table.update();
                 Assert.fail("The buy in is too big for this table");

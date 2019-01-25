@@ -1,4 +1,4 @@
-package com.ictpoker.ixi.Player.PlayerEvent;
+package com.ictpoker.ixi.Player.Exception;
 
 public class InsufficientBalanceException extends Exception {
 }

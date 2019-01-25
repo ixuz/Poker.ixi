@@ -16,10 +16,11 @@
 
 # Gradle
 .gradle
+gradle
+gradlew
+gradlew.bat
 
-# Report.ixi
+# Poker.ixi
 *.jar
-ict.cfg
-report.ixi.cfg
 out
 build

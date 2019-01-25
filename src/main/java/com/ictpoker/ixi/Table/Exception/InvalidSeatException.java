@@ -1,4 +1,4 @@
-package com.ictpoker.ixi.Table.TableException;
+package com.ictpoker.ixi.Table.Exception;
 
 import com.sun.istack.internal.NotNull;
 

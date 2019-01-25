@@ -1,6 +1,6 @@
 package com.ictpoker.ixi.Player;
 
-import com.ictpoker.ixi.Player.PlayerEvent.InsufficientBalanceException;
+import com.ictpoker.ixi.Player.Exception.InsufficientBalanceException;
 import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;

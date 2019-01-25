@@ -1,9 +1,9 @@
-package com.ictpoker.ixi.Dealer;
+package com.ictpoker.ixi.Commons;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Commons.Rank;
 import com.ictpoker.ixi.Commons.Suit;
-import com.ictpoker.ixi.Dealer.Deck;
+import com.ictpoker.ixi.Commons.Deck;
 import org.junit.Assert;
 import org.junit.Test;
 

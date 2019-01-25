@@ -1,8 +1,5 @@
-package com.ictpoker.ixi.Dealer;
+package com.ictpoker.ixi.Commons;
 
-import com.ictpoker.ixi.Commons.Card;
-import com.ictpoker.ixi.Commons.Rank;
-import com.ictpoker.ixi.Commons.Suit;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
