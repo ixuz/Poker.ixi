@@ -10,7 +10,7 @@ import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class CheckEvent extends CommitEvent {
+public class CheckEvent extends TableEvent {
 
     private final static Logger LOGGER = LogManager.getLogger(CheckEvent.class);
 

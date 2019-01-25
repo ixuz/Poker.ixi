@@ -62,7 +62,7 @@ public class TableTest {
                 final Player playerA = new Player("Adam Broker", 1000);
                 table.pushEvent(new JoinEvent(playerA, 1000, 0));
 
-                table.update();
+                table.handleEventQueue();
 
                 try {
                     Assert.assertEquals(0, table.getPlayerSeatIndex(playerA));
@@ -94,7 +94,7 @@ public class TableTest {
             table.pushEvent(new JoinEvent(playerA, 500, 0));
             table.pushEvent(new JoinEvent(playerA, 500, 0));
 
-            table.update();
+            table.handleEventQueue();
         } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
@@ -118,7 +118,7 @@ public class TableTest {
             table.pushEvent(new JoinEvent(playerA, 1000, 0));
             table.pushEvent(new JoinEvent(playerB, 1000, 1));
 
-            table.update();
+            table.handleEventQueue();
 
             try {
                 Assert.assertEquals(0, table.getPlayerSeatIndex(playerA));
@@ -131,7 +131,7 @@ public class TableTest {
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
                 table.pushEvent(new JoinEvent(playerC, 1000, 0));
-                table.update();
+                table.handleEventQueue();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join an already occupied seat.
             }
@@ -139,7 +139,7 @@ public class TableTest {
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
                 table.pushEvent(new JoinEvent(playerC, 1000, 1));
-                table.update();
+                table.handleEventQueue();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join an already occupied seat.
             }
@@ -147,7 +147,7 @@ public class TableTest {
             try {
                 final Player playerC = new Player("Eric Flores", 1000);
                 table.pushEvent(new JoinEvent(playerC, 1000, 2));
-                table.update();
+                table.handleEventQueue();
             } catch (TableException e) {
                 // Intended exception, the player should not be able to join a non-existant seat.
             }
@@ -174,7 +174,7 @@ public class TableTest {
                 table.pushEvent(new JoinEvent(playerA, 1000, 0));
                 table.pushEvent(new LeaveEvent(playerA));
 
-                table.update();
+                table.handleEventQueue();
 
                 try {
                     table.getPlayerSeatIndex(playerA);
@@ -205,7 +205,7 @@ public class TableTest {
                 final Player playerA = new Player("Adam Broker", 250);
                 table.pushEvent(new JoinEvent(playerA, 1000, 0));
 
-                table.update();
+                table.handleEventQueue();
                 Assert.fail("The player doesn't have enough balance to join this table.");
             } catch (PlayerEventException e) {
                 // Intended exception thrown, the player should not have enough balance to join this table.
@@ -229,7 +229,7 @@ public class TableTest {
                 final Player playerA = new Player("Adam Broker", 5000);
                 table.pushEvent(new JoinEvent(playerA, 200, 0));
 
-                table.update();
+                table.handleEventQueue();
                 Assert.fail("The buy in is too small for this table");
             } catch (TableException e) {
                 // Intended exception thrown, the player must buy in with an acceptable amount.
@@ -239,7 +239,7 @@ public class TableTest {
                 final Player playerB = new Player("Carry Davis", 5000);
                 table.pushEvent(new JoinEvent(playerB, 3000, 0));
 
-                table.update();
+                table.handleEventQueue();
                 Assert.fail("The buy in is too big for this table");
             } catch (TableException e) {
                 // Intended exception thrown, the player must buy in with an acceptable amount.

@@ -243,7 +243,7 @@ public class TableState {
         this.seatToAct = seatToAct;
         LOGGER.info(String.format("%s is next to act... %d required to play...",
                 seatToAct.getPlayer().getName(),
-                getHighestCommitAmount() - seatToAct.getCommitted()));
+                Math.min(seatToAct.getStack(), getHighestCommitAmount() - seatToAct.getCommitted())));
     }
 
     public void finishBettingRound()
@@ -354,5 +354,15 @@ public class TableState {
     public int getButtonPosition() {
 
         return buttonPosition;
+    }
+
+    public Seat getLastRaiser() {
+
+        return lastRaiser;
+    }
+
+    public void setLastRaiser(@NotNull final Seat lastRaiser) {
+
+        this.lastRaiser = lastRaiser;
     }
 }

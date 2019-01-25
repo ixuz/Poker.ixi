@@ -27,20 +27,20 @@ public class PokerTest {
             table.pushEvent(new DealEvent());
             table.pushEvent(new SmallBlindEvent(carryDavis));
             table.pushEvent(new BigBlindEvent(ericFlores));
-            table.pushEvent(new CallEvent(adamBroker));
-            table.pushEvent(new CallEvent(carryDavis));
-            table.pushEvent(new CheckEvent(ericFlores));
-            table.pushEvent(new CheckEvent(carryDavis));
-            table.pushEvent(new CheckEvent(ericFlores));
-            table.pushEvent(new CheckEvent(adamBroker));
-            table.pushEvent(new CheckEvent(carryDavis));
-            table.pushEvent(new CheckEvent(ericFlores));
-            table.pushEvent(new CheckEvent(adamBroker));
-            table.pushEvent(new CheckEvent(carryDavis));
-            table.pushEvent(new CheckEvent(ericFlores));
-            table.pushEvent(new CheckEvent(adamBroker));
+            table.pushEvent(new CommitEvent(adamBroker, 10));
+            table.pushEvent(new CommitEvent(carryDavis, 5));
+            table.pushEvent(new CommitEvent(ericFlores, 0));
+            table.pushEvent(new CommitEvent(carryDavis, 0));
+            table.pushEvent(new CommitEvent(ericFlores, 0));
+            table.pushEvent(new CommitEvent(adamBroker, 0));
+            table.pushEvent(new CommitEvent(carryDavis, 0));
+            table.pushEvent(new CommitEvent(ericFlores, 0));
+            table.pushEvent(new CommitEvent(adamBroker, 0));
+            table.pushEvent(new CommitEvent(carryDavis, 0));
+            table.pushEvent(new CommitEvent(ericFlores, 0));
+            table.pushEvent(new CommitEvent(adamBroker, 0));
 
-            table.update();
+            table.handleEventQueue();
         } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
@@ -69,11 +69,11 @@ public class PokerTest {
             table.pushEvent(new DealEvent());
             table.pushEvent(new SmallBlindEvent(carryDavis));
             table.pushEvent(new BigBlindEvent(ericFlores));
-            table.pushEvent(new RaiseEvent(adamBroker, 40));
+            table.pushEvent(new CommitEvent(adamBroker, 40)); // Bet
             table.pushEvent(new FoldEvent(carryDavis));
             table.pushEvent(new FoldEvent(ericFlores));
 
-            table.update();
+            table.handleEventQueue();
         } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
@@ -81,6 +81,7 @@ public class PokerTest {
             e.printStackTrace();
             Assert.fail("Unexpected player exception");
         } catch (TableException e) {
+            e.printStackTrace();
             Assert.fail("Unexpected table exception");
         }
     }
@@ -101,11 +102,11 @@ public class PokerTest {
             table.pushEvent(new DealEvent());
             table.pushEvent(new SmallBlindEvent(carryDavis));
             table.pushEvent(new BigBlindEvent(ericFlores));
-            table.pushEvent(new RaiseEvent(adamBroker, 950));
-            table.pushEvent(new CallEvent(carryDavis));
-            table.pushEvent(new CallEvent(ericFlores));
+            table.pushEvent(new CommitEvent(adamBroker, 950));
+            table.pushEvent(new CommitEvent(carryDavis, 495));
+            table.pushEvent(new CommitEvent(ericFlores, 490));
 
-            table.update();
+            table.handleEventQueue();
         } catch (InvalidSeatCountException e) {
             e.printStackTrace();
             Assert.fail("Unexpectedly failed to create table");
@@ -113,6 +114,7 @@ public class PokerTest {
             e.printStackTrace();
             Assert.fail("Unexpected player exception");
         } catch (TableException e) {
+            e.printStackTrace();
             Assert.fail("Unexpected table exception");
         }
     }
@@ -133,7 +135,7 @@ public class PokerTest {
         table.pushEvent(new BigBlindEvent(adamBroker));
         table.pushEvent(new FoldEvent(carryDavis));
 
-        table.update();
+        table.handleEventQueue();
     }
 
     @Test
@@ -150,13 +152,13 @@ public class PokerTest {
         table.pushEvent(new DealEvent());
         table.pushEvent(new SmallBlindEvent(carryDavis));
         table.pushEvent(new BigBlindEvent(adamBroker));
-        table.pushEvent(new RaiseEvent(carryDavis, 15));
-        table.pushEvent(new RaiseEvent(adamBroker, 20));
-        table.pushEvent(new RaiseEvent(carryDavis, 20));
-        table.pushEvent(new RaiseEvent(adamBroker, 100));
+        table.pushEvent(new CommitEvent(carryDavis, 15));
+        table.pushEvent(new CommitEvent(adamBroker, 20));
+        table.pushEvent(new CommitEvent(carryDavis, 20));
+        table.pushEvent(new CommitEvent(adamBroker, 100));
         table.pushEvent(new FoldEvent(carryDavis));
 
-        table.update();
+        table.handleEventQueue();
 
         System.out.println(table.toString());
     }

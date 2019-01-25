@@ -24,18 +24,7 @@ public class Table extends TableState {
 
 
     }
-    public void update()
-            throws TableException {
-
-        handleEventQueue();
-    }
-
-    public void pushEvent(@NotNull final TableEvent tableEvent) {
-
-        tableEventQueue.add(tableEvent);
-    }
-
-    private void handleEventQueue()
+    public void handleEventQueue()
             throws TableException {
 
         while (!tableEventQueue.isEmpty()) {
@@ -47,6 +36,11 @@ public class Table extends TableState {
                 throw new TableException("Failed to handle table event", e);
             }
         }
+    }
+
+    public void pushEvent(@NotNull final TableEvent tableEvent) {
+
+        tableEventQueue.add(tableEvent);
     }
 
     public String toString() {
