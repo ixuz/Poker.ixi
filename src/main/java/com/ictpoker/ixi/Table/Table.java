@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.Table;
 
+import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 import com.sun.istack.internal.NotNull;
@@ -46,19 +47,34 @@ public class Table extends TableState {
 
         final StringBuilder sb = new StringBuilder();
 
-        sb.append(String.format("Table (seats: %d, buy-in: %d-%d), stakes %d/%d, Total pot: %d (Pot: %d, Committed: %d)",
+
+        sb.append(String.format("Table (seats: %d, buy-in: %d-%d), stakes %d/%d",
                 getSeats().size(),
                 getMinimumBuyIn(),
                 getMaximumBuyIn(),
                 getSmallBlindAmount(),
-                getBigBlindAmount(),
-                getPot()+getTotalCommitted(),
-                getPot(),
-                getTotalCommitted()));
+                getBigBlindAmount()));
+
+        sb.append(String.format("\n Total pot: %d",
+                getTotalPot()));
+
+        sb.append("\n Board [ ");
+        for (final Card card : getBoardCards()) {
+            sb.append(String.format("%s ", card));
+        }
+        sb.append("]");
 
         for (final Seat seat : getOccupiedSeats()) {
-            sb.append(String.format("\n %s, stack: %d, committed: %d, collected: %d",
-                    seat.getPlayer().getName(),
+            sb.append(String.format("\n %s ",
+                    seat.getPlayer().getName()));
+
+            sb.append("[ ");
+            for (final Card card : seat.getCards()) {
+                sb.append(String.format("%s ", card));
+            }
+            sb.append("]");
+
+            sb.append(String.format(", stack: %d, committed: %d, collected: %d",
                     seat.getStack(),
                     seat.getCommitted(),
                     seat.getCollected()));

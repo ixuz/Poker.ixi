@@ -17,7 +17,7 @@ public class PokerTest {
     @Rule
     public TestRule watcher = new TestWatcher() {
         protected void starting(Description description) {
-            System.out.println("Starting test: " + description.getMethodName());
+            System.out.println("\nStarting test: " + description.getMethodName());
         }
     };
 
@@ -144,6 +144,97 @@ public class PokerTest {
         table.pushEvent(new CommitEvent(adamBroker, 20));
         table.pushEvent(new CommitEvent(carryDavis, 20));
         table.pushEvent(new CommitEvent(adamBroker, 100));
+        table.pushEvent(new FoldEvent(carryDavis));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+    }
+
+    @Test
+    public void testHand6()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new SmallBlindEvent(carryDavis));
+        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(carryDavis, 50));
+        table.pushEvent(new FoldEvent(ericFlores));
+        table.pushEvent(new FoldEvent(adamBroker));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+    }
+
+    @Test
+    public void testHand7()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new SmallBlindEvent(carryDavis));
+        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(carryDavis, 50));
+        table.pushEvent(new FoldEvent(ericFlores));
+        table.pushEvent(new CommitEvent(adamBroker, 50));
+        table.pushEvent(new CommitEvent(carryDavis, 100));
+        table.pushEvent(new FoldEvent(adamBroker));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+    }
+
+    @Test
+    public void testHand8()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new SmallBlindEvent(carryDavis));
+        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(carryDavis, 50));
+        table.pushEvent(new FoldEvent(ericFlores));
+        table.pushEvent(new CommitEvent(adamBroker, 50));
+        table.pushEvent(new CommitEvent(carryDavis, 100));
+        table.pushEvent(new CommitEvent(adamBroker, 100));
+        table.pushEvent(new CommitEvent(carryDavis, 260));
+        table.pushEvent(new CommitEvent(adamBroker, 840));
         table.pushEvent(new FoldEvent(carryDavis));
 
         table.handleEventQueue();

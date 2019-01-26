@@ -335,11 +335,20 @@ public class TableState {
                 maximumBuyIn));
 
         for (final Seat seat : getOccupiedSeats()) {
-            sb.append(String.format("\n %s, stack: %d, committed: %d",
-                    seat.getPlayer().getName(),
+            sb.append(String.format("\n %s ",
+                    seat.getPlayer().getName()));
+
+            sb.append("[");
+            for (final Card card : seat.getCards()) {
+                sb.append(String.format("%s", card));
+            }
+            sb.append("]");
+
+            sb.append(String.format(", stack: %d, committed: %d",
                     seat.getStack(),
                     seat.getCommitted()));
         }
+
 
         return sb.toString();
     }
@@ -416,5 +425,13 @@ public class TableState {
             committed += seat.getCommitted();
         }
         return committed;
+    }
+
+    public int getTotalPot() {
+        int pot = 0;
+        for (Seat seat : seats) {
+            pot += seat.getCollected();
+        }
+        return pot;
     }
 }
