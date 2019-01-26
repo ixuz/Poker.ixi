@@ -30,16 +30,13 @@ public class BigBlindEvent extends TableEvent {
             final IPlayer player = getPlayer();
             final Seat seat = tableState.getSeat(player);
             final int committed = Math.min(seat.getStack(), tableState.getBigBlindAmount());
+
             seat.setStack(seat.getStack()-committed);
             seat.setCommitted(seat.getCommitted()+committed);
+
             LOGGER.info(String.format("%s posted big blind: %d", player.getName(), committed));
 
-            final Seat nextSeatToAct = tableState.getNextSeatToAct(tableState.getSeatToAct(), 0);
-            if (nextSeatToAct != null) {
-                tableState.setSeatToAct(nextSeatToAct);
-            } else {
-                tableState.finishBettingRound();
-            }
+            tableState.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         } catch (PlayerNotSeatedException e) {

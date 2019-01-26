@@ -32,12 +32,7 @@ public class SmallBlindEvent extends TableEvent {
             seat.setCommitted(seat.getCommitted()+committed);
             LOGGER.info(String.format("%s posted small blind: %d", player.getName(), committed));
 
-            final Seat nextSeatToAct = tableState.getNextSeatToAct(tableState.getSeatToAct(), 0);
-            if (nextSeatToAct != null) {
-                tableState.setSeatToAct(nextSeatToAct);
-            } else {
-                tableState.finishBettingRound();
-            }
+            tableState.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         } catch (PlayerNotSeatedException e) {

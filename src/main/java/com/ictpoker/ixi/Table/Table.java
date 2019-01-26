@@ -21,9 +21,8 @@ public class Table extends TableState {
             throws InvalidSeatCountException, TableException {
 
         super(nSeats, minimumBuyIn, maximumBuyIn, smallBlindAmount, bigBlindAmount);
-
-
     }
+
     public void handleEventQueue()
             throws TableException {
 
@@ -47,16 +46,22 @@ public class Table extends TableState {
 
         final StringBuilder sb = new StringBuilder();
 
-        sb.append(String.format("Table (seats: %d, buy-in: %d-%d)",
+        sb.append(String.format("Table (seats: %d, buy-in: %d-%d), stakes %d/%d, Total pot: %d (Pot: %d, Committed: %d)",
                 getSeats().size(),
                 getMinimumBuyIn(),
-                getMaximumBuyIn()));
+                getMaximumBuyIn(),
+                getSmallBlindAmount(),
+                getBigBlindAmount(),
+                getPot()+getTotalCommitted(),
+                getPot(),
+                getTotalCommitted()));
 
         for (final Seat seat : getOccupiedSeats()) {
-            sb.append(String.format("\n %s, stack: %d, committed: %d",
+            sb.append(String.format("\n %s, stack: %d, committed: %d, collected: %d",
                     seat.getPlayer().getName(),
                     seat.getStack(),
-                    seat.getCommitted()));
+                    seat.getCommitted(),
+                    seat.getCollected()));
         }
 
         return sb.toString();

@@ -33,12 +33,7 @@ public class FoldEvent extends TableEvent {
 
             LOGGER.info(String.format("%s folded", player.getName()));
 
-            final Seat nextSeatToAct = tableState.getNextSeatToAct(tableState.getSeatToAct(), 0);
-            if (nextSeatToAct != null) {
-                tableState.setSeatToAct(nextSeatToAct);
-            } else {
-                tableState.finishBettingRound();
-            }
+            tableState.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         } catch (PlayerNotSeatedException e) {

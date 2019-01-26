@@ -8,8 +8,7 @@ import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TableState {
     protected final static int MAXIMUM_SEATS = 10;
@@ -117,6 +116,17 @@ public class TableState {
         return occupiedSeats;
     }
 
+    public void setActionToNextPlayer()
+            throws TableStateException {
+
+        final Seat nextSeatToAct = getNextSeatToAct(getSeatToAct(), 0);
+        if (nextSeatToAct != null) {
+            setSeatToAct(nextSeatToAct);
+        } else {
+            finishBettingRound();
+        }
+    }
+
     public Seat getNextSeatToAct(@NotNull final int seatIndex, @NotNull int skip)
             throws TableStateException {
 
@@ -169,12 +179,12 @@ public class TableState {
         }
 
         // If the seat has a stack remaining and haven't committed enough, false
-        else if (seat.getStack() > 0 && seat.getCommitted() < getHighestCommitAmount()) {
+        else if (seat.getStack() > 0 && seat.getCommitted() < getSeatWithHighestCommit(0).getCommitted()) {
             return false;
         }
 
         // If the seat has a stack remaining and committed enough, true
-        else if (seat.getStack() > 0 && seat.getCommitted() == getHighestCommitAmount()) {
+        else if (seat.getStack() > 0 && seat.getCommitted() == getSeatWithHighestCommit(0).getCommitted()) {
             return true;
         }
 
@@ -212,15 +222,18 @@ public class TableState {
         return numberOfActiveSeats;
     }
 
-    public int getHighestCommitAmount() {
+    public Seat getSeatWithHighestCommit(int skip) {
+        Seat[] seatArray = new Seat[seats.size()];
+        seatArray = seats.toArray(seatArray);
 
-        int highestCommitted = 0;
-        for (Seat seat : seats) {
-            if (seat.getCommitted() > highestCommitted) {
-                highestCommitted = seat.getCommitted();
+        Arrays.sort(seatArray, new Comparator<Seat>() {
+            @Override
+            public int compare(Seat a, Seat b) {
+                return (a.getCommitted() > b.getCommitted() ? -1 : 0);
             }
-        }
-        return highestCommitted;
+        });
+
+        return seatArray[skip];
     }
 
     public void setLastRaiseAmount(@NotNull final int lastRaiseAmount) {
@@ -243,7 +256,7 @@ public class TableState {
         this.seatToAct = seatToAct;
         LOGGER.info(String.format("%s is next to act... %d required to play...",
                 seatToAct.getPlayer().getName(),
-                Math.min(seatToAct.getStack(), getHighestCommitAmount() - seatToAct.getCommitted())));
+                Math.min(seatToAct.getStack(), getSeatWithHighestCommit(0).getCommitted() - seatToAct.getCommitted())));
     }
 
     public void finishBettingRound()
@@ -251,6 +264,25 @@ public class TableState {
 
         LOGGER.info("Betting round has finished");
 
+        // Return uncontested chips
+        final Seat highestCommitSeat = getSeatWithHighestCommit(0);
+        final Seat secondHighestCommitSeat = getSeatWithHighestCommit(1);
+        final int commitDifference = highestCommitSeat.getCommitted() - secondHighestCommitSeat.getCommitted();
+
+        if (commitDifference > 0) {
+            highestCommitSeat.setCommitted(highestCommitSeat.getCommitted() - commitDifference);
+            highestCommitSeat.setStack(highestCommitSeat.getStack() + commitDifference);
+            LOGGER.info(String.format("Returned %d uncontested chips to %s",
+                    commitDifference,
+                    highestCommitSeat.getPlayer().getName()));
+        }
+
+        // Collect all committed chips
+        for (Seat seat : seats) {
+            seat.moveCommittedToCollected();
+        }
+
+        // Deal flop, turn, river
         if (getNumberOfActiveSeats() > 1) {
             if (hasAllSeatsActed() && getBoardCards().size() == 0) {
                 LOGGER.info("Dealing flop");
@@ -364,5 +396,24 @@ public class TableState {
     public void setLastRaiser(@NotNull final Seat lastRaiser) {
 
         this.lastRaiser = lastRaiser;
+    }
+
+    public int getPot() {
+
+        return pot;
+    }
+
+    public void setPot(int pot) {
+
+        this.pot = pot;
+    }
+
+    public int getTotalCommitted() {
+
+        int committed = 0;
+        for (Seat seat : seats) {
+            committed += seat.getCommitted();
+        }
+        return committed;
     }
 }

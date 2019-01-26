@@ -14,6 +14,7 @@ public class Seat {
     private boolean folded = false;
     private boolean acted = false;
     private int committed = 0;
+    private int collected = 0;
 
     public Seat() {
 
@@ -74,6 +75,19 @@ public class Seat {
     public void setCommitted(int committed) {
 
         this.committed = committed;
+    }
+
+    public int getCollected() {
+        return collected;
+    }
+
+    public void setCollected(int collected) {
+        this.collected = collected;
+    }
+
+    public void moveCommittedToCollected() {
+        setCollected(getCollected() + getCommitted());
+        setCommitted(0);
     }
 
     public class InsufficientStackException extends Exception {}

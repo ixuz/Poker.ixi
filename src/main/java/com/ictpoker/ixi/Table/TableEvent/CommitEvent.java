@@ -32,7 +32,7 @@ public class CommitEvent extends TableEvent {
             final IPlayer player = getPlayer();
             final Seat seat = tableState.getSeat(player);
 
-            final int requiredAmountToCall = Math.min(seat.getStack(), tableState.getHighestCommitAmount() - seat.getCommitted());
+            final int requiredAmountToCall = Math.min(seat.getStack(), tableState.getSeatWithHighestCommit(0).getCommitted() - seat.getCommitted());
             final int requiredAmountToRaise = requiredAmountToCall + tableState.getLastRaiseAmount();
             final int actualRaiseAmount = getAmount() - requiredAmountToCall;
 
@@ -86,12 +86,7 @@ public class CommitEvent extends TableEvent {
                         player.getName()));
             }
 
-            final Seat nextSeatToAct = tableState.getNextSeatToAct(tableState.getSeatToAct(), 0);
-            if (nextSeatToAct != null) {
-                tableState.setSeatToAct(nextSeatToAct);
-            } else {
-                tableState.finishBettingRound();
-            }
+            tableState.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         } catch (PlayerNotSeatedException e) {
