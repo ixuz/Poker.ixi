@@ -1,12 +1,11 @@
 package com.ictpoker.ixi;
 
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.PlayerEvent.*;
+import com.ictpoker.ixi.Table.Exception.TableEventException;
+import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Table;
-import com.ictpoker.ixi.Table.Exception.InvalidSeatCountException;
 import com.ictpoker.ixi.Table.Exception.TableException;
 import com.ictpoker.ixi.Table.TableEvent.*;
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -23,7 +22,8 @@ public class PokerTest {
     };
 
     @Test
-    public void testHand1() throws InvalidSeatCountException, TableException, PlayerEventException {
+    public void testHand1()
+            throws TableException, TableStateException, TableEventException {
 
         final Table table = new Table(4, 500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -57,7 +57,7 @@ public class PokerTest {
 
     @Test
     public void testHand2()
-            throws InvalidSeatCountException, TableException, PlayerEventException {
+            throws TableException, TableStateException, TableEventException {
 
         final Table table = new Table(4, 500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -82,7 +82,7 @@ public class PokerTest {
 
     @Test
     public void testHand3()
-            throws InvalidSeatCountException, TableException, PlayerEventException {
+            throws TableException, TableStateException, TableEventException {
 
         final Table table = new Table(4, 500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
@@ -107,7 +107,7 @@ public class PokerTest {
 
     @Test
     public void testHand4()
-            throws InvalidSeatCountException, TableException, PlayerEventException {
+            throws TableException, TableStateException, TableEventException {
 
         final Table table = new Table(4, 500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
@@ -128,7 +128,7 @@ public class PokerTest {
 
     @Test
     public void testHand5()
-            throws InvalidSeatCountException, TableException, PlayerEventException {
+            throws TableException, TableStateException, TableEventException {
 
         final Table table = new Table(4, 500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);

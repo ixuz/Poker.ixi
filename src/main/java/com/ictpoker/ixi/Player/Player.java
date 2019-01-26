@@ -6,7 +6,7 @@ import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Player implements IPlayer {
+public class Player {
 
     private final static Logger LOGGER = LogManager.getLogger(Player.class);
     private final String name;
@@ -37,11 +37,5 @@ public class Player implements IPlayer {
 
         balance -= amount;
         return amount;
-    }
-
-    @Override
-    public void onJoinTable(@NotNull final Table table) {
-
-        LOGGER.info("Let's go I'm ready!");
     }
 }

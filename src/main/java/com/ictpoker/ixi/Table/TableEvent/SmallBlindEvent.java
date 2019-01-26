@@ -1,9 +1,8 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Table.Exception.*;
-import com.ictpoker.ixi.Player.IPlayer;
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
+import com.ictpoker.ixi.Player.Exception.PlayerException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.TableState;
 import com.sun.istack.internal.NotNull;
@@ -15,7 +14,7 @@ public class SmallBlindEvent extends TableEvent {
     private final static Logger LOGGER = LogManager.getLogger(SmallBlindEvent.class);
 
     public SmallBlindEvent(@NotNull final Player player)
-            throws PlayerEventException {
+            throws TableEventException {
 
         super(player, 0);
     }
@@ -25,7 +24,7 @@ public class SmallBlindEvent extends TableEvent {
             throws TableEventException {
 
         try {
-            final IPlayer player = getPlayer();
+            final Player player = getPlayer();
             final Seat seat = tableState.getSeat(player);
             final int committed = Math.min(seat.getStack(), tableState.getSmallBlindAmount());
             seat.setStack(seat.getStack()-committed);
@@ -35,8 +34,6 @@ public class SmallBlindEvent extends TableEvent {
             tableState.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
-        } catch (PlayerNotSeatedException e) {
-            throw new TableEventException("The player is not seated at this table", e);
         }
     }
 }

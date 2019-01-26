@@ -1,14 +1,14 @@
 package com.ictpoker.ixi.Table;
 
 import com.ictpoker.ixi.Commons.Card;
-import com.ictpoker.ixi.Player.IPlayer;
+import com.ictpoker.ixi.Player.Player;
 import com.sun.istack.internal.NotNull;
 
 import java.util.Stack;
 
 public class Seat {
 
-    private final IPlayer player;
+    private final Player player;
     private int stack = 0;
     private Stack<Card> cards = new Stack<>();
     private boolean folded = false;
@@ -21,13 +21,13 @@ public class Seat {
         this.player = null;
     }
 
-    public Seat(@NotNull final IPlayer player, @NotNull final int stack) {
+    public Seat(@NotNull final Player player, @NotNull final int stack) {
 
         this.player = player;
         this.stack = stack;
     }
 
-    public IPlayer getPlayer() {
+    public Player getPlayer() {
 
         return player;
     }

@@ -18,7 +18,7 @@ public class Table extends TableState {
                  @NotNull final int maximumBuyIn,
                  @NotNull final int smallBlindAmount,
                  @NotNull final int bigBlindAmount)
-            throws InvalidSeatCountException, TableException {
+            throws TableStateException {
 
         super(nSeats, minimumBuyIn, maximumBuyIn, smallBlindAmount, bigBlindAmount);
     }

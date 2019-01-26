@@ -2,8 +2,8 @@ package com.ictpoker.ixi.Table;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Commons.Deck;
+import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.*;
-import com.ictpoker.ixi.Player.IPlayer;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,16 +34,16 @@ public class TableState {
                  @NotNull final int maximumBuyIn,
                  @NotNull final int smallBlindAmount,
                  @NotNull final int bigBlindAmount)
-            throws InvalidSeatCountException, TableException {
+            throws TableStateException {
 
         if (nSeats <= 1 || nSeats > MAXIMUM_SEATS) {
-            throw new InvalidSeatCountException();
+            throw new TableStateException("Invalid seat count");
         }
 
         try {
             this.deck = new Deck();
         } catch (Deck.DuplicateCardException e) {
-            throw new TableException("Failed to create deck");
+            throw new TableStateException("Failed to create deck");
         }
 
         this.seats = new ArrayList<>();
@@ -61,14 +61,14 @@ public class TableState {
         LOGGER.info(toString());
     }
 
-    public int getPlayerSeatIndex(@NotNull final IPlayer player)
-            throws PlayerNotSeatedException {
+    public int getPlayerSeatIndex(@NotNull final Player player)
+            throws TableStateException {
 
         return seats.indexOf(getSeat(player));
     }
 
     public boolean isSeatOccupied(@NotNull final int seatIndex)
-            throws InvalidSeatException {
+            throws TableStateException {
 
         final Seat seat = getSeat(seatIndex);
         return isSeatOccupied(seat);
@@ -80,17 +80,17 @@ public class TableState {
     }
 
     private Seat getSeat(@NotNull final int seatIndex)
-            throws InvalidSeatException {
+            throws TableStateException {
 
         if (seatIndex < 0 || seatIndex >= seats.size()) {
-            throw new InvalidSeatException("That seat doesn't exist at this table");
+            throw new TableStateException("That seat doesn't exist at this table");
         }
 
         return seats.get(seatIndex);
     }
 
-    public Seat getSeat(@NotNull final IPlayer player)
-            throws PlayerNotSeatedException {
+    public Seat getSeat(@NotNull final Player player)
+            throws TableStateException {
 
         for (final Seat seat : seats) {
             if (seat.getPlayer() == player) {
@@ -98,7 +98,7 @@ public class TableState {
             }
         }
 
-        throw new PlayerNotSeatedException();
+        throw new TableStateException("The player is not seated at this table");
     }
 
     public List<Seat> getOccupiedSeats() {
@@ -109,7 +109,8 @@ public class TableState {
                 if (isSeatOccupied(seatIndex)) {
                     occupiedSeats.add(getSeat(seatIndex));
                 }
-            } catch (InvalidSeatException e) {
+            } catch (TableStateException e) {
+                // TODO: Unhandled exception
                 e.printStackTrace();
             }
         }
@@ -146,8 +147,8 @@ public class TableState {
                     }
                 }
             }
-        } catch (InvalidSeatException | TableException e) {
-            throw new TableStateException("Failed to find next seat to act");
+        } catch (TableStateException e) {
+            throw new TableStateException("Failed to find next seat to act", e);
         }
 
         return null;
@@ -161,7 +162,7 @@ public class TableState {
     }
 
     private boolean hasSeatActed(@NotNull final Seat seat)
-            throws TableException {
+            throws TableStateException {
 
         // If the seat has already folded, true
         if (seat.hasFolded()) {
@@ -188,7 +189,7 @@ public class TableState {
             return true;
         }
 
-        throw new TableException("Could not determine if the player has to act or not");
+        throw new TableStateException("Could not determine if the player has to act or not");
     }
 
     public boolean hasAllSeatsActed() {

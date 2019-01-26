@@ -5,7 +5,8 @@ import com.ictpoker.ixi.Table.Exception.PlayerNotSeatedException;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Player.Exception.InsufficientBalanceException;
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
+import com.ictpoker.ixi.Player.Exception.PlayerException;
+import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.TableState;
 import com.sun.istack.internal.NotNull;
@@ -20,7 +21,7 @@ public class JoinEvent extends TableEvent {
     public JoinEvent(@NotNull final Player player,
                      @NotNull final int buyIn,
                      @NotNull final int seatIndex)
-            throws PlayerEventException {
+            throws TableEventException {
 
         super(player, buyIn);
 
@@ -40,7 +41,7 @@ public class JoinEvent extends TableEvent {
             if (tableState.getSeat(getPlayer()) != null) {
                 throw new TableEventException("The player is already seated");
             }
-        } catch (PlayerNotSeatedException e) {
+        } catch (TableStateException e) {
             // Intended exception thrown, the player must not already be seated to join a table.
         }
 
@@ -60,12 +61,12 @@ public class JoinEvent extends TableEvent {
                         getSeatIndex(),
                         getAmount()));
             } else {
-                throw new InvalidSeatException("The seat is already occupied");
+                throw new TableEventException("The seat is already occupied");
             }
-        } catch (InvalidSeatException e) {
-            throw new TableEventException("Invalid player seat index", e);
         } catch (InsufficientBalanceException e) {
-            throw new TableEventException("Invalid player has insufficient balance", e);
+            throw new TableEventException("Player has insufficient balance", e);
+        } catch (TableStateException e) {
+            throw new TableEventException("Failed to update table state", e);
         }
     }
 }

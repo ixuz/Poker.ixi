@@ -1,7 +1,7 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Table.Exception.*;
-import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
+import com.ictpoker.ixi.Player.Exception.PlayerException;
 import com.ictpoker.ixi.Table.TableState;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +13,7 @@ public class MoveButtonEvent extends TableEvent {
     private final int destinationSeatIndex;
 
     public MoveButtonEvent(@NotNull final int destinationSeatIndex)
-            throws PlayerEventException {
+            throws TableEventException {
 
         super(null, 0);
 

@@ -1,7 +1,7 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.PlayerEvent.PlayerEventException;
+import com.ictpoker.ixi.Player.Exception.PlayerException;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.TableState;
 import com.sun.istack.internal.NotNull;
@@ -14,14 +14,14 @@ public abstract class TableEvent {
 
     public TableEvent(@Nullable final Player player,
                       @NotNull final int amount)
-            throws PlayerEventException {
+            throws TableEventException {
 
         this.player = player;
         this.amount = amount;
 
         if (player != null) {
             if (amount < 0 || amount > player.getBalance()) {
-                throw new PlayerEventException("Invalid amount");
+                throw new TableEventException("Invalid amount");
             }
         }
     }
