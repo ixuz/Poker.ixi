@@ -1,7 +1,5 @@
 package com.ictpoker.ixi.Player;
 
-import com.ictpoker.ixi.Player.Exception.InsufficientBalanceException;
-import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,10 +27,10 @@ public class Player {
     }
 
     public synchronized int deductBalance(@NotNull final int amount)
-            throws InsufficientBalanceException {
+            throws Exception {
 
         if (balance-amount < 0) {
-            throw new InsufficientBalanceException();
+            throw new Exception("Insufficient balance");
         }
 
         balance -= amount;

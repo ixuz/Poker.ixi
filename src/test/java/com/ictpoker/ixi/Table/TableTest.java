@@ -1,10 +1,9 @@
 package com.ictpoker.ixi.Table;
 
-import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Player.Player;
+import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Table.TableEvent.JoinEvent;
 import com.ictpoker.ixi.Table.TableEvent.LeaveEvent;
-import com.ictpoker.ixi.Player.Exception.PlayerException;
 import org.junit.Assert;
 import org.junit.Test;
 

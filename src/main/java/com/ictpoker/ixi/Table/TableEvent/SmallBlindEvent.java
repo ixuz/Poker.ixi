@@ -2,7 +2,6 @@ package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.Exception.PlayerException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.TableState;
 import com.sun.istack.internal.NotNull;

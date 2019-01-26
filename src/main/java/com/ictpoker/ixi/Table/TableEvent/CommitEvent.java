@@ -1,8 +1,6 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.Exception.PlayerException;
-import com.ictpoker.ixi.Table.Exception.PlayerNotSeatedException;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;

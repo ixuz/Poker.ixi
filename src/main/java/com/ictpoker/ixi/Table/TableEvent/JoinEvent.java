@@ -1,11 +1,7 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
-import com.ictpoker.ixi.Table.Exception.InvalidSeatException;
-import com.ictpoker.ixi.Table.Exception.PlayerNotSeatedException;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
-import com.ictpoker.ixi.Player.Exception.InsufficientBalanceException;
 import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Player.Exception.PlayerException;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.TableState;
@@ -52,9 +48,13 @@ public class JoinEvent extends TableEvent {
                     throw new TableEventException("Invalid player buy-in amount");
                 }
 
-                tableState.getSeats().set(getSeatIndex(),
-                        new Seat(getPlayer(),
-                                getPlayer().deductBalance(getAmount())));
+                try {
+                    tableState.getSeats().set(getSeatIndex(),
+                            new Seat(getPlayer(),
+                                    getPlayer().deductBalance(getAmount())));
+                } catch (Exception e) {
+                    throw new TableEventException("Player has insufficient balance", e);
+                }
 
                 LOGGER.info(String.format("%s joined the table at seat #%d with stack %d",
                         getPlayer().getName(),
@@ -63,8 +63,6 @@ public class JoinEvent extends TableEvent {
             } else {
                 throw new TableEventException("The seat is already occupied");
             }
-        } catch (InsufficientBalanceException e) {
-            throw new TableEventException("Player has insufficient balance", e);
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }
