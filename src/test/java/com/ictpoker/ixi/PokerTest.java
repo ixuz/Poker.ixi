@@ -6,6 +6,7 @@ import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.Exception.TableException;
 import com.ictpoker.ixi.Table.TableEvent.*;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -53,6 +54,14 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(990, table.getSeats().get(0).getStack());
+        Assert.assertEquals(990, table.getSeats().get(1).getStack());
+        Assert.assertEquals(990, table.getSeats().get(2).getStack());
+        Assert.assertEquals(10, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(30, table.getTotalPot());
     }
 
     @Test
@@ -78,6 +87,14 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(990, table.getSeats().get(0).getStack());
+        Assert.assertEquals(995, table.getSeats().get(1).getStack());
+        Assert.assertEquals(990, table.getSeats().get(2).getStack());
+        Assert.assertEquals(10, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(5, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(25, table.getTotalPot());
     }
 
     @Test
@@ -103,6 +120,14 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(500, table.getSeats().get(0).getStack());
+        Assert.assertEquals(0, table.getSeats().get(1).getStack());
+        Assert.assertEquals(0, table.getSeats().get(2).getStack());
+        Assert.assertEquals(500, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(500, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(500, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(1500, table.getTotalPot());
     }
 
     @Test
@@ -124,6 +149,12 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(995, table.getSeats().get(0).getStack());
+        Assert.assertEquals(495, table.getSeats().get(1).getStack());
+        Assert.assertEquals(5, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(5, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getTotalPot());
     }
 
     @Test
@@ -149,6 +180,12 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(960, table.getSeats().get(0).getStack());
+        Assert.assertEquals(460, table.getSeats().get(1).getStack());
+        Assert.assertEquals(40, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(40, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(80, table.getTotalPot());
     }
 
     @Test
@@ -177,6 +214,14 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(990, table.getSeats().get(0).getStack());
+        Assert.assertEquals(990, table.getSeats().get(1).getStack());
+        Assert.assertEquals(990, table.getSeats().get(2).getStack());
+        Assert.assertEquals(10, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(30, table.getTotalPot());
     }
 
     @Test
@@ -207,6 +252,14 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(940, table.getSeats().get(0).getStack());
+        Assert.assertEquals(940, table.getSeats().get(1).getStack());
+        Assert.assertEquals(990, table.getSeats().get(2).getStack());
+        Assert.assertEquals(60, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(60, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(130, table.getTotalPot());
     }
 
     @Test
@@ -240,5 +293,13 @@ public class PokerTest {
         table.handleEventQueue();
 
         System.out.println(table.toString());
+
+        Assert.assertEquals(580, table.getSeats().get(0).getStack());
+        Assert.assertEquals(580, table.getSeats().get(1).getStack());
+        Assert.assertEquals(990, table.getSeats().get(2).getStack());
+        Assert.assertEquals(420, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(420, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(850, table.getTotalPot());
     }
 }

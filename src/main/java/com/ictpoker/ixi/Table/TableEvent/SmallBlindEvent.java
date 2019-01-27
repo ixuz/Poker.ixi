@@ -26,8 +26,13 @@ public class SmallBlindEvent extends TableEvent {
             final Player player = getPlayer();
             final Seat seat = tableState.getSeat(player);
             final int committed = Math.min(seat.getStack(), tableState.getSmallBlindAmount());
-            seat.setStack(seat.getStack()-committed);
-            seat.setCommitted(seat.getCommitted()+committed);
+
+            try {
+                seat.commit(committed);
+            } catch (Exception e) {
+                throw new TableEventException("Failed to commit", e);
+            }
+
             LOGGER.info(String.format("%s posted small blind: %d", player.getName(), committed));
 
             tableState.setActionToNextPlayer();

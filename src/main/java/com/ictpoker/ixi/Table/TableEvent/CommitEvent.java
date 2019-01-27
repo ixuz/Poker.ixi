@@ -32,16 +32,6 @@ public class CommitEvent extends TableEvent {
             final int requiredAmountToRaise = requiredAmountToCall + tableState.getLastRaiseAmount();
             final int actualRaiseAmount = getAmount() - requiredAmountToCall;
 
-/*            if (requiredAmountToCall != 0) {
-                throw new TableEventException(String.format("%s can't check, he must commit at least %d",
-                        player.getName(),
-                        requiredAmountToCall));
-            }*/
-
-/*            if (requiredAmountToRaise > seat.getStack()) {
-                throw new TableEventException("Player does not have sufficient stack to raise");
-            }*/
-
             if (getAmount() > seat.getStack()) {
                 throw new TableEventException("Player can't commit more than the available stack");
             }
@@ -73,8 +63,12 @@ public class CommitEvent extends TableEvent {
                 throw new TableEventException("Failed to identify desired player action");
             }
 
-            seat.setStack(seat.getStack()-getAmount());
-            seat.setCommitted(seat.getCommitted()+getAmount());
+            try {
+                seat.commit(getAmount());
+            } catch (Exception e) {
+                throw new TableEventException("Failed to commit", e);
+            }
+
             seat.setActed(true);
 
             if (seat.getStack() == 0) {

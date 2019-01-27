@@ -90,5 +90,16 @@ public class Seat {
         setCommitted(0);
     }
 
+    public void commit(@NotNull final int amount)
+            throws Exception {
+
+        if (amount > getStack()) {
+            throw new Exception("Insufficient stack");
+        }
+
+        setStack(getStack()-amount);
+        setCommitted(getCommitted()+amount);
+    }
+
     public class InsufficientStackException extends Exception {}
 }
