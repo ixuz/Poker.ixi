@@ -26,6 +26,10 @@ public class FoldEvent extends TableEvent {
             final Player player = getPlayer();
             final Seat seat = tableState.getSeat(player);
 
+            if (seat != tableState.getSeatToAct()) {
+                throw new TableEventException("It's not the player's turn to act");
+            }
+
             seat.setActed(true);
             seat.setFolded(true);
 

@@ -28,32 +28,33 @@ public class CommitEvent extends TableEvent {
             final Player player = getPlayer();
             final Seat seat = tableState.getSeat(player);
 
-            int requiredAmountToCall;
-            if (!tableState.isSmallBlindPosted()) {
-                requiredAmountToCall = tableState.getSmallBlindAmount();
-            } else if (!tableState.isBigBlindPosted()) {
-                requiredAmountToCall = tableState.getBigBlindAmount();
-            } else {
-                requiredAmountToCall = tableState.getSeatWithHighestCommit(0).getCommitted() - tableState.getSeatToAct().getCommitted();
-            }
-            requiredAmountToCall = Math.min(seat.getStack(), requiredAmountToCall);
+            final int toCall = tableState.getRequiredAmountToCall();
+            final int toRaise = tableState.getRequiredAmountToRaise();
+            final int actualRaiseAmount = getAmount() - toCall;
 
-            final int requiredAmountToRaise = requiredAmountToCall + tableState.getLastRaiseAmount();
-            final int actualRaiseAmount = getAmount() - requiredAmountToCall;
+            if (seat != tableState.getSeatToAct()) {
+                throw new TableEventException("It's not the player's turn to act");
+            }
 
             if (getAmount() > seat.getStack()) {
                 throw new TableEventException("Player can't commit more than the available stack");
             }
 
+            if (!tableState.isSmallBlindPosted() && getAmount() != toCall) {
+                throw new TableEventException("The player must post the small blind to play");
+            } else if (!tableState.isBigBlindPosted() && getAmount() != toCall) {
+                throw new TableEventException("The player must post the big blind to play");
+            }
+
             if (getAmount() == 0) { // Desired check
-                if (requiredAmountToCall != 0) {
+                if (toCall != 0) {
                     throw new TableEventException(String.format("%s can't check, he must commit at least %d",
                             player.getName(),
-                            requiredAmountToCall));
+                            toCall));
                 }
                 LOGGER.info(String.format("%s checked",
                         player.getName()));
-            } else if (getAmount() > 0 && getAmount() == requiredAmountToCall) { // Desired call
+            } else if (getAmount() > 0 && getAmount() == toCall) { // Desired call
                 if (!tableState.isSmallBlindPosted()) {
                     LOGGER.info(String.format("%s posted small blind %d",
                             player.getName(),
@@ -67,11 +68,11 @@ public class CommitEvent extends TableEvent {
                             player.getName(),
                             getAmount()));
                 }
-            } else if (getAmount() > requiredAmountToCall) { // Desired raise
-                if (getAmount() < requiredAmountToRaise) {
+            } else if (getAmount() > toCall) { // Desired raise
+                if (getAmount() < toRaise) {
                     throw new TableEventException(String.format("%s he must commit at least %d to raise",
                             player.getName(),
-                            requiredAmountToRaise));
+                            toRaise));
                 }
                 tableState.setLastRaiseAmount(actualRaiseAmount);
                 LOGGER.info(String.format("%s raised %d by committing %d",

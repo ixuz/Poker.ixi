@@ -141,6 +141,11 @@ public class TableState {
             for (int i=0; i<seats.size(); i++) {
                 final Seat seat;
                 seat = getSeat((seatIndex+i+1)%seats.size());
+
+                if (seat.isSittingOut()) {
+                    continue;
+                }
+
                 if (!hasSeatActed(seat)) {
                     if (skip > 0) {
                         skip--;
@@ -214,6 +219,9 @@ public class TableState {
     public int getNumberOfActiveSeats() {
         int numberOfActiveSeats = 0;
         for (Seat seat : seats) {
+            if (seat.isSittingOut()) {
+                continue;
+            }
             if (!isSeatOccupied(seat)) {
                 continue;
             }
@@ -258,19 +266,9 @@ public class TableState {
 
         this.seatToAct = seatToAct;
 
-        int requiredToCall;
-        if (!isSmallBlindPosted()) {
-            requiredToCall = smallBlindAmount;
-        } else if (!isBigBlindPosted()) {
-            requiredToCall = bigBlindAmount;
-        } else {
-            requiredToCall = getSeatWithHighestCommit(0).getCommitted() - seatToAct.getCommitted();
-        }
-        requiredToCall = Math.min(seatToAct.getStack(), requiredToCall);
-
         LOGGER.info(String.format("%s is next to act... %d required to play...",
                 seatToAct.getPlayer().getName(),
-                requiredToCall));
+                getRequiredAmountToCall()));
     }
 
     public void finishBettingRound()
@@ -401,7 +399,12 @@ public class TableState {
         return seats;
     }
 
-    public void setButtonPosition(@NotNull final int buttonPosition) {
+    public void setButtonPosition(@NotNull final int buttonPosition)
+            throws TableStateException {
+
+        if (buttonPosition < 0 || buttonPosition >= getSeats().size()) {
+            throw new TableStateException("Can't move button to a non-existent seat");
+        }
 
         this.buttonPosition = buttonPosition;
     }
@@ -466,5 +469,24 @@ public class TableState {
     public void setBigBlindPosted(@NotNull final boolean bigBlindPosted) {
 
         this.bigBlindPosted = bigBlindPosted;
+    }
+
+    public int getRequiredAmountToCall() {
+
+        int requiredToCall;
+        if (!isSmallBlindPosted()) {
+            requiredToCall = smallBlindAmount;
+        } else if (!isBigBlindPosted()) {
+            requiredToCall = bigBlindAmount;
+        } else {
+            requiredToCall = getSeatWithHighestCommit(0).getCommitted() - seatToAct.getCommitted();
+        }
+        requiredToCall = Math.min(seatToAct.getStack(), requiredToCall);
+        return requiredToCall;
+    }
+
+    public int getRequiredAmountToRaise() {
+
+        return Math.min(seatToAct.getStack(), getRequiredAmountToCall() + getLastRaiseAmount());
     }
 }

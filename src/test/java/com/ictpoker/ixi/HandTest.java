@@ -13,7 +13,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-public class PokerTest {
+public class HandTest {
 
     @Rule
     public TestRule watcher = new TestWatcher() {
@@ -34,8 +34,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
@@ -62,6 +61,9 @@ public class PokerTest {
         Assert.assertEquals(10, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(30, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -76,8 +78,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 40)); // Bet
@@ -95,6 +96,9 @@ public class PokerTest {
         Assert.assertEquals(5, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(25, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -109,8 +113,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 500, 1));
         table.pushEvent(new JoinEvent(ericFlores, 500, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 950));
@@ -128,6 +131,9 @@ public class PokerTest {
         Assert.assertEquals(500, table.getSeats().get(1).getCollected());
         Assert.assertEquals(500, table.getSeats().get(2).getCollected());
         Assert.assertEquals(1500, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -140,8 +146,7 @@ public class PokerTest {
 
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new FoldEvent(carryDavis));
@@ -155,6 +160,8 @@ public class PokerTest {
         Assert.assertEquals(5, table.getSeats().get(0).getCollected());
         Assert.assertEquals(5, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
     }
 
     @Test
@@ -167,8 +174,7 @@ public class PokerTest {
 
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 15));
@@ -186,6 +192,8 @@ public class PokerTest {
         Assert.assertEquals(40, table.getSeats().get(0).getCollected());
         Assert.assertEquals(40, table.getSeats().get(1).getCollected());
         Assert.assertEquals(80, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
     }
 
     @Test
@@ -200,8 +208,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
@@ -222,6 +229,9 @@ public class PokerTest {
         Assert.assertEquals(10, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(30, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -236,8 +246,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
@@ -260,6 +269,9 @@ public class PokerTest {
         Assert.assertEquals(60, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(130, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -274,8 +286,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
@@ -301,6 +312,9 @@ public class PokerTest {
         Assert.assertEquals(420, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(850, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
     }
 
     @Test
@@ -315,8 +329,7 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
         table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
-        table.pushEvent(new DealEvent());
+        table.pushEvent(new DealEvent(0));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
@@ -339,7 +352,6 @@ public class PokerTest {
         table.pushEvent(new CommitEvent(adamBroker, 795));
         table.pushEvent(new FoldEvent(carryDavis));
 
-
         table.handleEventQueue();
 
         System.out.println(table.toString());
@@ -351,5 +363,150 @@ public class PokerTest {
         Assert.assertEquals(205, table.getSeats().get(1).getCollected());
         Assert.assertEquals(1000, table.getSeats().get(2).getCollected());
         Assert.assertEquals(2205, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
+    }
+
+    @Test
+    public void testHand10()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 600, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
+        table.pushEvent(new DealEvent(0));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 200));
+        table.pushEvent(new CommitEvent(adamBroker, 550));
+        table.pushEvent(new CommitEvent(carryDavis, 295));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+
+        Assert.assertEquals(100, table.getSeats().get(0).getStack());
+        Assert.assertEquals(0, table.getSeats().get(1).getStack());
+        Assert.assertEquals(500, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(500, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(1000, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+    }
+
+    @Test
+    public void testHand11()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new SitOutEvent(carryDavis, true));
+        table.pushEvent(new DealEvent(0));
+        table.pushEvent(new CommitEvent(ericFlores, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(ericFlores, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 0));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(adamBroker, 15));
+        table.pushEvent(new CommitEvent(ericFlores, 15));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(adamBroker, 40));
+        table.pushEvent(new CommitEvent(ericFlores, 40));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(adamBroker, 0));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+
+        Assert.assertEquals(935, table.getSeats().get(0).getStack());
+        Assert.assertEquals(1000, table.getSeats().get(1).getStack());
+        Assert.assertEquals(935, table.getSeats().get(2).getStack());
+        Assert.assertEquals(65, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(0, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(65, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(130, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertTrue(table.getSeats().get(1).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(2).isSittingOut());
+    }
+
+    @Test
+    public void testHand12()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new SitOutEvent(carryDavis, true));
+        table.pushEvent(new SitOutEvent(ericFlores, true));
+
+        table.handleEventQueue();
+
+        try {
+            table.pushEvent(new DealEvent(0));
+            table.handleEventQueue();
+            Assert.fail("Too few players to start a hand");
+        } catch (TableException e) {
+            // Intended exception thrown, there's too few players to start a new hand
+        }
+
+        System.out.println(table.toString());
+
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertTrue(table.getSeats().get(1).isSittingOut());
+        Assert.assertTrue(table.getSeats().get(2).isSittingOut());
+    }
+
+    @Test
+    public void testHand13()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new SitOutEvent(carryDavis, true));
+        table.pushEvent(new SitOutEvent(ericFlores, true));
+        table.pushEvent(new SitOutEvent(carryDavis, false));
+        table.pushEvent(new DealEvent(0));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 995));
+        table.pushEvent(new FoldEvent(adamBroker));
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+
+        Assert.assertEquals(990, table.getSeats().get(0).getStack());
+        Assert.assertEquals(990, table.getSeats().get(1).getStack());
+        Assert.assertEquals(1000, table.getSeats().get(2).getStack());
+        Assert.assertEquals(10, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(10, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(0, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(20, table.getTotalPot());
+        Assert.assertFalse(table.getSeats().get(0).isSittingOut());
+        Assert.assertFalse(table.getSeats().get(1).isSittingOut());
+        Assert.assertTrue(table.getSeats().get(2).isSittingOut());
     }
 }

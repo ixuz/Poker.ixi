@@ -15,6 +15,7 @@ public class Seat {
     private boolean acted = false;
     private int committed = 0;
     private int collected = 0;
+    private boolean sittingOut = false;
 
     public Seat() {
 
@@ -99,6 +100,16 @@ public class Seat {
 
         setStack(getStack()-amount);
         setCommitted(getCommitted()+amount);
+    }
+
+    public boolean isSittingOut() {
+
+        return sittingOut;
+    }
+
+    public void setSittingOut(@NotNull final boolean sittingOut) {
+
+        this.sittingOut = sittingOut;
     }
 
     public class InsufficientStackException extends Exception {}
