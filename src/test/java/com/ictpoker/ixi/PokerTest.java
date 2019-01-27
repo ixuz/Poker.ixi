@@ -36,8 +36,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 0));
@@ -78,8 +78,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 40)); // Bet
         table.pushEvent(new FoldEvent(carryDavis));
         table.pushEvent(new FoldEvent(ericFlores));
@@ -111,8 +111,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 500, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 950));
         table.pushEvent(new CommitEvent(carryDavis, 495));
         table.pushEvent(new CommitEvent(ericFlores, 490));
@@ -142,8 +142,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(carryDavis, 500, 1));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(adamBroker));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new FoldEvent(carryDavis));
 
         table.handleEventQueue();
@@ -169,8 +169,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(carryDavis, 500, 1));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(adamBroker));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 15));
         table.pushEvent(new CommitEvent(adamBroker, 20));
         table.pushEvent(new CommitEvent(carryDavis, 20));
@@ -202,8 +202,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 0));
@@ -238,8 +238,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 0));
@@ -276,8 +276,8 @@ public class PokerTest {
         table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
         table.pushEvent(new MoveButtonEvent(0));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new SmallBlindEvent(carryDavis));
-        table.pushEvent(new BigBlindEvent(ericFlores));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
         table.pushEvent(new CommitEvent(adamBroker, 10));
         table.pushEvent(new CommitEvent(carryDavis, 5));
         table.pushEvent(new CommitEvent(ericFlores, 0));
@@ -301,5 +301,55 @@ public class PokerTest {
         Assert.assertEquals(420, table.getSeats().get(1).getCollected());
         Assert.assertEquals(10, table.getSeats().get(2).getCollected());
         Assert.assertEquals(850, table.getTotalPot());
+    }
+
+    @Test
+    public void testHand9()
+            throws TableException, TableStateException, TableEventException {
+
+        final Table table = new Table(4, 500, 1000, 5,10);
+        final Player adamBroker = new Player("Adam Broker", 2000);
+        final Player carryDavis = new Player("Carry Davis", 1000);
+        final Player ericFlores = new Player("Eric Flores", 1000);
+
+        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
+        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
+        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 10));
+        table.pushEvent(new CommitEvent(adamBroker, 10));
+        table.pushEvent(new CommitEvent(carryDavis, 5));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(carryDavis, 0));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(adamBroker, 25));
+        table.pushEvent(new CommitEvent(carryDavis, 25));
+        table.pushEvent(new CommitEvent(ericFlores, 25));
+        table.pushEvent(new CommitEvent(carryDavis, 0));
+        table.pushEvent(new CommitEvent(ericFlores, 0));
+        table.pushEvent(new CommitEvent(adamBroker, 85));
+        table.pushEvent(new CommitEvent(carryDavis, 85));
+        table.pushEvent(new CommitEvent(ericFlores, 170));
+        table.pushEvent(new CommitEvent(adamBroker, 85));
+        table.pushEvent(new CommitEvent(carryDavis, 85));
+        table.pushEvent(new CommitEvent(carryDavis, 0));
+        table.pushEvent(new CommitEvent(ericFlores, 795));
+        table.pushEvent(new CommitEvent(adamBroker, 795));
+        table.pushEvent(new FoldEvent(carryDavis));
+
+
+        table.handleEventQueue();
+
+        System.out.println(table.toString());
+
+        Assert.assertEquals(0, table.getSeats().get(0).getStack());
+        Assert.assertEquals(795, table.getSeats().get(1).getStack());
+        Assert.assertEquals(0, table.getSeats().get(2).getStack());
+        Assert.assertEquals(1000, table.getSeats().get(0).getCollected());
+        Assert.assertEquals(205, table.getSeats().get(1).getCollected());
+        Assert.assertEquals(1000, table.getSeats().get(2).getCollected());
+        Assert.assertEquals(2205, table.getTotalPot());
     }
 }

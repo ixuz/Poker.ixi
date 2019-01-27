@@ -28,6 +28,8 @@ public class TableState {
     private Seat lastRaiser = null;
     private int lastRaiseAmount;
     private Seat seatToAct;
+    private boolean smallBlindPosted = false;
+    private boolean bigBlindPosted = false;
 
     public TableState(@NotNull final int nSeats,
                  @NotNull final int minimumBuyIn,
@@ -255,9 +257,20 @@ public class TableState {
     public void setSeatToAct(@NotNull final Seat seatToAct) {
 
         this.seatToAct = seatToAct;
+
+        int requiredToCall;
+        if (!isSmallBlindPosted()) {
+            requiredToCall = smallBlindAmount;
+        } else if (!isBigBlindPosted()) {
+            requiredToCall = bigBlindAmount;
+        } else {
+            requiredToCall = getSeatWithHighestCommit(0).getCommitted() - seatToAct.getCommitted();
+        }
+        requiredToCall = Math.min(seatToAct.getStack(), requiredToCall);
+
         LOGGER.info(String.format("%s is next to act... %d required to play...",
                 seatToAct.getPlayer().getName(),
-                Math.min(seatToAct.getStack(), getSeatWithHighestCommit(0).getCommitted() - seatToAct.getCommitted())));
+                requiredToCall));
     }
 
     public void finishBettingRound()
@@ -433,5 +446,25 @@ public class TableState {
             pot += seat.getCollected();
         }
         return pot;
+    }
+
+    public boolean isSmallBlindPosted() {
+
+        return smallBlindPosted;
+    }
+
+    public void setSmallBlindPosted(@NotNull final boolean smallBlindPosted) {
+
+        this.smallBlindPosted = smallBlindPosted;
+    }
+
+    public boolean isBigBlindPosted() {
+
+        return bigBlindPosted;
+    }
+
+    public void setBigBlindPosted(@NotNull final boolean bigBlindPosted) {
+
+        this.bigBlindPosted = bigBlindPosted;
     }
 }
