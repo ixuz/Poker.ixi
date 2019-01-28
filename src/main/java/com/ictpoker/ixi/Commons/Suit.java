@@ -1,5 +1,7 @@
 package com.ictpoker.ixi.Commons;
 
+import com.google.common.collect.ImmutableMap;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,14 +9,12 @@ public enum Suit {
 
     HEARTS, DIAMONDS, CLUBS, SPADES;
 
-    private static final Map<Suit, String> SUIT_NOTATION = new HashMap<>();
-
-    static {
-        SUIT_NOTATION.put(HEARTS, "h");
-        SUIT_NOTATION.put(DIAMONDS, "d");
-        SUIT_NOTATION.put(CLUBS, "c");
-        SUIT_NOTATION.put(SPADES, "s");
-    }
+    private static final Map<Suit, String> SUIT_NOTATION = ImmutableMap.<Suit, String>builder()
+            .put(HEARTS, "h")
+            .put(DIAMONDS, "d")
+            .put(CLUBS, "c")
+            .put(SPADES, "s")
+            .build();
 
     @Override
     public String toString() {

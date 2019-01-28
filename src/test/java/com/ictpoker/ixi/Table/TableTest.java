@@ -10,41 +10,9 @@ import org.junit.Test;
 public class TableTest {
 
     @Test
-    public void testInvalidSeatCounts() {
-
-        try {
-            new Table(0, 500, 1000, 5, 10);
-            Assert.fail("A table with zero seats is not allowed");
-        } catch (TableStateException e) {
-            // Intended exception thrown, a table with zero seats is not allowed
-        }
-
-        try {
-            new Table(1, 500, 1000, 5, 10);
-            Assert.fail("A table with one seat is not allowed");
-        } catch (TableStateException e) {
-            // Intended exception thrown, a table with zero seats is not allowed
-        }
-
-        try {
-            new Table(Table.MAXIMUM_SEATS+1, 500, 1000, 5, 10);
-            Assert.fail("A table with more seats than the maximum amount is not allowed");
-        } catch (TableStateException e) {
-            // Intended exception thrown, a table with more seats than the maximum amount is not allowed
-        }
-
-        try {
-            new Table(-1, 500, 1000, 5, 10);
-            Assert.fail("A table with negative seat count doesn't make sense");
-        } catch (TableStateException e) {
-            // Intended exception thrown, a table with negative seats doesn't make sense
-        }
-    }
-
-    @Test
     public void testJoin() throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(2, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
 
         final Player playerA = new Player("Adam Broker", 1000);
         table.pushEvent(new JoinEvent(playerA, 1000, 0));
@@ -58,7 +26,7 @@ public class TableTest {
     public void testDoubleJoin() throws TableStateException, TableEventException {
 
         try {
-            final Table table = new Table(2, 500, 1000, 5, 10);
+            final Table table = new Table(500, 1000, 5, 10);
 
             final Player playerA = new Player("Adam Broker", 1000);
 
@@ -74,7 +42,7 @@ public class TableTest {
     @Test
     public void testFullTable() throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(2, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
 
         final Player playerA = new Player("Adam Broker", 1000);
         final Player playerB = new Player("Carry Davis", 1000);
@@ -115,7 +83,7 @@ public class TableTest {
     @Test
     public void testJoinLeave() throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(2, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
 
         final Player playerA = new Player("Adam Broker", 1000);
         table.pushEvent(new JoinEvent(playerA, 1000, 0));
@@ -123,18 +91,15 @@ public class TableTest {
 
         table.handleEventQueue();
 
-        try {
-            table.getPlayerSeatIndex(playerA);
-            Assert.fail("Two player has already left the table and should therefore not be seated anymore");
-        } catch (TableStateException e) {
-            // Intended exception thrown, the player should already have left the table.
+        if (table.getPlayerSeatIndex(playerA) != -1) {
+            Assert.fail("The player should already have left the table and therefore no index should be found");
         }
     }
 
     @Test
     public void testInsufficientBalance() throws TableStateException, TableException {
 
-        final Table table = new Table(2, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
 
         final Player playerA = new Player("Adam Broker", 250);
 
@@ -150,7 +115,7 @@ public class TableTest {
     @Test
     public void testInvalidBuyIn() throws TableStateException, TableEventException {
 
-        final Table table = new Table(2, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
 
         try {
             final Player playerA = new Player("Adam Broker", 5000);

@@ -26,7 +26,7 @@ public class HandTest {
     public void testHand1()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -70,7 +70,7 @@ public class HandTest {
     public void testHand2()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -105,7 +105,7 @@ public class HandTest {
     public void testHand3()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
         final Player carryDavis = new Player("Carry Davis", 500);
         final Player ericFlores = new Player("Eric Flores", 500);
@@ -140,7 +140,7 @@ public class HandTest {
     public void testHand4()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
         final Player carryDavis = new Player("Carry Davis", 500);
 
@@ -168,7 +168,7 @@ public class HandTest {
     public void testHand5()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
         final Player carryDavis = new Player("Carry Davis", 500);
 
@@ -200,7 +200,7 @@ public class HandTest {
     public void testHand6()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -238,7 +238,7 @@ public class HandTest {
     public void testHand7()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -278,7 +278,7 @@ public class HandTest {
     public void testHand8()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -321,7 +321,7 @@ public class HandTest {
     public void testHand9()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -372,7 +372,7 @@ public class HandTest {
     public void testHand10()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5, 10);
+        final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
 
@@ -402,7 +402,7 @@ public class HandTest {
     public void testHand11()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -445,7 +445,7 @@ public class HandTest {
     public void testHand12()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);
@@ -477,7 +477,7 @@ public class HandTest {
     public void testHand13()
             throws TableException, TableStateException, TableEventException {
 
-        final Table table = new Table(4, 500, 1000, 5,10);
+        final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
         final Player carryDavis = new Player("Carry Davis", 1000);
         final Player ericFlores = new Player("Eric Flores", 1000);

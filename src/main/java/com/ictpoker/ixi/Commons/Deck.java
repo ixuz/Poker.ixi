@@ -1,23 +1,21 @@
 package com.ictpoker.ixi.Commons;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 public class Deck {
 
-    public final static int DECK_SIZE = 52;
     private final static Logger LOGGER = LogManager.getLogger(Deck.class);
+    public final static int DECK_SIZE = 52;
     private final Stack<Card> deck = new Stack<>();
 
-    public Deck() throws DuplicateCardException {
+    public Deck() {
         for (final Rank rank : Rank.values()) {
             for (final Suit suit : Suit.values()) {
-                add(new Card(rank, suit));
+                deck.add(new Card(rank, suit));
             }
         }
 
@@ -25,36 +23,14 @@ public class Deck {
     }
 
     public void shuffle() {
-
         Collections.shuffle(deck);
     }
 
-    public boolean add(@NotNull final Card card)
-            throws DuplicateCardException {
-
-        for (final Card c : deck) {
-            if (card.equals(c) || (card.getRank().equals(c.getRank()) && card.getSuit().equals(c.getSuit()))) {
-                throw new DuplicateCardException();
-            }
-        }
-
-        return deck.add(card);
-    }
-
     public Card draw() {
-
         return deck.pop();
     }
 
     public int size() {
-
         return deck.size();
     }
-
-    public boolean addAll(@NotNull final List<Card> cards) {
-
-        return deck.addAll(cards);
-    }
-
-    public class DuplicateCardException extends Exception {}
 }

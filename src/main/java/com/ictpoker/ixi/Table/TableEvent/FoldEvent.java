@@ -3,14 +3,12 @@ package com.ictpoker.ixi.Table.TableEvent;
 import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Seat;
-import com.ictpoker.ixi.Table.TableState;
+import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import java.util.Optional;
 
 public class FoldEvent extends TableEvent {
-
-    private final static Logger LOGGER = LogManager.getLogger(FoldEvent.class);
 
     public FoldEvent(@NotNull final Player player)
             throws TableEventException {
@@ -19,25 +17,27 @@ public class FoldEvent extends TableEvent {
     }
 
     @Override
-    public void handle(@NotNull final TableState tableState)
+    public TableEvent handle(@NotNull final Table table)
             throws TableEventException {
 
         try {
-            final Player player = getPlayer();
-            final Seat seat = tableState.getSeat(player);
+            final Optional<Seat> seat = table.getSeat(getPlayer());
+            seat.orElseThrow(() -> new TableStateException(("Player is not seated at the table")));
 
-            if (seat != tableState.getSeatToAct()) {
+            if (seat.get() != table.getSeatToAct()) {
                 throw new TableEventException("It's not the player's turn to act");
             }
 
-            seat.setActed(true);
-            seat.setFolded(true);
+            seat.get().setActed(true);
+            seat.get().setFolded(true);
 
-            LOGGER.info(String.format("%s folded", player.getName()));
+            addMessage(String.format("%s folded", getPlayer().getName()));
 
-            tableState.setActionToNextPlayer();
+            table.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }
+
+        return this;
     }
 }

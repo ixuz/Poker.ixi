@@ -4,14 +4,12 @@ import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
-import com.ictpoker.ixi.Table.TableState;
+import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import java.util.Optional;
 
 public class CommitEvent extends TableEvent {
-
-    private final static Logger LOGGER = LogManager.getLogger(CommitEvent.class);
 
     public CommitEvent(@NotNull final Player player,
                        @NotNull final int amount)
@@ -21,62 +19,61 @@ public class CommitEvent extends TableEvent {
     }
 
     @Override
-    public void handle(@NotNull final TableState tableState)
+    public TableEvent handle(@NotNull final Table table)
             throws TableEventException {
-
         try {
-            final Player player = getPlayer();
-            final Seat seat = tableState.getSeat(player);
+            final Optional<Seat> seat = table.getSeat(getPlayer());
+            seat.orElseThrow(() -> new TableStateException(("Player is not seated at the table")));
 
-            final int toCall = tableState.getRequiredAmountToCall();
-            final int toRaise = tableState.getRequiredAmountToRaise();
+            final int toCall = table.getRequiredAmountToCall();
+            final int toRaise = table.getRequiredAmountToRaise();
             final int actualRaiseAmount = getAmount() - toCall;
 
-            if (seat != tableState.getSeatToAct()) {
+            if (seat.get() != table.getSeatToAct()) {
                 throw new TableEventException("It's not the player's turn to act");
             }
 
-            if (getAmount() > seat.getStack()) {
+            if (getAmount() > seat.get().getStack()) {
                 throw new TableEventException("Player can't commit more than the available stack");
             }
 
-            if (!tableState.isSmallBlindPosted() && getAmount() != toCall) {
+            if (!table.isSmallBlindPosted() && getAmount() != toCall) {
                 throw new TableEventException("The player must post the small blind to play");
-            } else if (!tableState.isBigBlindPosted() && getAmount() != toCall) {
+            } else if (!table.isBigBlindPosted() && getAmount() != toCall) {
                 throw new TableEventException("The player must post the big blind to play");
             }
 
             if (getAmount() == 0) { // Desired check
                 if (toCall != 0) {
                     throw new TableEventException(String.format("%s can't check, he must commit at least %d",
-                            player.getName(),
+                            getPlayer().getName(),
                             toCall));
                 }
-                LOGGER.info(String.format("%s checked",
-                        player.getName()));
+                addMessage(String.format("%s checked",
+                        getPlayer().getName()));
             } else if (getAmount() > 0 && getAmount() == toCall) { // Desired call
-                if (!tableState.isSmallBlindPosted()) {
-                    LOGGER.info(String.format("%s posted small blind %d",
-                            player.getName(),
+                if (!table.isSmallBlindPosted()) {
+                    addMessage(String.format("%s posted small blind %d",
+                            getPlayer().getName(),
                             getAmount()));
-                } else if (!tableState.isBigBlindPosted()) {
-                    LOGGER.info(String.format("%s posted big blind %d",
-                            player.getName(),
+                } else if (!table.isBigBlindPosted()) {
+                    addMessage(String.format("%s posted big blind %d",
+                            getPlayer().getName(),
                             getAmount()));
                 } else {
-                    LOGGER.info(String.format("%s called %d",
-                            player.getName(),
+                    addMessage(String.format("%s called %d",
+                            getPlayer().getName(),
                             getAmount()));
                 }
             } else if (getAmount() > toCall) { // Desired raise
                 if (getAmount() < toRaise) {
                     throw new TableEventException(String.format("%s he must commit at least %d to raise",
-                            player.getName(),
+                            getPlayer().getName(),
                             toRaise));
                 }
-                tableState.setLastRaiseAmount(actualRaiseAmount);
-                LOGGER.info(String.format("%s raised %d by committing %d",
-                        player.getName(),
+                table.setLastRaiseAmount(actualRaiseAmount);
+                addMessage(String.format("%s raised %d by committing %d",
+                        getPlayer().getName(),
                         actualRaiseAmount,
                         getAmount()));
             } else {
@@ -84,27 +81,29 @@ public class CommitEvent extends TableEvent {
             }
 
             try {
-                seat.commit(getAmount());
+                seat.get().commit(getAmount());
             } catch (Exception e) {
                 throw new TableEventException("Failed to commit", e);
             }
 
-            if (!tableState.isSmallBlindPosted()) {
-                tableState.setSmallBlindPosted(true);
-            } else if (!tableState.isBigBlindPosted()) {
-                tableState.setBigBlindPosted(true);
+            if (!table.isSmallBlindPosted()) {
+                table.setSmallBlindPosted(true);
+            } else if (!table.isBigBlindPosted()) {
+                table.setBigBlindPosted(true);
             } else {
-                seat.setActed(true);
+                seat.get().setActed(true);
             }
 
-            if (seat.getStack() == 0) {
-                LOGGER.info(String.format("%s is all-in",
-                        player.getName()));
+            if (seat.get().getStack() == 0) {
+                addMessage(String.format("%s is all-in",
+                        getPlayer().getName()));
             }
 
-            tableState.setActionToNextPlayer();
+            table.setActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }
+
+        return this;
     }
 }

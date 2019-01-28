@@ -3,9 +3,12 @@ package com.ictpoker.ixi.Table;
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Player.Player;
 import com.sun.istack.internal.NotNull;
+import lombok.Data;
+import lombok.Getter;
 
 import java.util.Stack;
 
+@Data
 public class Seat {
 
     private final Player player;
@@ -13,9 +16,9 @@ public class Seat {
     private Stack<Card> cards = new Stack<>();
     private boolean folded = false;
     private boolean acted = false;
+    private boolean sittingOut = false;
     private int committed = 0;
     private int collected = 0;
-    private boolean sittingOut = false;
 
     public Seat() {
 
@@ -26,64 +29,6 @@ public class Seat {
 
         this.player = player;
         this.stack = stack;
-    }
-
-    public Player getPlayer() {
-
-        return player;
-    }
-
-    public void setStack(@NotNull final int stack) {
-
-        this.stack = stack;
-    }
-
-    public int getStack() {
-
-        return stack;
-    }
-
-    public Stack<Card> getCards() {
-
-        return cards;
-    }
-
-    public boolean hasFolded() {
-
-        return folded;
-    }
-
-    public void setFolded(@NotNull final boolean folded) {
-
-        this.folded = folded;
-    }
-
-    public boolean hasActed() {
-
-        return acted;
-    }
-
-    public void setActed(boolean acted) {
-
-        this.acted = acted;
-    }
-
-    public int getCommitted() {
-
-        return committed;
-    }
-
-    public void setCommitted(int committed) {
-
-        this.committed = committed;
-    }
-
-    public int getCollected() {
-        return collected;
-    }
-
-    public void setCollected(int collected) {
-        this.collected = collected;
     }
 
     public void moveCommittedToCollected() {
@@ -101,16 +46,4 @@ public class Seat {
         setStack(getStack()-amount);
         setCommitted(getCommitted()+amount);
     }
-
-    public boolean isSittingOut() {
-
-        return sittingOut;
-    }
-
-    public void setSittingOut(@NotNull final boolean sittingOut) {
-
-        this.sittingOut = sittingOut;
-    }
-
-    public class InsufficientStackException extends Exception {}
 }
