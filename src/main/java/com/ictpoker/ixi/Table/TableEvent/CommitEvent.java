@@ -99,7 +99,7 @@ public class CommitEvent extends TableEvent {
                         getPlayer().getName()));
             }
 
-            table.setActionToNextPlayer();
+            table.moveActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }

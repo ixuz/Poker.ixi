@@ -2,7 +2,6 @@ package com.ictpoker.ixi.Table.TableEvent;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
-import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.sun.istack.internal.NotNull;
@@ -27,26 +26,23 @@ public class DealEvent extends TableEvent {
             throw new TableEventException("Insufficient amount of active players to start a new hand");
         }
 
-        try {
-            table.setButtonPosition(dealerButtonPosition);
-            addMessage(String.format("Moved dealer button to seat #%s and dealing cards to players", table.getButtonPosition()));
+        table.setButtonPosition(dealerButtonPosition);
+        addMessage(String.format("Moved dealer button to seat #%s and dealing cards to players", table.getButtonPosition()));
 
-            final int cardsPerSeat = 2;
-            for (int i=0; i<cardsPerSeat; i++) {
-                for (Seat seat : table.getSeats()) {
-                    if (seat.isSittingOut()) {
-                        continue;
-                    }
-
-                    final Card card = table.getDeck().draw();
-                    seat.getCards().push(card);
+        final int cardsPerSeat = 2;
+        for (int i=0; i<cardsPerSeat; i++) {
+            for (Seat seat : table.getSeats()) {
+                if (seat.isSittingOut()) {
+                    continue;
                 }
-            }
 
-            table.setSeatToAct(table.getNextSeatToAct(table.getButtonPosition(), 0));
-        } catch (TableStateException e) {
-            throw new TableEventException("Failed to update table state", e);
+                final Card card = table.getDeck().draw();
+                seat.getCards().push(card);
+            }
         }
+
+        table.setSeatToAct(table.getSeat(table.getButtonPosition()));
+        table.moveActionToNextPlayer();
 
         return this;
     }

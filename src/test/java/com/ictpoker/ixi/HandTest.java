@@ -2,7 +2,6 @@ package com.ictpoker.ixi;
 
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
-import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.Exception.TableException;
 import com.ictpoker.ixi.Table.TableEvent.*;
@@ -24,7 +23,7 @@ public class HandTest {
 
     @Test
     public void testHand1()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -68,7 +67,7 @@ public class HandTest {
 
     @Test
     public void testHand2()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -103,7 +102,7 @@ public class HandTest {
 
     @Test
     public void testHand3()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
@@ -138,7 +137,7 @@ public class HandTest {
 
     @Test
     public void testHand4()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
@@ -166,7 +165,7 @@ public class HandTest {
 
     @Test
     public void testHand5()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 1000);
@@ -198,7 +197,7 @@ public class HandTest {
 
     @Test
     public void testHand6()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -236,7 +235,7 @@ public class HandTest {
 
     @Test
     public void testHand7()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -276,7 +275,7 @@ public class HandTest {
 
     @Test
     public void testHand8()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -319,7 +318,7 @@ public class HandTest {
 
     @Test
     public void testHand9()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -370,7 +369,7 @@ public class HandTest {
 
     @Test
     public void testHand10()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5, 10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -400,7 +399,7 @@ public class HandTest {
 
     @Test
     public void testHand11()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -443,7 +442,7 @@ public class HandTest {
 
     @Test
     public void testHand12()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);
@@ -475,7 +474,7 @@ public class HandTest {
 
     @Test
     public void testHand13()
-            throws TableException, TableStateException, TableEventException {
+            throws TableException, TableEventException {
 
         final Table table = new Table(500, 1000, 5,10);
         final Player adamBroker = new Player("Adam Broker", 2000);

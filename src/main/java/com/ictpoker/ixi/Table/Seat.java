@@ -31,12 +31,12 @@ public class Seat {
         this.stack = stack;
     }
 
-    public void moveCommittedToCollected() {
+    public synchronized void moveCommittedToCollected() {
         setCollected(getCollected() + getCommitted());
         setCommitted(0);
     }
 
-    public void commit(@NotNull final int amount)
+    public synchronized void commit(@NotNull final int amount)
             throws Exception {
 
         if (amount > getStack()) {

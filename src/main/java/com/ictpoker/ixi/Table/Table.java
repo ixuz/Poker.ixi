@@ -51,7 +51,7 @@ public class Table extends TableState {
         return (seat.getPlayer() != null);
     }
 
-    private Seat getSeat(@NotNull final int seatIndex) {
+    public Seat getSeat(@NotNull final int seatIndex) {
         return getSeats().get(seatIndex);
     }
 
@@ -63,9 +63,8 @@ public class Table extends TableState {
         return getSeats().stream().filter(seat -> seat.getPlayer() != null).collect(Collectors.toList());
     }
 
-    public void setActionToNextPlayer()
-            throws TableStateException {
-        final Seat nextSeatToAct = getNextSeatToAct(getSeatToAct(), 0);
+    public void moveActionToNextPlayer() {
+        final Seat nextSeatToAct = getNextSeatToAct(getSeatToAct());
         if (nextSeatToAct != null) {
             setSeatToAct(nextSeatToAct);
         } else {
@@ -73,123 +72,80 @@ public class Table extends TableState {
         }
     }
 
-    public Seat getNextSeatToAct(@NotNull final int seatIndex, @NotNull int skip)
-            throws TableStateException {
+    public Seat getNextSeatToAct(@NotNull final int seatIndex) {
         if (getNumberOfActiveSeats() <= 1) {
             return null;
         }
 
-        try {
-            for (int i=0; i<getSeats().size(); i++) {
-                final Seat seat;
-                seat = getSeat((seatIndex+i+1)%getSeats().size());
+        for (int i=0; i<getSeats().size(); i++) {
+            final Seat seat = getSeat((seatIndex+i+1)%getSeats().size());
 
-                if (seat.isSittingOut()) {
-                    continue;
-                }
-
-                if (!hasSeatActed(seat)) {
-                    if (skip > 0) {
-                        skip--;
-                    } else {
-                        return seat;
-                    }
-                }
+            if (seat.isSittingOut()) {
+                continue;
             }
-        } catch (TableStateException e) {
-            throw new TableStateException("Failed to find next seat to act", e);
+
+            if (!hasSeatActed(seat)) {
+                return seat;
+            }
         }
 
         return null;
     }
 
-    public Seat getNextSeatToAct(@NotNull final Seat seat, @NotNull int skip)
-            throws TableStateException {
-        final int seatIndex = getSeats().indexOf(seat);
-        return getNextSeatToAct(seatIndex, skip);
+    public Seat getNextSeatToAct(@NotNull final Seat seat) {
+        return getNextSeatToAct(getSeats().indexOf(seat));
     }
 
-    private boolean hasSeatActed(@NotNull final Seat seat)
-            throws TableStateException {
-        // If the seat has already folded, true
-        if (seat.isFolded()) {
+    private boolean hasSeatActed(@NotNull final Seat seat) {
+        if (seat.isFolded() || seat.getStack() == 0) {
             return true;
-        }
-
-        // If the seat can't act because no stack remaining, true
-        else if (seat.getStack() == 0) {
-            return true;
-        }
-
-        // If the seat have not acted at all this round, false
-        else if (!seat.isActed()) {
+        } else if (!seat.isActed()) {
             return false;
+        } else {
+            return seat.getCommitted() == getSeatWithHighestCommit(0).getCommitted();
         }
-
-        // If the seat has a stack remaining and haven't committed enough, false
-        else if (seat.getStack() > 0 && seat.getCommitted() < getSeatWithHighestCommit(0).getCommitted()) {
-            return false;
-        }
-
-        // If the seat has a stack remaining and committed enough, true
-        else if (seat.getStack() > 0 && seat.getCommitted() == getSeatWithHighestCommit(0).getCommitted()) {
-            return true;
-        }
-
-        throw new TableStateException("Could not determine if the player has to act or not");
     }
 
     public boolean hasAllSeatsActed() {
-        int numberOfPlayersLeftToAct = 0;
-        for (Seat seat : getSeats()) {
-            if (isSeatOccupied(seat) && !seat.isActed()) {
-                if (seat.getStack() > 0) {
-                    numberOfPlayersLeftToAct++;
-                }
-            }
-        }
+        final int numberOfPlayersLeftToAct = getSeats().stream()
+                .filter(seat -> isSeatOccupied(seat) && !seat.isActed())
+                .collect(Collectors.toList()).size();
 
-        if (numberOfPlayersLeftToAct > 1) {
-            return false;
-        }
-        return true;
+        return numberOfPlayersLeftToAct <= 1;
     }
 
     public int getNumberOfActiveSeats() {
-        int numberOfActiveSeats = 0;
-        for (Seat seat : getSeats()) {
-            if (seat.isSittingOut()) {
-                continue;
-            }
-            if (!isSeatOccupied(seat)) {
-                continue;
-            }
-            if (seat.isFolded()) {
-                continue;
-            }
-            numberOfActiveSeats++;
-        }
-        return numberOfActiveSeats;
+        return getSeats().stream()
+                .filter(seat -> isSeatOccupied(seat) && !seat.isSittingOut() && !seat.isFolded())
+                .collect(Collectors.toList()).size();
     }
 
     public Seat getSeatWithHighestCommit(int skip) {
         Seat[] seatArray = new Seat[getSeats().size()];
         seatArray = getSeats().toArray(seatArray);
-
-        Arrays.sort(seatArray, new Comparator<Seat>() {
-            @Override
-            public int compare(Seat a, Seat b) {
-                return (a.getCommitted() > b.getCommitted() ? -1 : 0);
-            }
-        });
-
+        Arrays.sort(seatArray, (a, b) -> (a.getCommitted() > b.getCommitted() ? -1 : 0));
         return seatArray[skip];
     }
 
-    public void finishBettingRound()
-            throws TableStateException {
-        LOGGER.info("Betting round has finished");
+    public int getTotalPot() {
+        return getSeats().stream().map(Seat::getCollected).reduce(0, Integer::sum);
+    }
 
+    public int getRequiredAmountToCall() {
+        if (!isSmallBlindPosted()) {
+            return Math.min(getSeatToAct().getStack(), getSmallBlindAmount());
+        } else if (!isBigBlindPosted()) {
+            return Math.min(getSeatToAct().getStack(), getBigBlindAmount());
+        } else {
+            return Math.min(getSeatToAct().getStack(), getSeatWithHighestCommit(0).getCommitted() - getSeatToAct().getCommitted());
+        }
+    }
+
+    public int getRequiredAmountToRaise() {
+        return Math.min(getSeatToAct().getStack(), getRequiredAmountToCall() + getLastRaiseAmount());
+    }
+
+    public void finishBettingRound() {
         // Return uncontested chips
         final Seat highestCommitSeat = getSeatWithHighestCommit(0);
         final Seat secondHighestCommitSeat = getSeatWithHighestCommit(1);
@@ -243,29 +199,11 @@ public class Table extends TableState {
             if (hasAllSeatsActed() && getBoardCards().size() == FLOP+TURN+RIVER) {
                 LOGGER.info("Hand finished");
             } else {
-                setSeatToAct(getNextSeatToAct(getButtonPosition(), 0));
+                setSeatToAct(getNextSeatToAct(getButtonPosition()));
             }
         } else {
             LOGGER.info("Hand finished, no contestants for the pot");
         }
-    }
-
-    public int getTotalPot() {
-        return getSeats().stream().map(Seat::getCollected).reduce(0, Integer::sum);
-    }
-
-    public int getRequiredAmountToCall() {
-        if (!isSmallBlindPosted()) {
-            return Math.min(getSeatToAct().getStack(), getSmallBlindAmount());
-        } else if (!isBigBlindPosted()) {
-            return Math.min(getSeatToAct().getStack(), getBigBlindAmount());
-        } else {
-            return Math.min(getSeatToAct().getStack(), getSeatWithHighestCommit(0).getCommitted() - getSeatToAct().getCommitted());
-        }
-    }
-
-    public int getRequiredAmountToRaise() {
-        return Math.min(getSeatToAct().getStack(), getRequiredAmountToCall() + getLastRaiseAmount());
     }
 
     public String toString() {

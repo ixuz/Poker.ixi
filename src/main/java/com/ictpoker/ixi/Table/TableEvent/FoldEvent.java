@@ -33,7 +33,7 @@ public class FoldEvent extends TableEvent {
 
             addMessage(String.format("%s folded", getPlayer().getName()));
 
-            table.setActionToNextPlayer();
+            table.moveActionToNextPlayer();
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }
