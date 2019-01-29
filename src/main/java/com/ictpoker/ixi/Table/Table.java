@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.Table;
 
-import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
@@ -79,12 +78,7 @@ public class Table extends TableState {
 
         for (int i=0; i<getSeats().size(); i++) {
             final Seat seat = getSeat((seatIndex+i+1)%getSeats().size());
-
-            if (seat.isSittingOut()) {
-                continue;
-            }
-
-            if (!hasSeatActed(seat)) {
+            if (!seat.isSittingOut() && !hasSeatActed(seat)) {
                 return seat;
             }
         }
@@ -110,7 +104,6 @@ public class Table extends TableState {
         final int numberOfPlayersLeftToAct = getSeats().stream()
                 .filter(seat -> isSeatOccupied(seat) && !seat.isActed())
                 .collect(Collectors.toList()).size();
-
         return numberOfPlayersLeftToAct <= 1;
     }
 
@@ -199,48 +192,26 @@ public class Table extends TableState {
             if (hasAllSeatsActed() && getBoardCards().size() == FLOP+TURN+RIVER) {
                 LOGGER.info("Hand finished");
             } else {
-                setSeatToAct(getNextSeatToAct(getButtonPosition()));
+                setSeatToAct(getSeat(getButtonPosition()));
+                moveActionToNextPlayer();
             }
         } else {
             LOGGER.info("Hand finished, no contestants for the pot");
+            // TODO: Deliver winnings to seats
         }
     }
 
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-
         sb.append(String.format("Table (seats: %d, buy-in: %d-%d), stakes %d/%d",
                 getSeats().size(),
                 getMinimumBuyIn(),
                 getMaximumBuyIn(),
                 getSmallBlindAmount(),
                 getBigBlindAmount()));
-
-        sb.append(String.format("\n Total pot: %d",
-                getTotalPot()));
-
-        sb.append("\n Board [ ");
-        for (final Card card : getBoardCards()) {
-            sb.append(String.format("%s ", card));
-        }
-        sb.append("]");
-
-        for (final Seat seat : getOccupiedSeats()) {
-            sb.append(String.format("\n %s ",
-                    seat.getPlayer().getName()));
-
-            sb.append("[ ");
-            for (final Card card : seat.getCards()) {
-                sb.append(String.format("%s ", card));
-            }
-            sb.append("]");
-
-            sb.append(String.format(", stack: %d, committed: %d, collected: %d",
-                    seat.getStack(),
-                    seat.getCommitted(),
-                    seat.getCollected()));
-        }
-
+        sb.append("\nTotal pot: ").append(getTotalPot());
+        sb.append("\nBoard ").append(getBoardCards());
+        getOccupiedSeats().forEach(seat -> sb.append("\n").append(seat.toString()));
         return sb.toString();
     }
 }

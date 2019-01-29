@@ -8,6 +8,7 @@ import com.sun.istack.internal.NotNull;
 
 public class DealEvent extends TableEvent {
 
+    private final static int CARDS_PER_SEAT = 2;
     private final int dealerButtonPosition;
 
     public DealEvent(@NotNull final int dealerButtonPosition)
@@ -29,8 +30,7 @@ public class DealEvent extends TableEvent {
         table.setButtonPosition(dealerButtonPosition);
         addMessage(String.format("Moved dealer button to seat #%s and dealing cards to players", table.getButtonPosition()));
 
-        final int cardsPerSeat = 2;
-        for (int i=0; i<cardsPerSeat; i++) {
+        for (int i=0; i<CARDS_PER_SEAT; i++) {
             for (Seat seat : table.getSeats()) {
                 if (seat.isSittingOut()) {
                     continue;

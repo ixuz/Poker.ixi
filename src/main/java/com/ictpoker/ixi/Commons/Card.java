@@ -10,6 +10,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return String.format("%s%s",getRank(), getSuit());
+        return String.format("%s%s", getRank(), getSuit());
     }
 }

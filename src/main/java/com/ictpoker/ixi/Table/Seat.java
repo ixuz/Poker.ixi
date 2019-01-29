@@ -46,4 +46,14 @@ public class Seat {
         setStack(getStack()-amount);
         setCommitted(getCommitted()+amount);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s, stack: %d, committed: %d, collected: %d",
+                getPlayer().getName(),
+                getCards(),
+                getStack(),
+                getCommitted(),
+                getCollected());
+    }
 }
