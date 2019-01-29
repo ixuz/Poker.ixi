@@ -20,7 +20,7 @@ public class DeckTest {
     public void testEmptyDeck() {
         final Deck deck = new Deck();
 
-        for (int i=0; i<Deck.DECK_SIZE; i++) {
+        for (int i=0; i<Rank.values().length*Suit.values().length; i++) {
             deck.draw();
         }
 
