@@ -5,7 +5,6 @@ import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
 
 import java.util.Optional;
 
@@ -13,7 +12,7 @@ public class SitOutEvent extends TableEvent {
 
     private final boolean sittingOut;
 
-    public SitOutEvent(@NotNull final Player player, @NotNull final boolean sittingOut)
+    public SitOutEvent(final Player player, final boolean sittingOut)
             throws TableEventException {
 
         super(player, 0);
@@ -22,7 +21,7 @@ public class SitOutEvent extends TableEvent {
     }
 
     @Override
-    public TableEvent handle(@NotNull final Table table)
+    public TableEvent handle(final Table table)
             throws TableEventException {
 
         try {

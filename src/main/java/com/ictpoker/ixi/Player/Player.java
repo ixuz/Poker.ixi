@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.Player;
 
-import com.sun.istack.internal.NotNull;
 import lombok.*;
 
 @Data
@@ -11,7 +10,7 @@ public class Player {
     @Setter(AccessLevel.NONE)
     private int balance;
 
-    public synchronized int deductBalance(@NotNull final int amount)
+    public synchronized int deductBalance(final int amount)
             throws Exception {
         if (balance-amount < 0) {
             throw new Exception("Insufficient balance");

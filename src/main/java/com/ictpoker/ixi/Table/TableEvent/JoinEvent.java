@@ -4,15 +4,14 @@ import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
 
 public class JoinEvent extends TableEvent {
 
     private final int seatIndex;
 
-    public JoinEvent(@NotNull final Player player,
-                     @NotNull final int buyIn,
-                     @NotNull final int seatIndex)
+    public JoinEvent(final Player player,
+                     final int buyIn,
+                     final int seatIndex)
             throws TableEventException {
         super(player, buyIn);
 
@@ -24,7 +23,7 @@ public class JoinEvent extends TableEvent {
     }
 
     @Override
-    public TableEvent handle(@NotNull final Table table)
+    public TableEvent handle(final Table table)
             throws TableEventException {
         if (!table.isSeatOccupied(getSeatIndex())) {
             if (getAmount() < table.getMinimumBuyIn() || getAmount() > table.getMaximumBuyIn()) {

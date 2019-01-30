@@ -3,14 +3,10 @@ package com.ictpoker.ixi.Table.TableEvent;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 @Data
 public abstract class TableEvent {
@@ -19,8 +15,8 @@ public abstract class TableEvent {
     private final int amount;
     private final List<String> output = new ArrayList<>();
 
-    public TableEvent(@Nullable final Player player,
-                      @NotNull final int amount)
+    public TableEvent(final Player player,
+                      final int amount)
             throws TableEventException {
 
         this.player = player;
@@ -33,7 +29,7 @@ public abstract class TableEvent {
         }
     }
 
-    public void addMessage(@NotNull final String message) {
+    public void addMessage(final String message) {
         output.add(message);
     }
 
@@ -50,5 +46,5 @@ public abstract class TableEvent {
         return sb.toString();
     }
 
-    public abstract TableEvent handle(@NotNull final Table table) throws TableEventException;
+    public abstract TableEvent handle(final Table table) throws TableEventException;
 }

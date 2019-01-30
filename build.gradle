@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.4'
+    compile 'org.projectlombok:lombok:1.18.4'
     compile 'com.github.iotaledger:ict:ffd5d510e6ea29584badeba6c4b507da4e0a6b99'
     compile 'com.google.code.gson:gson:2.8.5'
     compile group: 'org.danilopianini', name: 'gson-extras', version: '0.2.1'

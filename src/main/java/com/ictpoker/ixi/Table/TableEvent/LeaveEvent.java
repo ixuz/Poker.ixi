@@ -5,20 +5,19 @@ import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
 
 import java.util.Optional;
 
 public class LeaveEvent extends TableEvent {
 
-    public LeaveEvent(@NotNull final Player player)
+    public LeaveEvent(final Player player)
             throws TableEventException {
 
         super(player, 0);
     }
 
     @Override
-    public TableEvent handle(@NotNull final Table table)
+    public TableEvent handle(final Table table)
             throws TableEventException {
 
         try {

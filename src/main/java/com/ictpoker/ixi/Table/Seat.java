@@ -2,9 +2,7 @@ package com.ictpoker.ixi.Table;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Player.Player;
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.Stack;
 
@@ -25,7 +23,7 @@ public class Seat {
         this.player = null;
     }
 
-    public Seat(@NotNull final Player player, @NotNull final int stack) {
+    public Seat(final Player player, final int stack) {
 
         this.player = player;
         this.stack = stack;
@@ -36,7 +34,7 @@ public class Seat {
         setCommitted(0);
     }
 
-    public synchronized void commit(@NotNull final int amount)
+    public synchronized void commit(final int amount)
             throws Exception {
 
         if (amount > getStack()) {

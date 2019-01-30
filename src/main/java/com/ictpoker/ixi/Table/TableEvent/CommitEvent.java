@@ -5,21 +5,20 @@ import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
 
 import java.util.Optional;
 
 public class CommitEvent extends TableEvent {
 
-    public CommitEvent(@NotNull final Player player,
-                       @NotNull final int amount)
+    public CommitEvent(final Player player,
+                       final int amount)
             throws TableEventException {
 
         super(player, amount);
     }
 
     @Override
-    public TableEvent handle(@NotNull final Table table)
+    public TableEvent handle(final Table table)
             throws TableEventException {
         try {
             final Optional<Seat> seat = table.getSeat(getPlayer());

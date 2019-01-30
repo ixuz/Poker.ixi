@@ -4,14 +4,13 @@ import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-import com.sun.istack.internal.NotNull;
 
 public class DealEvent extends TableEvent {
 
     private final static int CARDS_PER_SEAT = 2;
     private final int dealerButtonPosition;
 
-    public DealEvent(@NotNull final int dealerButtonPosition)
+    public DealEvent(final int dealerButtonPosition)
             throws TableEventException {
 
         super(null, 0);
@@ -20,7 +19,7 @@ public class DealEvent extends TableEvent {
     }
 
     @Override
-    public TableEvent handle(@NotNull final Table table)
+    public TableEvent handle(final Table table)
             throws TableEventException {
 
         if (table.getNumberOfActiveSeats() <= 1) {

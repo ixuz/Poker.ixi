@@ -3,7 +3,6 @@ package com.ictpoker.ixi.Table;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
-import com.sun.istack.internal.NotNull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,10 +14,10 @@ public class Table extends TableState {
     private final static Logger LOGGER = LogManager.getLogger(Table.class);
     private final Queue<TableEvent> tableEventQueue = new LinkedList<>();
 
-    public Table(@NotNull final int minimumBuyIn,
-                 @NotNull final int maximumBuyIn,
-                 @NotNull final int smallBlindAmount,
-                 @NotNull final int bigBlindAmount) {
+    public Table(final int minimumBuyIn,
+                 final int maximumBuyIn,
+                 final int smallBlindAmount,
+                 final int bigBlindAmount) {
         super(minimumBuyIn, maximumBuyIn, smallBlindAmount, bigBlindAmount);
     }
 
@@ -34,27 +33,27 @@ public class Table extends TableState {
         }
     }
 
-    public void pushEvent(@NotNull final TableEvent tableEvent) {
+    public void pushEvent(final TableEvent tableEvent) {
         tableEventQueue.add(tableEvent);
     }
 
-    public int getPlayerSeatIndex(@NotNull final Player player) {
+    public int getPlayerSeatIndex(final Player player) {
         return getSeats().indexOf(getSeat(player).orElse(null));
     }
 
-    public boolean isSeatOccupied(@NotNull final int seatIndex) {
+    public boolean isSeatOccupied(final int seatIndex) {
         return isSeatOccupied(getSeat(seatIndex));
     }
 
-    private boolean isSeatOccupied(@NotNull final Seat seat) {
+    private boolean isSeatOccupied(final Seat seat) {
         return (seat.getPlayer() != null);
     }
 
-    public Seat getSeat(@NotNull final int seatIndex) {
+    public Seat getSeat(final int seatIndex) {
         return getSeats().get(seatIndex);
     }
 
-    public Optional<Seat> getSeat(@NotNull final Player player) {
+    public Optional<Seat> getSeat(final Player player) {
         return getSeats().stream().filter(seat -> seat.getPlayer() == player).findFirst();
     }
 
@@ -71,7 +70,7 @@ public class Table extends TableState {
         }
     }
 
-    public Seat getNextSeatToAct(@NotNull final int seatIndex) {
+    public Seat getNextSeatToAct(final int seatIndex) {
         if (getNumberOfActiveSeats() <= 1) {
             return null;
         }
@@ -86,11 +85,11 @@ public class Table extends TableState {
         return null;
     }
 
-    public Seat getNextSeatToAct(@NotNull final Seat seat) {
+    public Seat getNextSeatToAct(final Seat seat) {
         return getNextSeatToAct(getSeats().indexOf(seat));
     }
 
-    private boolean hasSeatActed(@NotNull final Seat seat) {
+    private boolean hasSeatActed(final Seat seat) {
         if (seat.isFolded() || seat.getStack() == 0) {
             return true;
         } else if (!seat.isActed()) {
