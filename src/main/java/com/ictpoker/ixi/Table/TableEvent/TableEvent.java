@@ -3,12 +3,10 @@ package com.ictpoker.ixi.Table.TableEvent;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Table;
-import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 public abstract class TableEvent {
 
     private final Player player;
@@ -44,6 +42,14 @@ public abstract class TableEvent {
             }
         }
         return sb.toString();
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     public abstract TableEvent handle(final Table table) throws TableEventException;

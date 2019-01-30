@@ -1,14 +1,14 @@
 package com.ictpoker.ixi.Player;
 
-import lombok.*;
-
-@Data
-@AllArgsConstructor
 public class Player {
 
     private final String name;
-    @Setter(AccessLevel.NONE)
     private int balance;
+
+    public Player(final String name, final int balance) {
+        this.name = name;
+        this.balance = balance;
+    }
 
     public synchronized int deductBalance(final int amount)
             throws Exception {
@@ -18,5 +18,17 @@ public class Player {
 
         balance -= amount;
         return amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }

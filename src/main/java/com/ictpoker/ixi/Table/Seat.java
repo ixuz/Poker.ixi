@@ -2,11 +2,9 @@ package com.ictpoker.ixi.Table;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Player.Player;
-import lombok.Data;
 
 import java.util.Stack;
 
-@Data
 public class Seat {
 
     private final Player player;
@@ -43,6 +41,66 @@ public class Seat {
 
         setStack(getStack()-amount);
         setCommitted(getCommitted()+amount);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public int getStack() {
+        return stack;
+    }
+
+    public void setStack(int stack) {
+        this.stack = stack;
+    }
+
+    public Stack<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(Stack<Card> cards) {
+        this.cards = cards;
+    }
+
+    public boolean isFolded() {
+        return folded;
+    }
+
+    public void setFolded(boolean folded) {
+        this.folded = folded;
+    }
+
+    public boolean isActed() {
+        return acted;
+    }
+
+    public void setActed(boolean acted) {
+        this.acted = acted;
+    }
+
+    public boolean isSittingOut() {
+        return sittingOut;
+    }
+
+    public void setSittingOut(boolean sittingOut) {
+        this.sittingOut = sittingOut;
+    }
+
+    public int getCommitted() {
+        return committed;
+    }
+
+    public void setCommitted(int committed) {
+        this.committed = committed;
+    }
+
+    public int getCollected() {
+        return collected;
+    }
+
+    public void setCollected(int collected) {
+        this.collected = collected;
     }
 
     @Override
