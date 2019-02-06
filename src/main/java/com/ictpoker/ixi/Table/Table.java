@@ -165,8 +165,8 @@ public class Table extends TableState {
     }
 
     public int getRequiredAmountToRaise() {
-        final int toRaise = Math.min(getSeatToAct().getStack(), getRequiredAmountToCall() + getLastRaiseAmount());
-        return Math.max(1, toRaise);
+        final int toRaise = Math.max(getRequiredAmountToCall() + getLastRaiseAmount(), getBigBlindAmount());
+        return Math.min(getSeatToAct().getStack(), toRaise);
     }
 
     public void finishBettingRound() {

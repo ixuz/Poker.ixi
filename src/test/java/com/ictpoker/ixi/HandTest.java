@@ -37,8 +37,8 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Adam Broker", 10));
-        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         // Flop
         table.pushEvent(new CheckEvent("Carry Davis"));
@@ -118,8 +118,8 @@ public class HandTest {
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
         table.pushEvent(new RaiseEvent("Adam Broker", 950));
-        table.pushEvent(new CallEvent("Carry Davis", 495));
-        table.pushEvent(new CallEvent("Eric Flores", 490));
+        table.pushEvent(new CallEvent("Carry Davis"));
+        table.pushEvent(new CallEvent("Eric Flores"));
 
         table.handleEventQueue();
 
@@ -179,7 +179,7 @@ public class HandTest {
         table.pushEvent(new PostBigBlindEvent("Adam Broker"));
         table.pushEvent(new DealEvent());
         table.pushEvent(new RaiseEvent("Carry Davis", 20));
-        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Adam Broker"));
         // Flop
         table.pushEvent(new BetEvent("Carry Davis", 20));
         table.pushEvent(new RaiseEvent("Adam Broker", 100));
@@ -212,8 +212,8 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Adam Broker", 10));
-        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         // Flop
         table.pushEvent(new BetEvent("Carry Davis", 50));
@@ -250,13 +250,13 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Adam Broker", 10));
-        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         // Flop
         table.pushEvent(new BetEvent("Carry Davis", 50));
         table.pushEvent(new FoldEvent("Eric Flores"));
-        table.pushEvent(new CallEvent("Adam Broker", 50));
+        table.pushEvent(new CallEvent("Adam Broker"));
         // Turn
         table.pushEvent(new BetEvent("Carry Davis", 100));
         table.pushEvent(new FoldEvent("Adam Broker"));
@@ -291,16 +291,16 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Adam Broker", 10));
-        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         // Flop
         table.pushEvent(new BetEvent("Carry Davis", 50));
         table.pushEvent(new FoldEvent("Eric Flores"));
-        table.pushEvent(new CallEvent("Adam Broker", 50));
+        table.pushEvent(new CallEvent("Adam Broker"));
         // Turn
         table.pushEvent(new BetEvent("Carry Davis", 100));
-        table.pushEvent(new CallEvent("Adam Broker", 100));
+        table.pushEvent(new CallEvent("Adam Broker"));
         // River
         table.pushEvent(new BetEvent("Carry Davis", 260));
         table.pushEvent(new RaiseEvent("Adam Broker", 840));
@@ -336,27 +336,27 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
         table.pushEvent(new PostBigBlindEvent("Eric Flores"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Adam Broker", 10));
-        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         // Flop
         table.pushEvent(new CheckEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         table.pushEvent(new BetEvent("Adam Broker", 25));
-        table.pushEvent(new CallEvent("Carry Davis", 25));
-        table.pushEvent(new CallEvent("Eric Flores", 25));
+        table.pushEvent(new CallEvent("Carry Davis"));
+        table.pushEvent(new CallEvent("Eric Flores"));
         // Turn
         table.pushEvent(new CheckEvent("Carry Davis"));
         table.pushEvent(new CheckEvent("Eric Flores"));
         table.pushEvent(new BetEvent("Adam Broker", 85));
-        table.pushEvent(new CallEvent("Carry Davis", 85));
+        table.pushEvent(new CallEvent("Carry Davis"));
         table.pushEvent(new RaiseEvent("Eric Flores", 170));
-        table.pushEvent(new CallEvent("Adam Broker", 85));
-        table.pushEvent(new CallEvent("Carry Davis", 85));
+        table.pushEvent(new CallEvent("Adam Broker"));
+        table.pushEvent(new CallEvent("Carry Davis"));
         // River
         table.pushEvent(new CheckEvent("Carry Davis"));
         table.pushEvent(new BetEvent("Eric Flores", 795));
-        table.pushEvent(new CallEvent("Adam Broker", 795));
+        table.pushEvent(new CallEvent("Adam Broker"));
         table.pushEvent(new FoldEvent("Carry Davis"));
 
         table.handleEventQueue();
@@ -390,7 +390,7 @@ public class HandTest {
         table.pushEvent(new DealEvent());
         table.pushEvent(new RaiseEvent("Carry Davis", 200));
         table.pushEvent(new RaiseEvent("Adam Broker", 550));
-        table.pushEvent(new CallEvent("Carry Davis", 300));
+        table.pushEvent(new CallEvent("Carry Davis"));
 
         table.handleEventQueue();
 
@@ -420,16 +420,16 @@ public class HandTest {
         table.pushEvent(new PostSmallBlindEvent("Eric Flores"));
         table.pushEvent(new PostBigBlindEvent("Adam Broker"));
         table.pushEvent(new DealEvent());
-        table.pushEvent(new CallEvent("Eric Flores", 5));
+        table.pushEvent(new CallEvent("Eric Flores"));
         table.pushEvent(new CheckEvent("Adam Broker"));
         // Flop
         table.pushEvent(new CheckEvent("Eric Flores"));
         table.pushEvent(new BetEvent("Adam Broker", 15));
-        table.pushEvent(new CallEvent("Eric Flores", 15));
+        table.pushEvent(new CallEvent("Eric Flores"));
         // Turn
         table.pushEvent(new CheckEvent("Eric Flores"));
         table.pushEvent(new BetEvent("Adam Broker", 40));
-        table.pushEvent(new CallEvent("Eric Flores", 40));
+        table.pushEvent(new CallEvent("Eric Flores"));
         // River
         table.pushEvent(new CheckEvent("Eric Flores"));
         table.pushEvent(new CheckEvent("Adam Broker"));

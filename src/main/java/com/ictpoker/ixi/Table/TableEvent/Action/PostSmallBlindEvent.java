@@ -22,12 +22,14 @@ public class PostSmallBlindEvent extends TableEvent {
             }
 
             if (table.getSeatToAct() == null && !table.isSmallBlindPosted()) {
-                table.setSeatToAct(table.getNextSeatToAct(table.getButtonPosition()));
+                final Seat seatToPostSmallBlind = table.getNextSeatToAct(table.getButtonPosition());
+                if (seat == seatToPostSmallBlind) {
+                    table.setSeatToAct(seatToPostSmallBlind);
+                } else {
+                    throw new TableStateException("Player can't post small blind, because it's not the player's turn to act.");
+                }
             }
 
-            if (table.getSeatToAct() != null && seat != table.getSeatToAct()) {
-                throw new TableStateException("Player can't post small blind, because it's not the player's turn to act.");
-            }
             if (seat.isActed()) {
                 throw new TableStateException("Player can't post small blind, because the player has already acted.");
             }

@@ -8,8 +8,8 @@ import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 
 public class CallEvent extends TableEvent {
 
-    public CallEvent(String playerName, int callAmount) {
-        super(playerName, callAmount);
+    public CallEvent(String playerName) {
+        super(playerName);
     }
 
     @Override
@@ -40,10 +40,10 @@ public class CallEvent extends TableEvent {
 
             log(String.format("%s: calls $%d",
                     getPlayerName(),
-                    getAmount()));
+                    toCall));
 
             try {
-                seat.commit(getAmount());
+                seat.commit(toCall);
             } catch (Exception e) {
                 throw new TableEventException("Failed to commit", e);
             }

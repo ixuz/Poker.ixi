@@ -22,7 +22,7 @@ public class BetEvent extends TableEvent {
                 throw new TableStateException("Player is not seated at the table");
             }
 
-            if (seat != table.getSeatToAct()) {
+            if (table.getSeatToAct() == null || (table.getSeatToAct() != null && seat != table.getSeatToAct())) {
                 throw new TableEventException("It's not the player's turn to act");
             }
 
@@ -35,7 +35,7 @@ public class BetEvent extends TableEvent {
             }
 
             final int toCall = table.getRequiredAmountToCall();
-            if (toCall != 0) {
+            if (toCall != 0 || table.getLastRaiseAmount() != 0) {
                 throw new TableEventException("The player can't bet, since another player have already committed chips");
             }
 

@@ -173,7 +173,7 @@ public class HandHistoryParser {
         if (m.find()) {
             final String playerName = m.group(1);
             final int call = Math.round(Float.parseFloat(m.group(2))*100);
-            return new CallEvent(playerName, call);
+            return new CallEvent(playerName);
         }
 
         m = actionCheckPattern.matcher(line);
