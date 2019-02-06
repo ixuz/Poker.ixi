@@ -15,26 +15,49 @@ public class TableState {
     protected final static int TURN = 1;
     protected final static int RIVER = 1;
 
-    private final List<Seat> seats = Stream.generate(Seat::new).limit(SEATS).collect(toCollection(ArrayList::new));
+    private String name = "Unnamed";
+    private List<Seat> seats = Stream.generate(Seat::new).limit(SEATS).collect(toCollection(ArrayList::new));
     private final List<Card> boardCards = new ArrayList<>();
-    private final Deck deck = new Deck();
+    private Deck deck = new Deck();
     private int buttonPosition = 0;
     private Seat lastRaiser = null;
     private int lastRaiseAmount = 0;
     private Seat seatToAct = null;
     private boolean smallBlindPosted = false;
     private boolean bigBlindPosted = false;
+    private Long handId = 0L;
 
-    private final int minimumBuyIn;
-    private final int maximumBuyIn;
-    private final int smallBlindAmount;
-    private final int bigBlindAmount;
+    private int minimumBuyIn;
+    private int maximumBuyIn;
+    private int smallBlindAmount;
+    private int bigBlindAmount;
 
-    public TableState(int minimumBuyIn, int maximumBuyIn, int smallBlindAmount, int bigBlindAmount) {
+    public TableState(int minimumBuyIn,
+                      int maximumBuyIn,
+                      int smallBlindAmount,
+                      int bigBlindAmount) {
         this.minimumBuyIn = minimumBuyIn;
         this.maximumBuyIn = maximumBuyIn;
         this.smallBlindAmount = smallBlindAmount;
         this.bigBlindAmount = bigBlindAmount;
+    }
+
+    public void reset() {
+        seatToAct = null;
+        smallBlindPosted = false;
+        bigBlindPosted = false;
+        deck = new Deck();
+        boardCards.clear();
+        lastRaiser = null;
+        lastRaiseAmount = 0;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Seat> getSeats() {
@@ -97,19 +120,47 @@ public class TableState {
         this.bigBlindPosted = bigBlindPosted;
     }
 
+    public Long getHandId() {
+        return handId;
+    }
+
+    public void setHandId(Long handId) {
+        this.handId = handId;
+    }
+
+    public void setMinimumBuyIn(int minimumBuyIn) {
+        this.minimumBuyIn = minimumBuyIn;
+    }
+
     public int getMinimumBuyIn() {
         return minimumBuyIn;
+    }
+
+    public void setMaximumBuyIn(int maximumBuyIn) {
+        this.maximumBuyIn = maximumBuyIn;
     }
 
     public int getMaximumBuyIn() {
         return maximumBuyIn;
     }
 
+    public void setSmallBlindAmount(int smallBlindAmount) {
+        this.smallBlindAmount = smallBlindAmount;
+    }
+
     public int getSmallBlindAmount() {
         return smallBlindAmount;
     }
 
+    public void setBigBlindAmount(int bigBlindAmount) {
+        this.bigBlindAmount = bigBlindAmount;
+    }
+
     public int getBigBlindAmount() {
         return bigBlindAmount;
+    }
+
+    public void setSeatCount(int seatCount) {
+        seats = Stream.generate(Seat::new).limit(seatCount).collect(toCollection(ArrayList::new));
     }
 }

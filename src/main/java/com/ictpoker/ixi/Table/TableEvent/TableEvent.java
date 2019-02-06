@@ -1,51 +1,38 @@
 package com.ictpoker.ixi.Table.TableEvent;
 
-import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Table;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class TableEvent {
 
-    private final Player player;
+    private final static Logger LOGGER = LogManager.getLogger(TableEvent.class);
+
+    private final String playerName;
     private final int amount;
-    private final List<String> output = new ArrayList<>();
 
-    public TableEvent(final Player player,
-                      final int amount)
-            throws TableEventException {
-
-        this.player = player;
+    public TableEvent(final String playerName, final int amount) {
+        this.playerName = playerName;
         this.amount = amount;
-
-        if (player != null) {
-            if (amount < 0 || amount > player.getBalance()) {
-                throw new TableEventException("Invalid amount");
-            }
-        }
     }
 
-    public void addMessage(final String message) {
-        output.add(message);
+    public TableEvent(final String playerName) {
+        this.playerName = playerName;
+        this.amount = 0;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-
-        for (int i=0; i<output.size(); i++) {
-            sb.append(output.get(i));
-            if (i < output.size()-1) {
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
+    public TableEvent() {
+        this.playerName = null;
+        this.amount = 0;
     }
 
-    public Player getPlayer() {
-        return player;
+    public void log(final String message) {
+        LOGGER.info(message);
+    }
+
+    public String getPlayerName() {
+        return playerName;
     }
 
     public int getAmount() {

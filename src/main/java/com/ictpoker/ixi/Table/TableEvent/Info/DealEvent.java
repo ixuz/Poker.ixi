@@ -1,21 +1,18 @@
-package com.ictpoker.ixi.Table.TableEvent;
+package com.ictpoker.ixi.Table.TableEvent.Info;
 
 import com.ictpoker.ixi.Commons.Card;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
+import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 
 public class DealEvent extends TableEvent {
 
     private final static int CARDS_PER_SEAT = 2;
-    private final int dealerButtonPosition;
 
-    public DealEvent(final int dealerButtonPosition)
-            throws TableEventException {
+    public DealEvent() {
 
         super(null, 0);
-
-        this.dealerButtonPosition = dealerButtonPosition;
     }
 
     @Override
@@ -26,8 +23,7 @@ public class DealEvent extends TableEvent {
             throw new TableEventException("Insufficient amount of active players to start a new hand");
         }
 
-        table.setButtonPosition(dealerButtonPosition);
-        addMessage(String.format("Moved dealer button to seat #%s and dealing cards to players", table.getButtonPosition()));
+        log(String.format("*** HOLE CARDS ***"));
 
         for (int i=0; i<CARDS_PER_SEAT; i++) {
             for (Seat seat : table.getSeats()) {
@@ -39,9 +35,6 @@ public class DealEvent extends TableEvent {
                 seat.getCards().push(card);
             }
         }
-
-        table.setSeatToAct(table.getSeat(table.getButtonPosition()));
-        table.moveActionToNextPlayer();
 
         return this;
     }

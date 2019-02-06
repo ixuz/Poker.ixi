@@ -1,10 +1,12 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.Player.Player;
-import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.Exception.TableException;
-import com.ictpoker.ixi.Table.TableEvent.*;
+import com.ictpoker.ixi.Table.TableEvent.Action.*;
+import com.ictpoker.ixi.Table.TableEvent.Info.DealEvent;
+import com.ictpoker.ixi.Table.TableEvent.Action.JoinEvent;
+import com.ictpoker.ixi.Table.TableEvent.Info.MoveButtonEvent;
+import com.ictpoker.ixi.Table.TableEvent.Info.SetSeatEvent;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,31 +25,33 @@ public class HandTest {
 
     @Test
     public void testHand1()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 0));
+        table.pushEvent(new SetSeatEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new SetSeatEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new SetSeatEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        // Flop
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new CheckEvent("Adam Broker"));
+        // Turn
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new CheckEvent("Adam Broker"));
+        // River
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new CheckEvent("Adam Broker"));
 
         table.handleEventQueue();
 
@@ -67,22 +71,21 @@ public class HandTest {
 
     @Test
     public void testHand2()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 40)); // Bet
-        table.pushEvent(new FoldEvent(carryDavis));
-        table.pushEvent(new FoldEvent(ericFlores));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new RaiseEvent("Adam Broker", 40));
+        table.pushEvent(new FoldEvent("Carry Davis"));
+        table.pushEvent(new FoldEvent("Eric Flores"));
 
         table.handleEventQueue();
 
@@ -102,22 +105,21 @@ public class HandTest {
 
     @Test
     public void testHand3()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
-        final Player adamBroker = new Player("Adam Broker", 1000);
-        final Player carryDavis = new Player("Carry Davis", 500);
-        final Player ericFlores = new Player("Eric Flores", 500);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 500, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 950));
-        table.pushEvent(new CommitEvent(carryDavis, 495));
-        table.pushEvent(new CommitEvent(ericFlores, 490));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 500, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 500, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new RaiseEvent("Adam Broker", 950));
+        table.pushEvent(new CallEvent("Carry Davis", 495));
+        table.pushEvent(new CallEvent("Eric Flores", 490));
 
         table.handleEventQueue();
 
@@ -137,18 +139,18 @@ public class HandTest {
 
     @Test
     public void testHand4()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
-        final Player adamBroker = new Player("Adam Broker", 1000);
-        final Player carryDavis = new Player("Carry Davis", 500);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new FoldEvent(carryDavis));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 500, 1));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Adam Broker"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new FoldEvent("Carry Davis"));
 
         table.handleEventQueue();
 
@@ -165,22 +167,23 @@ public class HandTest {
 
     @Test
     public void testHand5()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
-        final Player adamBroker = new Player("Adam Broker", 1000);
-        final Player carryDavis = new Player("Carry Davis", 500);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 15));
-        table.pushEvent(new CommitEvent(adamBroker, 20));
-        table.pushEvent(new CommitEvent(carryDavis, 20));
-        table.pushEvent(new CommitEvent(adamBroker, 100));
-        table.pushEvent(new FoldEvent(carryDavis));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 500, 1));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Adam Broker"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new RaiseEvent("Carry Davis", 20));
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        // Flop
+        table.pushEvent(new BetEvent("Carry Davis", 20));
+        table.pushEvent(new RaiseEvent("Adam Broker", 100));
+        table.pushEvent(new FoldEvent("Carry Davis"));
 
         table.handleEventQueue();
 
@@ -197,25 +200,25 @@ public class HandTest {
 
     @Test
     public void testHand6()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 50));
-        table.pushEvent(new FoldEvent(ericFlores));
-        table.pushEvent(new FoldEvent(adamBroker));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        // Flop
+        table.pushEvent(new BetEvent("Carry Davis", 50));
+        table.pushEvent(new FoldEvent("Eric Flores"));
+        table.pushEvent(new FoldEvent("Adam Broker"));
 
         table.handleEventQueue();
 
@@ -235,27 +238,28 @@ public class HandTest {
 
     @Test
     public void testHand7()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 50));
-        table.pushEvent(new FoldEvent(ericFlores));
-        table.pushEvent(new CommitEvent(adamBroker, 50));
-        table.pushEvent(new CommitEvent(carryDavis, 100));
-        table.pushEvent(new FoldEvent(adamBroker));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        // Flop
+        table.pushEvent(new BetEvent("Carry Davis", 50));
+        table.pushEvent(new FoldEvent("Eric Flores"));
+        table.pushEvent(new CallEvent("Adam Broker", 50));
+        // Turn
+        table.pushEvent(new BetEvent("Carry Davis", 100));
+        table.pushEvent(new FoldEvent("Adam Broker"));
 
         table.handleEventQueue();
 
@@ -275,30 +279,32 @@ public class HandTest {
 
     @Test
     public void testHand8()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 50));
-        table.pushEvent(new FoldEvent(ericFlores));
-        table.pushEvent(new CommitEvent(adamBroker, 50));
-        table.pushEvent(new CommitEvent(carryDavis, 100));
-        table.pushEvent(new CommitEvent(adamBroker, 100));
-        table.pushEvent(new CommitEvent(carryDavis, 260));
-        table.pushEvent(new CommitEvent(adamBroker, 840));
-        table.pushEvent(new FoldEvent(carryDavis));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        // Flop
+        table.pushEvent(new BetEvent("Carry Davis", 50));
+        table.pushEvent(new FoldEvent("Eric Flores"));
+        table.pushEvent(new CallEvent("Adam Broker", 50));
+        // Turn
+        table.pushEvent(new BetEvent("Carry Davis", 100));
+        table.pushEvent(new CallEvent("Adam Broker", 100));
+        // River
+        table.pushEvent(new BetEvent("Carry Davis", 260));
+        table.pushEvent(new RaiseEvent("Adam Broker", 840));
+        table.pushEvent(new FoldEvent("Carry Davis"));
 
         table.handleEventQueue();
 
@@ -318,38 +324,40 @@ public class HandTest {
 
     @Test
     public void testHand9()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 10));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 25));
-        table.pushEvent(new CommitEvent(carryDavis, 25));
-        table.pushEvent(new CommitEvent(ericFlores, 25));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 85));
-        table.pushEvent(new CommitEvent(carryDavis, 85));
-        table.pushEvent(new CommitEvent(ericFlores, 170));
-        table.pushEvent(new CommitEvent(adamBroker, 85));
-        table.pushEvent(new CommitEvent(carryDavis, 85));
-        table.pushEvent(new CommitEvent(carryDavis, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 795));
-        table.pushEvent(new CommitEvent(adamBroker, 795));
-        table.pushEvent(new FoldEvent(carryDavis));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Eric Flores"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Adam Broker", 10));
+        table.pushEvent(new CallEvent("Carry Davis", 5));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        // Flop
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new BetEvent("Adam Broker", 25));
+        table.pushEvent(new CallEvent("Carry Davis", 25));
+        table.pushEvent(new CallEvent("Eric Flores", 25));
+        // Turn
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new BetEvent("Adam Broker", 85));
+        table.pushEvent(new CallEvent("Carry Davis", 85));
+        table.pushEvent(new RaiseEvent("Eric Flores", 170));
+        table.pushEvent(new CallEvent("Adam Broker", 85));
+        table.pushEvent(new CallEvent("Carry Davis", 85));
+        // River
+        table.pushEvent(new CheckEvent("Carry Davis"));
+        table.pushEvent(new BetEvent("Eric Flores", 795));
+        table.pushEvent(new CallEvent("Adam Broker", 795));
+        table.pushEvent(new FoldEvent("Carry Davis"));
 
         table.handleEventQueue();
 
@@ -369,20 +377,20 @@ public class HandTest {
 
     @Test
     public void testHand10()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 600, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 500, 1));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 200));
-        table.pushEvent(new CommitEvent(adamBroker, 550));
-        table.pushEvent(new CommitEvent(carryDavis, 295));
+        table.pushEvent(new JoinEvent("Adam Broker", 600, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 500, 1));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Adam Broker"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new RaiseEvent("Carry Davis", 200));
+        table.pushEvent(new RaiseEvent("Adam Broker", 550));
+        table.pushEvent(new CallEvent("Carry Davis", 300));
 
         table.handleEventQueue();
 
@@ -399,30 +407,32 @@ public class HandTest {
 
     @Test
     public void testHand11()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new SitOutEvent(carryDavis, true));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(ericFlores, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(ericFlores, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 0));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 15));
-        table.pushEvent(new CommitEvent(ericFlores, 15));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 40));
-        table.pushEvent(new CommitEvent(ericFlores, 40));
-        table.pushEvent(new CommitEvent(ericFlores, 0));
-        table.pushEvent(new CommitEvent(adamBroker, 0));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new SitOutEvent("Carry Davis", true));
+        table.pushEvent(new PostSmallBlindEvent("Eric Flores"));
+        table.pushEvent(new PostBigBlindEvent("Adam Broker"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new CallEvent("Eric Flores", 5));
+        table.pushEvent(new CheckEvent("Adam Broker"));
+        // Flop
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new BetEvent("Adam Broker", 15));
+        table.pushEvent(new CallEvent("Eric Flores", 15));
+        // Turn
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new BetEvent("Adam Broker", 40));
+        table.pushEvent(new CallEvent("Eric Flores", 40));
+        // River
+        table.pushEvent(new CheckEvent("Eric Flores"));
+        table.pushEvent(new CheckEvent("Adam Broker"));
 
         table.handleEventQueue();
 
@@ -442,23 +452,22 @@ public class HandTest {
 
     @Test
     public void testHand12()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new SitOutEvent(carryDavis, true));
-        table.pushEvent(new SitOutEvent(ericFlores, true));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        // Pre-flop
+        table.pushEvent(new SitOutEvent("Carry Davis", true));
+        table.pushEvent(new SitOutEvent("Eric Flores", true));
 
         table.handleEventQueue();
 
         try {
-            table.pushEvent(new DealEvent(0));
+            table.pushEvent(new MoveButtonEvent(0));
+            table.pushEvent(new DealEvent());
             table.handleEventQueue();
             Assert.fail("Too few players to start a hand");
         } catch (TableException e) {
@@ -474,24 +483,23 @@ public class HandTest {
 
     @Test
     public void testHand13()
-            throws TableException, TableEventException {
+            throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
-        final Player adamBroker = new Player("Adam Broker", 2000);
-        final Player carryDavis = new Player("Carry Davis", 1000);
-        final Player ericFlores = new Player("Eric Flores", 1000);
 
-        table.pushEvent(new JoinEvent(adamBroker, 1000, 0));
-        table.pushEvent(new JoinEvent(carryDavis, 1000, 1));
-        table.pushEvent(new JoinEvent(ericFlores, 1000, 2));
-        table.pushEvent(new SitOutEvent(carryDavis, true));
-        table.pushEvent(new SitOutEvent(ericFlores, true));
-        table.pushEvent(new SitOutEvent(carryDavis, false));
-        table.pushEvent(new DealEvent(0));
-        table.pushEvent(new CommitEvent(carryDavis, 5));
-        table.pushEvent(new CommitEvent(adamBroker, 10));
-        table.pushEvent(new CommitEvent(carryDavis, 995));
-        table.pushEvent(new FoldEvent(adamBroker));
+        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+        table.pushEvent(new MoveButtonEvent(0));
+        // Pre-flop
+        table.pushEvent(new SitOutEvent("Carry Davis", true));
+        table.pushEvent(new SitOutEvent("Eric Flores", true));
+        table.pushEvent(new SitOutEvent("Carry Davis", false));
+        table.pushEvent(new PostSmallBlindEvent("Carry Davis"));
+        table.pushEvent(new PostBigBlindEvent("Adam Broker"));
+        table.pushEvent(new DealEvent());
+        table.pushEvent(new RaiseEvent("Carry Davis", 995));
+        table.pushEvent(new FoldEvent("Adam Broker"));
 
         table.handleEventQueue();
 

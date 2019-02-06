@@ -72,6 +72,9 @@ public class Seat {
     }
 
     public boolean isActed() {
+        if (getStack() == 0) {
+            return true;
+        }
         return acted;
     }
 

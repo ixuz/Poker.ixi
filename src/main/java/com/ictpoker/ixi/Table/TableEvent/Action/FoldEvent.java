@@ -1,18 +1,15 @@
-package com.ictpoker.ixi.Table.TableEvent;
+package com.ictpoker.ixi.Table.TableEvent.Action;
 
 import com.ictpoker.ixi.Table.Exception.*;
-import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
-
-import java.util.Optional;
+import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 
 public class FoldEvent extends TableEvent {
 
-    public FoldEvent(final Player player)
-            throws TableEventException {
+    public FoldEvent(final String playerName) {
 
-        super(player, 0);
+        super(playerName, 0);
     }
 
     @Override
@@ -20,17 +17,19 @@ public class FoldEvent extends TableEvent {
             throws TableEventException {
 
         try {
-            final Optional<Seat> seat = table.getSeat(getPlayer());
-            seat.orElseThrow(() -> new TableStateException(("Player is not seated at the table")));
+            final Seat seat = table.getSeatByPlayerName(getPlayerName());
+            if (seat == null ) {
+                throw new TableStateException(("Player is not seated at the table"));
+            }
 
-            if (seat.get() != table.getSeatToAct()) {
+            if (seat != table.getSeatToAct()) {
                 throw new TableEventException("It's not the player's turn to act");
             }
 
-            seat.get().setActed(true);
-            seat.get().setFolded(true);
+            seat.setActed(true);
+            seat.setFolded(true);
 
-            addMessage(String.format("%s folded", getPlayer().getName()));
+            log(String.format("%s: folds", getPlayerName()));
 
             table.moveActionToNextPlayer();
         } catch (TableStateException e) {

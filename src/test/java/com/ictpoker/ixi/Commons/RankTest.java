@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.Commons;
 
-import com.ictpoker.ixi.Commons.Rank;
 import org.junit.Assert;
 import org.junit.Test;
 

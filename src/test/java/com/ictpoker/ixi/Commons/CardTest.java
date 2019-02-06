@@ -1,8 +1,5 @@
 package com.ictpoker.ixi.Commons;
 
-import com.ictpoker.ixi.Commons.Card;
-import com.ictpoker.ixi.Commons.Rank;
-import com.ictpoker.ixi.Commons.Suit;
 import org.junit.Assert;
 import org.junit.Test;
 

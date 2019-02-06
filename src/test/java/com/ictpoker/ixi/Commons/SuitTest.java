@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.Commons;
 
-import com.ictpoker.ixi.Commons.Suit;
 import org.junit.Assert;
 import org.junit.Test;
 

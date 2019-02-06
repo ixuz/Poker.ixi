@@ -1,19 +1,19 @@
-package com.ictpoker.ixi.Table.TableEvent;
+package com.ictpoker.ixi.Table.TableEvent.Action;
 
-import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Player.Player;
+import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
+import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 
 public class JoinEvent extends TableEvent {
 
     private final int seatIndex;
 
-    public JoinEvent(final Player player,
+    public JoinEvent(final String playerName,
                      final int buyIn,
-                     final int seatIndex)
-            throws TableEventException {
-        super(player, buyIn);
+                     final int seatIndex) {
+        super(playerName, buyIn);
 
         this.seatIndex = seatIndex;
     }
@@ -32,14 +32,13 @@ public class JoinEvent extends TableEvent {
 
             try {
                 table.getSeats().set(getSeatIndex(),
-                        new Seat(getPlayer(),
-                                getPlayer().deductBalance(getAmount())));
+                        new Seat(new Player(getPlayerName()), getAmount()));
             } catch (Exception e) {
                 throw new TableEventException("Player has insufficient balance", e);
             }
 
-            addMessage(String.format("%s joined the table at seat #%d with stack %d",
-                    getPlayer().getName(),
+            log(String.format("%s joined the table at seat #%d with stack %d",
+                    getPlayerName(),
                     getSeatIndex(),
                     getAmount()));
         } else {
