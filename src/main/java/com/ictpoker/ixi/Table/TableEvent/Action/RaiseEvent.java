@@ -36,7 +36,7 @@ public class RaiseEvent extends TableEvent {
             }
 
             final int toCall = table.getRequiredAmountToCall();
-            if (toCall == 0) {
+            if (toCall == 0 && table.getSeatWithHighestCommit(0).getCommitted() == 0) {
                 throw new TableEventException("The player can't raise, since nobody has bet");
             }
 

@@ -32,6 +32,7 @@ public class HandHistoryParser {
     private final static Pattern actionLeavesPattern = Pattern.compile("(.+?(?=\\sleaves)) leaves the table");
     private final static Pattern actionPostSmallBlindPattern = Pattern.compile("(.+?(?=:)): posts small blind \\$(\\d*.?\\d*)");
     private final static Pattern actionPostBigBlindPattern = Pattern.compile("(.+?(?=:)): posts big blind \\$(\\d*.?\\d*)");
+    private final static Pattern actionPostSmallAndBigBlindPattern = Pattern.compile("(.+): posts small & big blinds \\$(\\d*.?\\d*)");
     private final static Pattern actionSitOutPattern = Pattern.compile("(.+?(?=:)): (sits out|is sitting out)");
     private final static Pattern actionFoldPattern = Pattern.compile("(.+?(?=:)): folds");
     private final static Pattern actionRaisePattern = Pattern.compile("(.+?(?=:)): raises \\$(\\d*.?\\d*) to \\$(\\d*.?\\d*)");
@@ -125,6 +126,13 @@ public class HandHistoryParser {
             final String playerName = m.group(1);
             final int postedBigBlind = Math.round(Float.parseFloat(m.group(2))*100);
             return new PostBigBlindEvent(playerName);
+        }
+
+        m = actionPostSmallAndBigBlindPattern.matcher(line);
+        if (m.find()) {
+            final String playerName = m.group(1);
+            final int postedSmallAndBigBlind = Math.round(Float.parseFloat(m.group(2))*100);
+            return new PostSmallAndBigBlindEvent(playerName);
         }
 
         m = actionSitOutPattern.matcher(line);

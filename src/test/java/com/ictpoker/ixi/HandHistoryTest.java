@@ -21,4 +21,32 @@ public class HandHistoryTest {
             Assert.fail();
         }
     }
+
+    @Test
+    public void testHandHistory2() {
+
+        final Table table = new Table(500, 1000, 5,10);
+
+        try {
+            table.pushEvents(HandHistoryParser.parseFile("handHistories/handHistory2.txt"));
+            table.handleEventQueue();
+        } catch (TableException | HandHistoryParser.ParseException e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void testHandHistory3() {
+
+        final Table table = new Table(500, 1000, 5,10);
+
+        try {
+            table.pushEvents(HandHistoryParser.parseFile("handHistories/handHistory3.txt"));
+            table.handleEventQueue();
+        } catch (TableException | HandHistoryParser.ParseException e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+    }
 }

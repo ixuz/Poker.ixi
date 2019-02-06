@@ -1,0 +1,3289 @@
+PokerIXI Hand #1:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($2.06 in chips)
+Seat 2: Player B ($2.97 in chips)
+Seat 3: Player C ($2 in chips)
+Seat 4: Player D ($4.51 in chips)
+Seat 5: Player E ($0.45 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Jc 3c]
+Player D: folds
+Player E: calls $0.02
+Player F: folds
+Player A: calls $0.02
+Player B: calls $0.01
+Player C: checks
+*** FLOP *** [4s Tc 7d]
+Player B: checks
+Player C: checks
+Player E: checks
+Player A: bets $0.10
+Player B: folds
+Player C: folds
+Player E: folds
+Uncalled bet ($0.10) returned to Player A
+Player A collected $0.08 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.08 | Rake $0
+Board [4s Tc 7d]
+Seat 1: Player A (button) collected ($0.08)
+Seat 2: Player B (small blind) folded on the Flop
+Seat 3: Player C (big blind) folded on the Flop
+Seat 4: Player D folded before Flop (didn't bet)
+Seat 5: Player E folded on the Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #2:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($2.12 in chips)
+Seat 2: Player B ($2.95 in chips)
+Seat 3: Player C ($1.98 in chips)
+Seat 5: Player E ($0.43 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player C: posts small blind $0.01
+Player D: is sitting out
+Player E: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Ac 4h]
+Player F: raises $0.04 to $0.06
+Player A: raises $0.04 to $0.10
+Player B: folds
+Player C: folds
+Player E: folds
+Player D leaves the table
+Player F: calls $0.04
+*** FLOP *** [6h 7s Kh]
+Player F: checks
+Player G joins the table at seat #4
+Player A: bets $0.20
+Player F: folds
+Uncalled bet ($0.20) returned to Player A
+Player A collected $0.22 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.23 | Rake $0.01
+Board [6h 7s Kh]
+Seat 1: Player A collected ($0.22)
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player E (big blind) folded before Flop
+Seat 6: Player F folded on the Flop
+
+
+
+PokerIXI Hand #3:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.24 in chips)
+Seat 2: Player B ($2.95 in chips)
+Seat 3: Player C ($1.97 in chips)
+Seat 5: Player E ($0.41 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player E: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7c 5d]
+Player A: raises $0.04 to $0.06
+Player B: folds
+Player C: folds
+Player E: calls $0.05
+Player F: raises $0.24 to $0.30
+Player A: calls $0.24
+Player E: folds
+*** FLOP *** [6s 2h Th]
+Player F: bets $0.50 and is all-in
+Player A: calls $0.50
+*** TURN *** [6s 2h Th] [Tc]
+*** RIVER *** [6s 2h Th Tc] [9s]
+*** SHOW DOWN ***
+Player F: shows [Ac Qs] (a pair of Tens)
+Player A: shows [Jd Td] (three of a kind, Tens)
+Player A collected $1.60 from pot
+*** SUMMARY ***
+Total pot $1.66 | Rake $0.06
+Board [6s 2h Th Tc 9s]
+Seat 1: Player A showed [Jd Td] and won ($1.60) with three of a kind, Tens
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 5: Player E (small blind) folded before Flop
+Seat 6: Player F (big blind) showed [Ac Qs] and lost with a pair of Tens
+
+
+
+PokerIXI Hand #4:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($3.04 in chips)
+Seat 2: Player B ($2.95 in chips)
+Seat 3: Player C ($1.97 in chips)
+Seat 5: Player E ($0.35 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+Player G: sits out
+*** HOLE CARDS ***
+Dealt to Player C [6s 7d]
+Player B: folds
+Player C: folds
+Player E: folds
+Player F: raises $0.04 to $0.06
+Player A: calls $0.04
+*** FLOP *** [6h 5c Qd]
+Player F: checks
+Player A: checks
+*** TURN *** [6h 5c Qd] [Jc]
+Player F: checks
+Player A: checks
+*** RIVER *** [6h 5c Qd Jc] [Qc]
+Player F: bets $0.14
+Player A: folds
+Uncalled bet ($0.14) returned to Player F
+Player F collected $0.12 from pot
+Player F: doesn't show hand
+*** SUMMARY ***
+Total pot $0.12 | Rake $0
+Board [6h 5c Qd Jc Qc]
+Seat 1: Player A (big blind) folded on the River
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player E (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) collected ($0.12)
+
+
+
+PokerIXI Hand #5:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($2.98 in chips)
+Seat 2: Player B ($2.95 in chips)
+Seat 3: Player C ($1.97 in chips)
+Seat 5: Player E ($0.35 in chips)
+Seat 6: Player F ($0.86 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+Player G: sits out
+*** HOLE CARDS ***
+Dealt to Player C [5h As]
+Player C: folds
+Player E: folds
+Player F: raises $0.02 to $0.04
+Player A: calls $0.03
+Player B: folds
+*** FLOP *** [Ad 4s Ac]
+Player A: checks
+Player F: bets $0.05
+Player A: folds
+Uncalled bet ($0.05) returned to Player F
+Player F collected $0.10 from pot
+Player F: doesn't show hand
+*** SUMMARY ***
+Total pot $0.10 | Rake $0
+Board [Ad 4s Ac]
+Seat 1: Player A (small blind) folded on the Flop
+Seat 2: Player B (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F (button) collected ($0.10)
+
+
+
+PokerIXI Hand #6:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($2.94 in chips)
+Seat 2: Player B ($2.93 in chips)
+Seat 3: Player C ($1.97 in chips)
+Seat 5: Player E ($0.35 in chips)
+Seat 6: Player F ($0.92 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+Player G: sits out
+*** HOLE CARDS ***
+Dealt to Player C [2h Kc]
+Player E: folds
+Player F: folds
+Player A: calls $0.02
+Player B: calls $0.01
+Player C: checks
+*** FLOP *** [Ks 4h 9h]
+Player B: checks
+Player C: checks
+Player A: checks
+*** TURN *** [Ks 4h 9h] [Jc]
+Player B: checks
+Player C: bets $0.02
+Player A: folds
+Player B: calls $0.02
+*** RIVER *** [Ks 4h 9h Jc] [Ad]
+Player B: checks
+Player C: checks
+*** SHOW DOWN ***
+Player B: shows [Ah 7c] (a pair of Aces)
+Player C: mucks hand
+Player B collected $0.10 from pot
+*** SUMMARY ***
+Total pot $0.10 | Rake $0
+Board [Ks 4h 9h Jc Ad]
+Seat 1: Player A (button) folded on the Turn
+Seat 2: Player B (small blind) showed [Ah 7c] and won ($0.10) with a pair of Aces
+Seat 3: Player C (big blind) mucked [2h Kc]
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #7:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($2.92 in chips)
+Seat 2: Player B ($2.99 in chips)
+Seat 3: Player C ($1.93 in chips)
+Seat 4: Player G ($2 in chips)
+Seat 5: Player E ($0.35 in chips)
+Seat 6: Player F ($0.92 in chips)
+Player C: posts small blind $0.01
+Player G: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [9h Jc]
+Player E: raises $0.04 to $0.06
+Player F: folds
+Player A: calls $0.06
+Player B: folds
+Player C: folds
+Player G: calls $0.04
+*** FLOP *** [Qc 7d 7s]
+Player G: checks
+Player E: checks
+Player A: checks
+*** TURN *** [Qc 7d 7s] [Jd]
+Player G: checks
+Player E: checks
+Player A: bets $0.18
+Player G: folds
+Player E: raises $0.11 to $0.29 and is all-in
+Player A: calls $0.11
+*** RIVER *** [Qc 7d 7s Jd] [8h]
+*** SHOW DOWN ***
+Player E: shows [Kh Ks] (two pair, Kings and Sevens)
+Player A: shows [Ac 5s] (a pair of Sevens)
+Player E collected $0.74 from pot
+*** SUMMARY ***
+Total pot $0.77 | Rake $0.03
+Board [Qc 7d 7s Jd 8h]
+Seat 1: Player A showed [Ac 5s] and lost with a pair of Sevens
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player G (big blind) folded on the Turn
+Seat 5: Player E showed [Kh Ks] and won ($0.74) with two pair, Kings and Sevens
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #8:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.57 in chips)
+Seat 2: Player B ($2.99 in chips)
+Seat 3: Player C ($1.92 in chips)
+Seat 4: Player G ($1.94 in chips)
+Seat 5: Player E ($0.74 in chips)
+Seat 6: Player F ($0.92 in chips)
+Player G: posts small blind $0.01
+Player E: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7h 3h]
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: calls $0.01
+Player E: checks
+*** FLOP *** [7d 3c 8s]
+Player G: bets $0.18
+Player E: folds
+Player A: folds
+Uncalled bet ($0.18) returned to Player G
+Player G collected $0.06 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Board [7d 3c 8s]
+Seat 1: Player A folded on the Flop
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player G (small blind) collected ($0.06)
+Seat 5: Player E (big blind) folded on the Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #9:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($2.55 in chips)
+Seat 2: Player B ($2.99 in chips)
+Seat 3: Player C ($1.92 in chips)
+Seat 4: Player G ($1.98 in chips)
+Seat 5: Player E ($0.72 in chips)
+Seat 6: Player F ($0.92 in chips)
+Player E: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Js 2h]
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: folds
+Player E: calls $0.01
+Player F: checks
+*** FLOP *** [5h Kd 6h]
+Player E: checks
+Player F: checks
+Player A: bets $0.16
+Player E: folds
+Player F: folds
+Uncalled bet ($0.16) returned to Player A
+Player A collected $0.06 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Board [5h Kd 6h]
+Seat 1: Player A collected ($0.06)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G (button) folded before Flop (didn't bet)
+Seat 5: Player E (small blind) folded on the Flop
+Seat 6: Player F (big blind) folded on the Flop
+
+
+
+PokerIXI Hand #10:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($2.59 in chips)
+Seat 2: Player B ($2.99 in chips)
+Seat 3: Player C ($1.92 in chips)
+Seat 4: Player G ($1.98 in chips)
+Seat 5: Player E ($0.70 in chips)
+Seat 6: Player F ($0.90 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Kc 5d]
+Player B: folds
+Player C: folds
+Player G: folds
+Player E: calls $0.02
+Player F: folds
+Player A: checks
+*** FLOP *** [Jc 5s Td]
+Player A: bets $0.12
+Player E: calls $0.12
+*** TURN *** [Jc 5s Td] [6h]
+Player A: bets $0.14
+Player E: raises $0.14 to $0.28
+Player A: calls $0.14
+*** RIVER *** [Jc 5s Td 6h] [6s]
+Player A: checks
+Player E: bets $0.28 and is all-in
+Player A: calls $0.28
+*** SHOW DOWN ***
+Player E: shows [Js Qd] (two pair, Jacks and Sixes)
+Player A: shows [4s Th] (two pair, Tens and Sixes)
+Player E collected $1.36 from pot
+*** SUMMARY ***
+Total pot $1.41 | Rake $0.05
+Board [Jc 5s Td 6h 6s]
+Seat 1: Player A (big blind) showed [4s Th] and lost with two pair, Tens and Sixes
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E (button) showed [Js Qd] and won ($1.36) with two pair, Jacks and Sixes
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #11:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.89 in chips)
+Seat 2: Player B ($2.99 in chips)
+Seat 3: Player C ($1.92 in chips)
+Seat 4: Player G ($1.98 in chips)
+Seat 5: Player E ($1.36 in chips)
+Seat 6: Player F ($0.89 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Td Kd]
+Player C: folds
+Player G: folds
+Player E: calls $0.02
+Player F: calls $0.02
+Player A: calls $0.01
+Player B: checks
+*** FLOP *** [8c Jd Qc]
+Player A: checks
+Player B: checks
+Player E: checks
+Player F: checks
+*** TURN *** [8c Jd Qc] [Kh]
+Player A: checks
+Player B: checks
+Player E: checks
+Player F: checks
+*** RIVER *** [8c Jd Qc Kh] [2c]
+Player A: bets $0.20
+Player B: folds
+Player E: folds
+Player F: folds
+Uncalled bet ($0.20) returned to Player A
+Player A collected $0.08 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.08 | Rake $0
+Board [8c Jd Qc Kh 2c]
+Seat 1: Player A (small blind) collected ($0.08)
+Seat 2: Player B (big blind) folded on the River
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E folded on the River
+Seat 6: Player F (button) folded on the River
+
+
+
+PokerIXI Hand #12:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.95 in chips)
+Seat 2: Player B ($2.97 in chips)
+Seat 3: Player C ($1.92 in chips)
+Seat 4: Player G ($1.98 in chips)
+Seat 5: Player E ($1.34 in chips)
+Seat 6: Player F ($0.87 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5d 7c]
+Player G has timed out
+Player G: folds
+Player E: folds
+Player F: folds
+Player A: raises $0.02 to $0.04
+Player B: folds
+Player C: folds
+Uncalled bet ($0.02) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player A (button) collected ($0.05)
+Seat 2: Player B (small blind) folded before Flop
+Seat 3: Player C (big blind) folded before Flop
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #13:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($1.98 in chips)
+Seat 2: Player B ($2.96 in chips)
+Seat 3: Player C ($1.90 in chips)
+Seat 4: Player G ($1.98 in chips)
+Seat 5: Player E ($1.34 in chips)
+Seat 6: Player F ($0.87 in chips)
+Player C: posts small blind $0.01
+Player G: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [2h 5h]
+Player E: folds
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: checks
+*** FLOP *** [7s 3h Jh]
+Player G: bets $0.14
+Player A: calls $0.14
+*** TURN *** [7s 3h Jh] [6s]
+Player G: checks
+Player A: bets $0.22
+Player G: calls $0.22
+*** RIVER *** [7s 3h Jh 6s] [8h]
+Player G: checks
+Player A: bets $0.36
+Player G: folds
+Uncalled bet ($0.36) returned to Player A
+Player A collected $0.74 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.77 | Rake $0.03
+Board [7s 3h Jh 6s 8h]
+Seat 1: Player A collected ($0.74)
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player G (big blind) folded on the River
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #14:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.34 in chips)
+Seat 2: Player B ($2.96 in chips)
+Seat 3: Player C ($1.89 in chips)
+Seat 4: Player G ($1.60 in chips)
+Seat 5: Player E ($1.34 in chips)
+Seat 6: Player F ($0.87 in chips)
+Player G: posts small blind $0.01
+Player E: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Qh Td]
+Player F: folds
+Player A: raises $0.02 to $0.04
+Player B: folds
+Player C: raises $0.10 to $0.14
+Player G: folds
+Player E: folds
+Player A: calls $0.10
+*** FLOP *** [4h Ks Jh]
+Player A: bets $0.14
+Player C: raises $0.26 to $0.40
+Player A: calls $0.26
+*** TURN *** [4h Ks Jh] [Ah]
+Player A: bets $1.80 and is all-in
+Player C: calls $1.35 and is all-in
+Uncalled bet ($0.45) returned to Player A
+*** RIVER *** [4h Ks Jh Ah] [7c]
+*** SHOW DOWN ***
+Player A: shows [Kc Ac] (two pair, Aces and Kings)
+Player C: shows [Qh Td] (a straight, Ten to Ace)
+Player C collected $3.68 from pot
+*** SUMMARY ***
+Total pot $3.81 | Rake $0.13
+Board [4h Ks Jh Ah 7c]
+Seat 1: Player A showed [Kc Ac] and lost with two pair, Aces and Kings
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) showed [Qh Td] and won ($3.68) with a straight, Ten to Ace
+Seat 4: Player G (small blind) folded before Flop
+Seat 5: Player E (big blind) folded before Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #15:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($0.45 in chips)
+Seat 2: Player B ($2.96 in chips)
+Seat 3: Player C ($3.68 in chips)
+Seat 4: Player G ($1.59 in chips)
+Seat 5: Player E ($1.32 in chips)
+Seat 6: Player F ($0.87 in chips)
+Player E: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Td 3d]
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: folds
+Player E: calls $0.01
+Player F: checks
+*** FLOP *** [Qd Kh Jc]
+Player E: checks
+Player F: checks
+Player A: checks
+*** TURN *** [Qd Kh Jc] [2s]
+Player E: checks
+Player F: checks
+Player A: checks
+*** RIVER *** [Qd Kh Jc 2s] [9c]
+Player E: bets $0.06
+Player F: folds
+Player A: raises $0.37 to $0.43 and is all-in
+Player E: folds
+Uncalled bet ($0.37) returned to Player A
+Player A collected $0.17 from pot
+*** SUMMARY ***
+Total pot $0.18 | Rake $0.01
+Board [Qd Kh Jc 2s 9c]
+Seat 1: Player A collected ($0.17)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G (button) folded before Flop (didn't bet)
+Seat 5: Player E (small blind) folded on the River
+Seat 6: Player F (big blind) folded on the River
+
+
+
+PokerIXI Hand #16:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($0.54 in chips)
+Seat 2: Player B ($2.96 in chips)
+Seat 3: Player C ($3.68 in chips)
+Seat 4: Player G ($1.59 in chips)
+Seat 5: Player E ($1.24 in chips)
+Seat 6: Player F ($0.85 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [9s Kd]
+Player B: folds
+Player C: folds
+Player G: folds
+Player E: calls $0.02
+Player F: calls $0.01
+Player A: raises $0.08 to $0.10
+Player E: folds
+Player F: folds
+Uncalled bet ($0.08) returned to Player A
+Player A collected $0.06 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Seat 1: Player A (big blind) collected ($0.06)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E (button) folded before Flop
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #17:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($0.58 in chips)
+Seat 2: Player B ($2.96 in chips)
+Seat 3: Player C ($3.68 in chips)
+Seat 4: Player G ($1.59 in chips)
+Seat 5: Player E ($1.22 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [3c 9h]
+Player C: folds
+Player G: calls $0.02
+Player E: folds
+Player F: folds
+Player A: raises $0.02 to $0.04
+Player B: calls $0.02
+Player G: calls $0.02
+*** FLOP *** [3h Js 8c]
+Player A: checks
+Player B: checks
+Player G: bets $0.14
+Player A: folds
+Player B: folds
+Uncalled bet ($0.14) returned to Player G
+Player G collected $0.12 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.12 | Rake $0
+Board [3h Js 8c]
+Seat 1: Player A (small blind) folded on the Flop
+Seat 2: Player B (big blind) folded on the Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G collected ($0.12)
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #18:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($0.54 in chips)
+Seat 2: Player B ($2.92 in chips)
+Seat 3: Player C ($3.68 in chips)
+Seat 4: Player G ($1.67 in chips)
+Seat 5: Player E ($1.22 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [9c 6h]
+Player G: folds
+Player E: folds
+Player F: folds
+Player A: raises $0.04 to $0.06
+Player B: folds
+Player C: folds
+Uncalled bet ($0.04) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player A (button) collected ($0.05)
+Seat 2: Player B (small blind) folded before Flop
+Seat 3: Player C (big blind) folded before Flop
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #19:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($0.57 in chips)
+Seat 2: Player B ($2.91 in chips)
+Seat 3: Player C ($3.66 in chips)
+Seat 4: Player G ($1.67 in chips)
+Seat 5: Player E ($1.22 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player C: posts small blind $0.01
+Player G: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [2s 2h]
+Player E: folds
+Player F: folds
+Player A: raises $0.55 to $0.57 and is all-in
+Player B: folds
+Player C: folds
+Player G: folds
+Uncalled bet ($0.55) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player A collected ($0.05)
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player G (big blind) folded before Flop
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #20:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($0.60 in chips)
+Seat 2: Player B ($2.91 in chips)
+Seat 3: Player C ($3.65 in chips)
+Seat 4: Player G ($1.65 in chips)
+Seat 5: Player E ($1.22 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player G: posts small blind $0.01
+Player E: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7c 9d]
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: calls $0.01
+Player E: checks
+*** FLOP *** [6c Qs Kc]
+Player G: checks
+Player E: checks
+Player A: checks
+*** TURN *** [6c Qs Kc] [7s]
+Player G: checks
+Player E: checks
+Player A: checks
+*** RIVER *** [6c Qs Kc 7s] [6s]
+Player G: checks
+Player E: checks
+Player A: checks
+*** SHOW DOWN ***
+Player G: shows [5c 8s] (a pair of Sixes)
+Player E: mucks hand
+Player A: shows [Ts 4d] (a pair of Sixes - King+Queen+Ten kicker)
+Player A collected $0.06 from pot
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Board [6c Qs Kc 7s 6s]
+Seat 1: Player A showed [Ts 4d] and won ($0.06) with a pair of Sixes
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player G (small blind) showed [5c 8s] and lost with a pair of Sixes
+Seat 5: Player E (big blind) mucked [4h 3d]
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #21:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($0.64 in chips)
+Seat 2: Player B ($2.91 in chips)
+Seat 3: Player C ($3.65 in chips)
+Seat 4: Player G ($1.63 in chips)
+Seat 5: Player E ($1.20 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player E: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7h Qd]
+Player A: raises $0.04 to $0.06
+Player B: folds
+Player C: folds
+Player G: raises $0.24 to $0.30
+Player E: folds
+Player F: folds
+Player A: calls $0.24
+*** FLOP *** [Ac 3s 9h]
+Player A: checks
+Player G: bets $0.30
+Player A: raises $0.04 to $0.34 and is all-in
+Player G: calls $0.04
+*** TURN *** [Ac 3s 9h] [4h]
+*** RIVER *** [Ac 3s 9h 4h] [3h]
+*** SHOW DOWN ***
+Player A: shows [Ad 5d] (two pair, Aces and Threes)
+Player G: shows [8d 8s] (two pair, Eights and Threes)
+Player A collected $1.26 from pot
+*** SUMMARY ***
+Total pot $1.31 | Rake $0.05
+Board [Ac 3s 9h 4h 3h]
+Seat 1: Player A showed [Ad 5d] and won ($1.26) with two pair, Aces and Threes
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G (button) showed [8d 8s] and lost with two pair, Eights and Threes
+Seat 5: Player E (small blind) folded before Flop
+Seat 6: Player F (big blind) folded before Flop
+
+
+
+PokerIXI Hand #22:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($1.26 in chips)
+Seat 2: Player B ($2.91 in chips)
+Seat 3: Player C ($3.65 in chips)
+Seat 4: Player G ($0.99 in chips)
+Seat 5: Player E ($1.19 in chips)
+Seat 6: Player F ($0.81 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Jd 4h]
+Player B: folds
+Player C: folds
+Player G: calls $0.02
+Player E: folds
+Player F: folds
+Player A: checks
+*** FLOP *** [7c 3h Kh]
+Player A: bets $0.10
+Player G: calls $0.10
+*** TURN *** [7c 3h Kh] [6s]
+Player A: checks
+Player G: checks
+*** RIVER *** [7c 3h Kh 6s] [9c]
+Player A: checks
+Player G: checks
+*** SHOW DOWN ***
+Player A: shows [Td Js] (high card King)
+Player G: shows [Ah 2h] (high card Ace)
+Player G collected $0.24 from pot
+*** SUMMARY ***
+Total pot $0.25 | Rake $0.01
+Board [7c 3h Kh 6s 9c]
+Seat 1: Player A (big blind) showed [Td Js] and lost with high card King
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G showed [Ah 2h] and won ($0.24) with high card Ace
+Seat 5: Player E (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #23:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.14 in chips)
+Seat 3: Player C ($3.65 in chips)
+Seat 4: Player G ($1.11 in chips)
+Seat 5: Player E ($1.19 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player A: posts small blind $0.01
+Player B: is sitting out
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5c 8d]
+Player G: folds
+Player E: folds
+Player F: raises $0.04 to $0.06
+Player A: calls $0.05
+Player C: folds
+*** FLOP *** [2c 9s 9c]
+Player A: checks
+Player F: bets $0.07
+Player A: calls $0.07
+*** TURN *** [2c 9s 9c] [6s]
+Player A: checks
+Player F: checks
+*** RIVER *** [2c 9s 9c 6s] [Qs]
+Player A: checks
+Player F: checks
+*** SHOW DOWN ***
+Player A: shows [Jc 3c] (a pair of Nines)
+Player F: shows [Kd Ac] (a pair of Nines - Ace kicker)
+Player F collected $0.27 from pot
+*** SUMMARY ***
+Total pot $0.28 | Rake $0.01
+Board [2c 9s 9c 6s Qs]
+Seat 1: Player A (small blind) showed [Jc 3c] and lost with a pair of Nines
+Seat 3: Player C (big blind) folded before Flop
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F (button) showed [Kd Ac] and won ($0.27) with a pair of Nines
+
+
+
+PokerIXI Hand #24:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.01 in chips)
+Seat 3: Player C ($3.63 in chips)
+Seat 4: Player G ($1.11 in chips)
+Seat 5: Player E ($1.19 in chips)
+Seat 6: Player F ($0.94 in chips)
+Player C: posts small blind $0.01
+Player G: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Js 6c]
+Player E: folds
+Player F: folds
+Player E leaves the table
+Player A: raises $0.06 to $0.08
+Player H joins the table at seat #5
+Player C: folds
+Player G: folds
+Uncalled bet ($0.06) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player A (button) collected ($0.05)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player G (big blind) folded before Flop
+Seat 5: Player E folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #25:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($1.04 in chips)
+Seat 2: Player B ($2.91 in chips)
+Seat 3: Player C ($3.62 in chips)
+Seat 4: Player G ($1.09 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.94 in chips)
+Player G: posts small blind $0.01
+Player H: posts big blind $0.02
+Player B: posts small & big blinds $0.03
+*** HOLE CARDS ***
+Dealt to Player C [7d 5s]
+Player F: folds
+Player A: raises $0.02 to $0.04
+Player B: folds
+Player C: folds
+Player G: folds
+Player H: folds
+Uncalled bet ($0.02) returned to Player A
+Player A collected $0.08 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.08 | Rake $0
+Seat 1: Player A collected ($0.08)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player G (small blind) folded before Flop
+Seat 5: Player H (big blind) folded before Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #26:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($1.10 in chips)
+Seat 2: Player B ($2.88 in chips)
+Seat 3: Player C ($3.62 in chips)
+Seat 4: Player G ($1.08 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.94 in chips)
+Player H: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6c 9h]
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: calls $0.02
+Player H: folds
+Player F: checks
+*** FLOP *** [9d 8h Js]
+Player F: checks
+Player A: bets $0.08
+Player G: calls $0.08
+Player F: folds
+*** TURN *** [9d 8h Js] [4d]
+Player A: bets $0.10
+Player G: calls $0.10
+*** RIVER *** [9d 8h Js 4d] [Kd]
+Player A: bets $0.20
+Player G: folds
+Uncalled bet ($0.20) returned to Player A
+Player A collected $0.41 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.43 | Rake $0.02
+Board [9d 8h Js 4d Kd]
+Seat 1: Player A collected ($0.41)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G (button) folded on the River
+Seat 5: Player H (small blind) folded before Flop
+Seat 6: Player F (big blind) folded on the Flop
+
+
+
+PokerIXI Hand #27:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($1.31 in chips)
+Seat 2: Player B ($2.88 in chips)
+Seat 3: Player C ($3.62 in chips)
+Seat 4: Player G ($0.88 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.92 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6d 5d]
+Player B: folds
+Player C: raises $0.04 to $0.06
+Player G: folds
+Player H: folds
+Player F: folds
+Player A: calls $0.04
+*** FLOP *** [7d 4h 6c]
+Player A: checks
+Player C: bets $0.08
+Player A: folds
+Uncalled bet ($0.08) returned to Player C
+Player C collected $0.13 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.13 | Rake $0
+Board [7d 4h 6c]
+Seat 1: Player A (big blind) folded on the Flop
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C collected ($0.13)
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player H (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #28:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.25 in chips)
+Seat 2: Player B ($2.88 in chips)
+Seat 3: Player C ($3.69 in chips)
+Seat 4: Player G ($0.88 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.91 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [8s Jd]
+Player C: folds
+Player G: calls $0.02
+Player H: folds
+Player F: calls $0.02
+Player A: calls $0.01
+Player B: checks
+*** FLOP *** [9d 3c 4c]
+Player A: bets $0.20
+Player B: folds
+Player G: raises $0.66 to $0.86 and is all-in
+Player F: folds
+Player A: folds
+Uncalled bet ($0.66) returned to Player G
+Player G collected $0.46 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.48 | Rake $0.02
+Board [9d 3c 4c]
+Seat 1: Player A (small blind) folded on the Flop
+Seat 2: Player B (big blind) folded on the Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G collected ($0.46)
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F (button) folded on the Flop
+
+
+
+PokerIXI Hand #29:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.03 in chips)
+Seat 2: Player B ($2.86 in chips)
+Seat 3: Player C ($3.69 in chips)
+Seat 4: Player G ($1.12 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.89 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [3c 7h]
+Player G: calls $0.02
+Player H: folds
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: checks
+*** FLOP *** [3h 4d Qc]
+Player C: checks
+Player G: bets $0.16
+Player A: folds
+Player C: folds
+Uncalled bet ($0.16) returned to Player G
+Player G collected $0.07 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.07 | Rake $0
+Board [3h 4d Qc]
+Seat 1: Player A (button) folded on the Flop
+Seat 2: Player B (small blind) folded before Flop
+Seat 3: Player C (big blind) folded on the Flop
+Seat 4: Player G collected ($0.07)
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #30:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($1.01 in chips)
+Seat 2: Player B ($2.85 in chips)
+Seat 3: Player C ($3.67 in chips)
+Seat 4: Player G ($1.17 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.89 in chips)
+Player C: posts small blind $0.01
+Player G: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7d Ah]
+Player H: folds
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: checks
+*** FLOP *** [9h Th 8h]
+Player G: bets $0.10
+Player A: folds
+Uncalled bet ($0.10) returned to Player G
+Player G collected $0.05 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [9h Th 8h]
+Seat 1: Player A folded on the Flop
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player G (big blind) collected ($0.05)
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #31:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($0.99 in chips)
+Seat 2: Player B ($2.85 in chips)
+Seat 3: Player C ($3.66 in chips)
+Seat 4: Player G ($1.20 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.89 in chips)
+Player G: posts small blind $0.01
+Player H: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5c Qd]
+Player F: raises $0.04 to $0.06
+Player A: calls $0.06
+Player B: folds
+Player C: folds
+Player G: raises $0.28 to $0.34
+Player H: folds
+Player F: folds
+Player A: folds
+Uncalled bet ($0.28) returned to Player G
+Player G collected $0.20 from pot
+Player G: doesn't show hand
+*** SUMMARY ***
+Total pot $0.20 | Rake $0
+Seat 1: Player A folded before Flop
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player G (small blind) collected ($0.20)
+Seat 5: Player H (big blind) folded before Flop
+Seat 6: Player F folded before Flop
+
+
+
+PokerIXI Hand #32:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($0.93 in chips)
+Seat 2: Player B ($2.85 in chips)
+Seat 3: Player C ($3.66 in chips)
+Seat 4: Player G ($1.34 in chips)
+Seat 5: Player H ($2 in chips)
+Seat 6: Player F ($0.83 in chips)
+Player H: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Ac 2h]
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player G: calls $0.02
+Player H: calls $0.01
+Player F: checks
+*** FLOP *** [3h 5s 9d]
+Player H: bets $0.06
+Player F: calls $0.06
+Player A: folds
+Player G: calls $0.06
+*** TURN *** [3h 5s 9d] [3c]
+Player H: checks
+Player F: checks
+Player G: bets $0.16
+Player H: calls $0.16
+Player F: calls $0.16
+*** RIVER *** [3h 5s 9d 3c] [Ad]
+Player H: checks
+Player F: checks
+Player G: checks
+*** SHOW DOWN ***
+Player H: shows [9c 7c] (two pair, Nines and Threes)
+Player F: mucks hand
+Player G: mucks hand
+Player H collected $0.71 from pot
+*** SUMMARY ***
+Total pot $0.74 | Rake $0.03
+Board [3h 5s 9d 3c Ad]
+Seat 1: Player A folded on the Flop
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G (button) mucked [Jh Kh]
+Seat 5: Player H (small blind) showed [9c 7c] and won ($0.71) with two pair, Nines and Threes
+Seat 6: Player F (big blind) mucked [7h 6d]
+
+
+
+PokerIXI Hand #33:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($0.91 in chips)
+Seat 2: Player B ($2.85 in chips)
+Seat 3: Player C ($3.66 in chips)
+Seat 4: Player G ($1.10 in chips)
+Seat 5: Player H ($2.47 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [4h Td]
+Player B: raises $0.04 to $0.06
+Player C: folds
+Player G: folds
+Player H: folds
+Player F: folds
+Player A: calls $0.04
+*** FLOP *** [Kh Ah Qh]
+Player A: bets $0.85 and is all-in
+Player B: calls $0.85
+*** TURN *** [Kh Ah Qh] [2d]
+*** RIVER *** [Kh Ah Qh 2d] [Jc]
+*** SHOW DOWN ***
+Player A: shows [5h 9h] (a flush, Ace high)
+Player B: shows [As Qs] (two pair, Aces and Queens)
+Player A collected $1.77 from pot
+*** SUMMARY ***
+Total pot $1.83 | Rake $0.06
+Board [Kh Ah Qh 2d Jc]
+Seat 1: Player A (big blind) showed [5h 9h] and won ($1.77) with a flush, Ace high
+Seat 2: Player B showed [As Qs] and lost with two pair, Aces and Queens
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player H (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #34:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.77 in chips)
+Seat 3: Player C ($3.66 in chips)
+Seat 4: Player G ($1.10 in chips)
+Seat 5: Player H ($2.47 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player A: posts small blind $0.01
+Player B: is sitting out
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6h 9h]
+Player G has timed out
+Player G: folds
+Player H: folds
+Player F: raises $0.04 to $0.06
+Player G leaves the table
+Player A: calls $0.05
+Player C: folds
+*** FLOP *** [2s Jd Ks]
+Player A: bets $0.06
+Player F: calls $0.06
+*** TURN *** [2s Jd Ks] [Qc]
+Player A: bets $0.20
+Player F: calls $0.20
+*** RIVER *** [2s Jd Ks Qc] [3d]
+Player A: bets $0.32
+Player F: folds
+Uncalled bet ($0.32) returned to Player A
+Player A collected $0.64 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.66 | Rake $0.02
+Board [2s Jd Ks Qc 3d]
+Seat 1: Player A (small blind) collected ($0.64)
+Seat 3: Player C (big blind) folded before Flop
+Seat 4: Player G folded before Flop (didn't bet)
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F (button) folded on the River
+
+
+
+PokerIXI Hand #35:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($2.09 in chips)
+Seat 3: Player C ($3.64 in chips)
+Seat 5: Player H ($2.47 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player C: posts small blind $0.01
+Player H: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [3s Ah]
+Player F: folds
+Player A: calls $0.02
+Player C: folds
+Player H: checks
+*** FLOP *** [9s Qs 2c]
+Player H: checks
+Player A: checks
+*** TURN *** [9s Qs 2c] [Jc]
+Player H: bets $0.04
+Player A: folds
+Uncalled bet ($0.04) returned to Player H
+Player H collected $0.05 from pot
+Player H: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [9s Qs 2c Jc]
+Seat 1: Player A (button) folded on the Turn
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player H (big blind) collected ($0.05)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #36:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.07 in chips)
+Seat 3: Player C ($3.63 in chips)
+Seat 5: Player H ($2.50 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player H: posts small blind $0.01
+Player F: posts big blind $0.02
+Player B: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Qd 9h]
+Player A: raises $0.02 to $0.04
+Player C: folds
+Player H: folds
+Player I joins the table at seat #4
+Player F: folds
+Uncalled bet ($0.02) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player A collected ($0.05)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 5: Player H (small blind) folded before Flop
+Seat 6: Player F (big blind) folded before Flop
+
+
+
+PokerIXI Hand #37:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($2.10 in chips)
+Seat 3: Player C ($3.63 in chips)
+Seat 5: Player H ($2.49 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+Player B: sits out
+Player I: sits out
+*** HOLE CARDS ***
+Dealt to Player C [3h 3c]
+Player C: raises $0.04 to $0.06
+Player H: folds
+Player F: folds
+Player A: calls $0.04
+*** FLOP *** [Kd Jc Qs]
+Player A: bets $0.06
+Player C: folds
+Uncalled bet ($0.06) returned to Player A
+Player A collected $0.13 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.13 | Rake $0
+Board [Kd Jc Qs]
+Seat 1: Player A (big blind) collected ($0.13)
+Seat 3: Player C folded on the Flop
+Seat 5: Player H (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #38:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($2.17 in chips)
+Seat 2: Player B ($1.94 in chips)
+Seat 3: Player C ($3.57 in chips)
+Seat 5: Player H ($2.49 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+Player I: sits out
+*** HOLE CARDS ***
+Dealt to Player C [7d Ts]
+Player C: folds
+Player H: folds
+Player F: folds
+Player A: calls $0.01
+Player B: checks
+*** FLOP *** [Jh 5s 4s]
+Player A: bets $0.06
+Player B: folds
+Uncalled bet ($0.06) returned to Player A
+Player A collected $0.04 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.04 | Rake $0
+Board [Jh 5s 4s]
+Seat 1: Player A (small blind) collected ($0.04)
+Seat 2: Player B (big blind) folded on the Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #39:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($2.19 in chips)
+Seat 2: Player B ($1.92 in chips)
+Seat 3: Player C ($3.57 in chips)
+Seat 5: Player H ($2.49 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+Player I: sits out
+*** HOLE CARDS ***
+Dealt to Player C [3s Qc]
+Player H: folds
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: checks
+*** FLOP *** [9h Ks Ac]
+Player C: checks
+Player A: checks
+*** TURN *** [9h Ks Ac] [Ts]
+Player C: checks
+Player A: bets $0.10
+Player C: folds
+Uncalled bet ($0.10) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [9h Ks Ac Ts]
+Seat 1: Player A (button) collected ($0.05)
+Seat 2: Player B (small blind) folded before Flop
+Seat 3: Player C (big blind) folded on the Turn
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #40:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($2.22 in chips)
+Seat 2: Player B ($1.91 in chips)
+Seat 3: Player C ($3.55 in chips)
+Seat 4: Player I ($2 in chips)
+Seat 5: Player H ($2.49 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player C: posts small blind $0.01
+Player I: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6c 6h]
+Player H: folds
+Player F: folds
+Player A: calls $0.02
+Player B: folds
+Player C: calls $0.01
+Player I: checks
+*** FLOP *** [6s 8s 4h]
+Player C: bets $0.04
+Player I: folds
+Player A: folds
+Uncalled bet ($0.04) returned to Player C
+Player C collected $0.06 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Board [6s 8s 4h]
+Seat 1: Player A folded on the Flop
+Seat 2: Player B (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) collected ($0.06)
+Seat 4: Player I (big blind) folded on the Flop
+Seat 5: Player H folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #41:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.20 in chips)
+Seat 2: Player B ($1.91 in chips)
+Seat 3: Player C ($3.59 in chips)
+Seat 4: Player I ($1.98 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player I: posts small blind $0.01
+Player H: is sitting out
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [8s 8h]
+Player H leaves the table
+Player A: calls $0.02
+Player J joins the table at seat #5
+Player B: folds
+Player C: raises $0.06 to $0.08
+Player I: folds
+Player F: folds
+Player A: calls $0.06
+*** FLOP *** [7d 6h 5d]
+Player A: bets $0.08
+Player C: raises $0.14 to $0.22
+Player A: calls $0.14
+*** TURN *** [7d 6h 5d] [7c]
+Player A: bets $0.30
+Player C: calls $0.30
+*** RIVER *** [7d 6h 5d 7c] [Qh]
+Player A: bets $1.60 and is all-in
+Player C: folds
+Uncalled bet ($1.60) returned to Player A
+Player A collected $1.19 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $1.23 | Rake $0.04
+Board [7d 6h 5d 7c Qh]
+Seat 1: Player A collected ($1.19)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded on the River
+Seat 4: Player I (small blind) folded before Flop
+Seat 6: Player F (big blind) folded before Flop
+
+
+
+PokerIXI Hand #42:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($2.79 in chips)
+Seat 2: Player B ($1.91 in chips)
+Seat 3: Player C ($2.99 in chips)
+Seat 4: Player I ($1.97 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [2h 6c]
+Player B: folds
+Player C: folds
+Player I: raises $0.04 to $0.06
+Player F: folds
+Player A: calls $0.04
+*** FLOP *** [9h Th 3c]
+Player A: bets $0.10
+Player I: folds
+Uncalled bet ($0.10) returned to Player A
+Player A collected $0.13 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.13 | Rake $0
+Board [9h Th 3c]
+Seat 1: Player A (big blind) collected ($0.13)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player I (button) folded on the Flop
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #43:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($2.86 in chips)
+Seat 2: Player B ($1.91 in chips)
+Seat 3: Player C ($2.99 in chips)
+Seat 4: Player I ($1.91 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player A: posts small blind $0.01
+Player B: posts big blind $0.02
+Player J: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Qd 2c]
+Player C: folds
+Player I: folds
+Player F has timed out
+Player F: folds
+Player A: calls $0.01
+Player B: checks
+*** FLOP *** [5h 9c Tc]
+Player A: bets $0.10
+Player B: folds
+Uncalled bet ($0.10) returned to Player A
+Player A collected $0.04 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.04 | Rake $0
+Board [5h 9c Tc]
+Seat 1: Player A (small blind) collected ($0.04)
+Seat 2: Player B (big blind) folded on the Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player I folded before Flop (didn't bet)
+Seat 6: Player F (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #44:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($2.88 in chips)
+Seat 2: Player B ($1.89 in chips)
+Seat 3: Player C ($2.99 in chips)
+Seat 4: Player I ($1.91 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player B: posts small blind $0.01
+Player C: posts big blind $0.02
+Player J: sits out
+*** HOLE CARDS ***
+Dealt to Player C [9c Kd]
+Player I: folds
+Player I leaves the table
+Player F: folds
+Player A: calls $0.02
+Player B: calls $0.01
+Player C: checks
+*** FLOP *** [As Td 3h]
+Player B: checks
+Player C: checks
+Player A: bets $0.06
+Player B: calls $0.06
+Player C: folds
+*** TURN *** [As Td 3h] [8c]
+Player B: checks
+Player A: bets $0.20
+Player K joins the table at seat #4
+Player B: folds
+Uncalled bet ($0.20) returned to Player A
+Player A collected $0.17 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.18 | Rake $0.01
+Board [As Td 3h 8c]
+Seat 1: Player A (button) collected ($0.17)
+Seat 2: Player B (small blind) folded on the Turn
+Seat 3: Player C (big blind) folded on the Flop
+Seat 4: Player I folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #45:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($2.97 in chips)
+Seat 2: Player B ($1.81 in chips)
+Seat 3: Player C ($2.97 in chips)
+Seat 4: Player K ($2 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player C: posts small blind $0.01
+Player K: posts big blind $0.02
+Player J: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Jc As]
+Player F: folds
+Player A: calls $0.02
+Player B: raises $0.07 to $0.09
+Player C: folds
+Player K: calls $0.07
+Player A: calls $0.07
+*** FLOP *** [9c 3h 2h]
+Player K: checks
+Player A: bets $0.14
+Player B: calls $0.14
+Player K: calls $0.14
+*** TURN *** [9c 3h 2h] [3s]
+Player K: checks
+Player A: checks
+Player B: checks
+*** RIVER *** [9c 3h 2h 3s] [Js]
+Player K: checks
+Player A: checks
+Player B: checks
+*** SHOW DOWN ***
+Player K: shows [Jh Th] (two pair, Jacks and Threes)
+Player A: mucks hand
+Player B: mucks hand
+Player K collected $0.68 from pot
+*** SUMMARY ***
+Total pot $0.70 | Rake $0.02
+Board [9c 3h 2h 3s Js]
+Seat 1: Player A mucked [Qc 8c]
+Seat 2: Player B (button) mucked [Qh Kc]
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player K (big blind) showed [Jh Th] and won ($0.68) with two pair, Jacks and Threes
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #46:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($2.74 in chips)
+Seat 2: Player B ($1.77 in chips)
+Seat 3: Player C ($2.96 in chips)
+Seat 4: Player K ($2.45 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player K: posts small blind $0.01
+Player J: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Td Ah]
+Player F: folds
+Player A: raises $0.02 to $0.04
+Player B: folds
+Player C: raises $0.10 to $0.14
+Player K: raises $0.10 to $0.24
+Player J: folds
+Player A: calls $0.20
+Player C: calls $0.10
+*** FLOP *** [Kc 8d 4h]
+Player K: checks
+Player A: bets $0.30
+Player C: raises $0.58 to $0.88
+Player K: calls $0.88
+Player A: calls $0.58
+*** TURN *** [Kc 8d 4h] [6s]
+Player K: checks
+Player A: checks
+Player C: checks
+*** RIVER *** [Kc 8d 4h 6s] [3h]
+Player K: bets $1.33 and is all-in
+Player A: folds
+Player C: folds
+Uncalled bet ($1.33) returned to Player K
+Player K collected $3.26 from pot
+Player K: doesn't show hand
+*** SUMMARY ***
+Total pot $3.38 | Rake $0.12
+Board [Kc 8d 4h 6s 3h]
+Seat 1: Player A folded on the River
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C (button) folded on the River
+Seat 4: Player K (small blind) collected ($3.26)
+Seat 5: Player J (big blind) folded before Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #47:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player A ($1.62 in chips)
+Seat 2: Player B ($1.77 in chips)
+Seat 3: Player C ($1.84 in chips)
+Seat 4: Player K ($4.59 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player J: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Jc 5d]
+Player A: calls $0.02
+Player B: folds
+Player C: folds
+Player K: folds
+Player J: calls $0.01
+Player F: checks
+*** FLOP *** [2s 7h 8s]
+Player J: checks
+Player F: checks
+Player A: bets $0.08
+Player J: folds
+Player F: folds
+Uncalled bet ($0.08) returned to Player A
+Player A collected $0.06 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.06 | Rake $0
+Board [2s 7h 8s]
+Seat 1: Player A collected ($0.06)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player K (button) folded before Flop (didn't bet)
+Seat 5: Player J (small blind) folded on the Flop
+Seat 6: Player F (big blind) folded on the Flop
+
+
+
+PokerIXI Hand #48:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($1.66 in chips)
+Seat 2: Player B ($1.77 in chips)
+Seat 3: Player C ($1.84 in chips)
+Seat 4: Player K ($4.59 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Qd 9h]
+Player B: folds
+Player C: folds
+Player K: raises $0.03 to $0.05
+Player J: folds
+Player F: folds
+Player A: calls $0.03
+*** FLOP *** [Js Ts Jh]
+Player A: checks
+Player K: checks
+*** TURN *** [Js Ts Jh] [Ac]
+Player A: bets $0.16
+Player B leaves the table
+Player L joins the table at seat #2
+Player K has timed out
+Player K: folds
+Uncalled bet ($0.16) returned to Player A
+Player A collected $0.11 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.11 | Rake $0
+Board [Js Ts Jh Ac]
+Seat 1: Player A (big blind) collected ($0.11)
+Seat 2: Player B folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player K folded on the Turn
+Seat 5: Player J (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) folded before Flop
+
+
+
+PokerIXI Hand #49:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.72 in chips)
+Seat 3: Player C ($1.84 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player F ($0.80 in chips)
+Player A: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [9d 8d]
+Player J: folds
+Player F: raises $0.04 to $0.06
+Player A: calls $0.05
+Player C: calls $0.04
+*** FLOP *** [5d Ah Qh]
+Player A: bets $0.08
+Player C: folds
+Player F: calls $0.08
+*** TURN *** [5d Ah Qh] [Ac]
+Player A: bets $0.16
+Player F: calls $0.16
+*** RIVER *** [5d Ah Qh Ac] [9c]
+Player A: checks
+Player F: checks
+*** SHOW DOWN ***
+Player A: shows [3h 9h] (two pair, Aces and Nines)
+Player F: shows [Jd Jc] (two pair, Aces and Jacks)
+Player F collected $0.64 from pot
+*** SUMMARY ***
+Total pot $0.66 | Rake $0.02
+Board [5d Ah Qh Ac 9c]
+Seat 1: Player A (small blind) showed [3h 9h] and lost with two pair, Aces and Nines
+Seat 3: Player C (big blind) folded on the Flop
+Seat 5: Player J folded before Flop (didn't bet)
+Seat 6: Player F (button) showed [Jd Jc] and won ($0.64) with two pair, Aces and Jacks
+
+
+
+PokerIXI Hand #50:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.42 in chips)
+Seat 3: Player C ($1.78 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player F ($1.14 in chips)
+Player C: posts small blind $0.01
+Player J: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [8c 4c]
+Player F: folds
+Player A: calls $0.02
+Player C: folds
+Player J: checks
+*** FLOP *** [Ac 4h Qd]
+Player J: checks
+Player A: checks
+*** TURN *** [Ac 4h Qd] [Qc]
+Player J: checks
+Player A: checks
+*** RIVER *** [Ac 4h Qd Qc] [Ad]
+Player J: checks
+Player A: checks
+*** SHOW DOWN ***
+Player J: shows [Td 7h] (two pair, Aces and Queens)
+Player A: mucks hand
+Player J collected $0.05 from pot
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [Ac 4h Qd Qc Ad]
+Seat 1: Player A (button) mucked [2s 7d]
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player J (big blind) showed [Td 7h] and won ($0.05) with two pair, Aces and Queens
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #51:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($1.40 in chips)
+Seat 3: Player C ($1.77 in chips)
+Seat 5: Player J ($2.03 in chips)
+Seat 6: Player F ($1.14 in chips)
+Player J: posts small blind $0.01
+Player F: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [4d Ad]
+Player A: raises $0.02 to $0.04
+Player C: raises $0.08 to $0.12
+Player J: folds
+Player F: calls $0.10
+Player A: calls $0.08
+*** FLOP *** [Td Qc 3h]
+Player F: checks
+Player A: bets $0.02
+Player C: raises $0.14 to $0.16
+Player F: folds
+Player A: calls $0.14
+*** TURN *** [Td Qc 3h] [Js]
+Player A: bets $0.34
+Player C: folds
+Uncalled bet ($0.34) returned to Player A
+Player A collected $0.67 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.69 | Rake $0.02
+Board [Td Qc 3h Js]
+Seat 1: Player A collected ($0.67)
+Seat 3: Player C (button) folded on the Turn
+Seat 5: Player J (small blind) folded before Flop
+Seat 6: Player F (big blind) folded on the Flop
+
+
+
+PokerIXI Hand #52:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($1.79 in chips)
+Seat 3: Player C ($1.49 in chips)
+Seat 5: Player J ($2.02 in chips)
+Seat 6: Player F ($1.02 in chips)
+Player F: posts small blind $0.01
+Player A: posts big blind $0.02
+Player L: sits out
+*** HOLE CARDS ***
+Dealt to Player C [3d Ah]
+Player C: folds
+Player J: folds
+Player F: raises $0.04 to $0.06
+Player A: calls $0.04
+*** FLOP *** [9s 4d Tc]
+Player F: checks
+Player A: bets $0.12
+Player F: calls $0.12
+*** TURN *** [9s 4d Tc] [Jc]
+Player F: checks
+Player A: checks
+*** RIVER *** [9s 4d Tc Jc] [Kc]
+Player F: bets $0.20
+Player A: folds
+Uncalled bet ($0.20) returned to Player F
+Player F collected $0.35 from pot
+Player F: doesn't show hand
+*** SUMMARY ***
+Total pot $0.36 | Rake $0.01
+Board [9s 4d Tc Jc Kc]
+Seat 1: Player A (big blind) folded on the River
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player J (button) folded before Flop (didn't bet)
+Seat 6: Player F (small blind) collected ($0.35)
+
+
+
+PokerIXI Hand #53:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player A ($1.61 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($1.49 in chips)
+Seat 5: Player J ($2.02 in chips)
+Seat 6: Player F ($1.19 in chips)
+Player A: posts small blind $0.01
+Player L: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [3c 8s]
+Player C: folds
+Player J: folds
+Player F: raises $0.02 to $0.04
+Player A: raises $0.08 to $0.12
+Player L: folds
+Player F: calls $0.08
+*** FLOP *** [5h Ad Td]
+Player A: bets $0.14
+Player F: folds
+Uncalled bet ($0.14) returned to Player A
+Player A collected $0.25 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.26 | Rake $0.01
+Board [5h Ad Td]
+Seat 1: Player A (small blind) collected ($0.25)
+Seat 2: Player L (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player J folded before Flop (didn't bet)
+Seat 6: Player F (button) folded on the Flop
+
+
+
+PokerIXI Hand #54:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.74 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($1.49 in chips)
+Seat 5: Player J ($2.02 in chips)
+Seat 6: Player F ($1.07 in chips)
+Player L: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5d 9c]
+Player J: folds
+Player F: folds
+Player A: calls $0.02
+Player L: folds
+Player C: checks
+*** FLOP *** [3d Jc Ac]
+Player C: checks
+Player A: checks
+*** TURN *** [3d Jc Ac] [2s]
+Player C: checks
+Player A: bets $0.16
+Player C: folds
+Uncalled bet ($0.16) returned to Player A
+Player A collected $0.05 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [3d Jc Ac 2s]
+Seat 1: Player A (button) collected ($0.05)
+Seat 2: Player L (small blind) folded before Flop
+Seat 3: Player C (big blind) folded on the Turn
+Seat 5: Player J folded before Flop (didn't bet)
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #55:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($1.77 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($1.47 in chips)
+Seat 5: Player J ($2.02 in chips)
+Seat 6: Player F ($1.07 in chips)
+Player C: posts small blind $0.01
+Player J: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Qh Ad]
+Player F: folds
+Player A: calls $0.02
+Player L: raises $0.06 to $0.08
+Player C: calls $0.07
+Player J: folds
+Player A: calls $0.06
+*** FLOP *** [8c Qd 7s]
+Player C: checks
+Player A: bets $0.12
+Player L: raises $0.27 to $0.39
+Player C: raises $0.37 to $0.76
+Player A: folds
+Player L: folds
+Uncalled bet ($0.37) returned to Player C
+Player C collected $1.12 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $1.16 | Rake $0.04
+Board [8c Qd 7s]
+Seat 1: Player A folded on the Flop
+Seat 2: Player L (button) folded on the Flop
+Seat 3: Player C (small blind) collected ($1.12)
+Seat 5: Player J (big blind) folded before Flop
+Seat 6: Player F folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #56:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player A ($1.57 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.12 in chips)
+Seat 5: Player J ($2 in chips)
+Player J: posts small blind $0.01
+Player F: is sitting out
+Player A: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5d 2s]
+Player F leaves the table
+Player L: raises $0.03 to $0.05
+Player C: folds
+Player J: folds
+Player N joins the table at seat #6
+Player A: calls $0.03
+*** FLOP *** [Jh Kh 2h]
+Player A: bets $0.06
+Player L: calls $0.06
+*** TURN *** [Jh Kh 2h] [8h]
+Player A: bets $0.10
+Player L: folds
+Uncalled bet ($0.10) returned to Player A
+Player A collected $0.22 from pot
+Player A: doesn't show hand
+*** SUMMARY ***
+Total pot $0.23 | Rake $0.01
+Board [Jh Kh 2h 8h]
+Seat 1: Player A (big blind) collected ($0.22)
+Seat 2: Player L folded on the Turn
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 5: Player J (small blind) folded before Flop
+
+
+
+PokerIXI Hand #57:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player A ($1.68 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.12 in chips)
+Seat 5: Player J ($2 in chips)
+Player A: posts small blind $0.01
+Player L: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Qs 6s]
+Player C: folds
+Player J: folds
+Player A: calls $0.01
+Player L: checks
+*** FLOP *** [6h 9h 8h]
+Player A: bets $0.06
+Player L: calls $0.06
+*** TURN *** [6h 9h 8h] [3d]
+Player A: bets $0.08
+Player L: calls $0.08
+*** RIVER *** [6h 9h 8h 3d] [2d]
+Player A: checks
+Player L: checks
+*** SHOW DOWN ***
+Player A: shows [7d Ah] (high card Ace)
+Player L: mucks hand
+Player A collected $0.31 from pot
+Player K leaves the table
+*** SUMMARY ***
+Total pot $0.32 | Rake $0.01
+Board [6h 9h 8h 3d 2d]
+Seat 1: Player A (small blind) showed [7d Ah] and won ($0.31) with high card Ace
+Seat 2: Player L (big blind) mucked [Kc 7h]
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player J (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #58:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player A ($1.83 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.12 in chips)
+Seat 5: Player J ($2 in chips)
+Player L: posts small blind $0.01
+Player C: posts big blind $0.02
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [4c 7s]
+Player M joins the table at seat #4
+Player J: folds
+Player A: calls $0.02
+Player L: folds
+Player C: checks
+*** FLOP *** [6c 3d 7h]
+Player C: checks
+Player A: checks
+*** TURN *** [6c 3d 7h] [Kd]
+Player C: checks
+Player A: checks
+*** RIVER *** [6c 3d 7h Kd] [7c]
+Player C: bets $0.04
+Player A: folds
+Uncalled bet ($0.04) returned to Player C
+Player C collected $0.05 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Board [6c 3d 7h Kd 7c]
+Seat 1: Player A (button) folded on the River
+Seat 2: Player L (small blind) folded before Flop
+Seat 3: Player C (big blind) collected ($0.05)
+Seat 5: Player J folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #59:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player A ($1.81 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.15 in chips)
+Seat 4: Player M ($2 in chips)
+Seat 5: Player J ($2 in chips)
+Player C: posts small blind $0.01
+Player M: posts big blind $0.02
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [3h Td]
+Player J: folds
+Player A: folds
+Player A leaves the table
+Player L: folds
+Player C: folds
+Uncalled bet ($0.01) returned to Player M
+Player M collected $0.02 from pot
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 1: Player A folded before Flop (didn't bet)
+Seat 2: Player L (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player M (big blind) collected ($0.02)
+Seat 5: Player J folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #60:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.14 in chips)
+Seat 4: Player M ($2.01 in chips)
+Seat 5: Player J ($2 in chips)
+Player M: posts small blind $0.01
+Player J: posts big blind $0.02
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [7c Qh]
+Player O joins the table at seat #1
+Player L: folds
+Player C: raises $0.04 to $0.06
+Player M: folds
+Player J: folds
+Uncalled bet ($0.04) returned to Player C
+Player C collected $0.05 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 2: Player L folded before Flop (didn't bet)
+Seat 3: Player C (button) collected ($0.05)
+Seat 4: Player M (small blind) folded before Flop
+Seat 5: Player J (big blind) folded before Flop
+
+
+
+PokerIXI Hand #61:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.17 in chips)
+Seat 4: Player M ($2 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player N ($2 in chips)
+Player J: posts small blind $0.01
+Player N: posts big blind $0.02
+Player O: sits out
+*** HOLE CARDS ***
+Dealt to Player C [9d 7h]
+Player L: folds
+Player C: folds
+Player M: folds
+Player J: folds
+Uncalled bet ($0.01) returned to Player N
+Player N collected $0.02 from pot
+Player N: doesn't show hand
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 2: Player L folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player M (button) folded before Flop (didn't bet)
+Seat 5: Player J (small blind) folded before Flop
+Seat 6: Player N (big blind) collected ($0.02)
+
+
+
+PokerIXI Hand #62:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player O ($2 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.17 in chips)
+Seat 4: Player M ($2 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player N ($2.01 in chips)
+Player N: posts small blind $0.01
+Player O: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Td 3s]
+Player L: folds
+Player C: folds
+Player M: folds
+Player J: folds
+Player N: folds
+Uncalled bet ($0.01) returned to Player O
+Player O collected $0.02 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 1: Player O (big blind) collected ($0.02)
+Seat 2: Player L folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player M folded before Flop (didn't bet)
+Seat 5: Player J (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #63:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player O ($2.01 in chips)
+Seat 2: Player L ($2 in chips)
+Seat 3: Player C ($2.17 in chips)
+Seat 4: Player M ($2 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player N ($2 in chips)
+Player O: posts small blind $0.01
+Player L: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Td Jc]
+Player C: folds
+Player M: folds
+Player J: folds
+Player N: folds
+Player O: raises $0.04 to $0.06
+Player L: raises $0.12 to $0.18
+Player O: folds
+Uncalled bet ($0.12) returned to Player L
+Player L collected $0.12 from pot
+Player L: doesn't show hand
+*** SUMMARY ***
+Total pot $0.12 | Rake $0
+Seat 1: Player O (small blind) folded before Flop
+Seat 2: Player L (big blind) collected ($0.12)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player M folded before Flop (didn't bet)
+Seat 5: Player J folded before Flop (didn't bet)
+Seat 6: Player N (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #64:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player O ($2 in chips)
+Seat 2: Player L ($2.06 in chips)
+Seat 3: Player C ($2.17 in chips)
+Seat 4: Player M ($2 in chips)
+Seat 5: Player J ($2 in chips)
+Seat 6: Player N ($2 in chips)
+Player L: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [3h Qc]
+Player M: folds
+Player J: folds
+Player M leaves the table
+Player N: raises $0.05 to $0.07
+Player O: folds
+Player U joins the table at seat #4
+Player L: folds
+Player C: folds
+Uncalled bet ($0.05) returned to Player N
+Player N collected $0.05 from pot
+Player N: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O (button) folded before Flop (didn't bet)
+Seat 2: Player L (small blind) folded before Flop
+Seat 3: Player C (big blind) folded before Flop
+Seat 4: Player M folded before Flop (didn't bet)
+Seat 5: Player J folded before Flop (didn't bet)
+Seat 6: Player N collected ($0.05)
+
+
+
+PokerIXI Hand #65:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player O ($2 in chips)
+Seat 2: Player L ($2.05 in chips)
+Seat 3: Player C ($2.15 in chips)
+Seat 6: Player N ($2.03 in chips)
+Player C: posts small blind $0.01
+Player J: is sitting out
+Player N: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [4c 8d]
+Player O: folds
+Player J leaves the table
+Player L: raises $0.03 to $0.05
+Player C: folds
+Player N: folds
+Uncalled bet ($0.03) returned to Player L
+Player L collected $0.05 from pot
+Player L: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 2: Player L (button) collected ($0.05)
+Seat 3: Player C (small blind) folded before Flop
+Seat 6: Player N (big blind) folded before Flop
+
+
+
+PokerIXI Hand #66:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player O ($2 in chips)
+Seat 2: Player L ($2.08 in chips)
+Seat 3: Player C ($2.14 in chips)
+Seat 6: Player N ($2.01 in chips)
+Player N: posts small blind $0.01
+Player O: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Ad 2c]
+Player L: folds
+Player U leaves the table
+Player C: folds
+Player N: folds
+Uncalled bet ($0.01) returned to Player O
+Player O collected $0.02 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 1: Player O (big blind) collected ($0.02)
+Seat 2: Player L folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #67:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player O ($2.01 in chips)
+Seat 3: Player C ($2.14 in chips)
+Seat 6: Player N ($2 in chips)
+Player O: posts small blind $0.01
+Player L: is sitting out
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [9c 9s]
+Player L leaves the table
+Player N: folds
+Player P joins the table at seat #4
+Player O: raises $0.04 to $0.06
+Player Q joins the table at seat #5
+Player R joins the table at seat #2
+Player C: calls $0.04
+*** FLOP *** [4s Ad 6c]
+Player O: bets $0.08
+Player C: calls $0.08
+*** TURN *** [4s Ad 6c] [7h]
+Player O: bets $0.20
+Player C: calls $0.20
+*** RIVER *** [4s Ad 6c 7h] [6d]
+Player O: bets $0.44
+Player C: calls $0.44
+*** SHOW DOWN ***
+Player O: shows [3c 5h] (a straight, Three to Seven)
+Player C: mucks hand
+Player O collected $1.51 from pot
+*** SUMMARY ***
+Total pot $1.56 | Rake $0.05
+Board [4s Ad 6c 7h 6d]
+Seat 1: Player O (small blind) showed [3c 5h] and won ($1.51) with a straight, Three to Seven
+Seat 3: Player C (big blind) mucked [9c 9s]
+Seat 6: Player N (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #68:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player O ($2.74 in chips)
+Seat 3: Player C ($1.36 in chips)
+Seat 4: Player P ($1.60 in chips)
+Seat 6: Player N ($2 in chips)
+Player C: posts small blind $0.01
+Player P: posts big blind $0.02
+Player Q: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Th 9s]
+Player N: raises $0.02 to $0.04
+Player O: folds
+Player C: folds
+Player P: folds
+Uncalled bet ($0.02) returned to Player N
+Player N collected $0.05 from pot
+Player N: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player P (big blind) folded before Flop
+Seat 6: Player N collected ($0.05)
+
+
+
+PokerIXI Hand #69:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player O ($2.74 in chips)
+Seat 3: Player C ($1.35 in chips)
+Seat 4: Player P ($1.58 in chips)
+Seat 5: Player Q ($1.20 in chips)
+Seat 6: Player N ($2.03 in chips)
+Player P: posts small blind $0.01
+Player Q: posts big blind $0.02
+Player R: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Qc 2c]
+Player N: raises $0.05 to $0.07
+Player O: folds
+Player C: folds
+Player P: calls $0.06
+Player Q: folds
+*** FLOP *** [9h 7h Qs]
+Player P: checks
+Player N: bets $0.12
+Player P: folds
+Uncalled bet ($0.12) returned to Player N
+Player N collected $0.15 from pot
+Player N: doesn't show hand
+*** SUMMARY ***
+Total pot $0.16 | Rake $0.01
+Board [9h 7h Qs]
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player P (small blind) folded on the Flop
+Seat 5: Player Q (big blind) folded before Flop
+Seat 6: Player N collected ($0.15)
+
+
+
+PokerIXI Hand #70:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player O ($2.74 in chips)
+Seat 3: Player C ($1.35 in chips)
+Seat 4: Player P ($1.51 in chips)
+Seat 5: Player Q ($1.18 in chips)
+Seat 6: Player N ($2.11 in chips)
+Player Q: posts small blind $0.01
+Player N: posts big blind $0.02
+Player R: sits out
+*** HOLE CARDS ***
+Dealt to Player C [7d Tc]
+Player O: folds
+Player C: folds
+Player P: raises $0.02 to $0.04
+Player Q: raises $0.08 to $0.12
+Player N: folds
+Player P: calls $0.08
+*** FLOP *** [5d 7h Qh]
+Player Q: bets $0.10
+Player P: folds
+Uncalled bet ($0.10) returned to Player Q
+Player Q collected $0.25 from pot
+*** SUMMARY ***
+Total pot $0.26 | Rake $0.01
+Board [5d 7h Qh]
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player P (button) folded on the Flop
+Seat 5: Player Q (small blind) collected ($0.25)
+Seat 6: Player N (big blind) folded before Flop
+
+
+
+PokerIXI Hand #71:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player O ($2.74 in chips)
+Seat 3: Player C ($1.35 in chips)
+Seat 4: Player P ($1.39 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Seat 6: Player N ($2.09 in chips)
+Player N: posts small blind $0.01
+Player O: posts big blind $0.02
+Player R: sits out
+*** HOLE CARDS ***
+Dealt to Player C [8h 2d]
+Player C: folds
+Player P: calls $0.02
+Player Q: folds
+Player N: folds
+Player O: raises $0.08 to $0.10
+Player P: folds
+Uncalled bet ($0.08) returned to Player O
+Player O collected $0.05 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O (big blind) collected ($0.05)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player P folded before Flop
+Seat 5: Player Q (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #72:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player O ($2.77 in chips)
+Seat 2: Player R ($2 in chips)
+Seat 3: Player C ($1.35 in chips)
+Seat 4: Player P ($1.37 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Seat 6: Player N ($2.08 in chips)
+Player O: posts small blind $0.01
+Player R: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7d 2s]
+Player C: folds
+Player P: folds
+Player Q: raises $0.02 to $0.04
+Player N: folds
+Player O: folds
+Player R: folds
+Uncalled bet ($0.02) returned to Player Q
+Player Q collected $0.05 from pot
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O (small blind) folded before Flop
+Seat 2: Player R (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player P folded before Flop (didn't bet)
+Seat 5: Player Q collected ($0.05)
+Seat 6: Player N (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #73:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2 in chips)
+Seat 3: Player C ($1.35 in chips)
+Seat 4: Player P ($1.37 in chips)
+Seat 5: Player Q ($1.34 in chips)
+Seat 6: Player N ($2.08 in chips)
+Player R: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [7d 9d]
+Player P: folds
+Player Q: folds
+Player N: folds
+Player O: folds
+Player R: raises $0.03 to $0.05
+Player C: calls $0.03
+*** FLOP *** [2h Kc As]
+Player R: checks
+Player C: bets $0.06
+Player R: folds
+Uncalled bet ($0.06) returned to Player C
+Player C collected $0.10 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.10 | Rake $0
+Board [2h Kc As]
+Seat 1: Player O (button) folded before Flop (didn't bet)
+Seat 2: Player R (small blind) folded on the Flop
+Seat 3: Player C (big blind) collected ($0.10)
+Seat 4: Player P folded before Flop (didn't bet)
+Seat 5: Player Q folded before Flop (didn't bet)
+Seat 6: Player N folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #74:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2 in chips)
+Seat 3: Player C ($1.40 in chips)
+Seat 5: Player Q ($1.34 in chips)
+Seat 6: Player N ($2.08 in chips)
+Player C: posts small blind $0.01
+Player P: is sitting out
+Player Q: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Kc 8d]
+Player P leaves the table
+Player S joins the table at seat #4
+Player N has timed out
+Player N: folds
+Player O: folds
+Player R: raises $0.03 to $0.05
+Player C: folds
+Player Q: folds
+Uncalled bet ($0.03) returned to Player R
+Player R collected $0.05 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 2: Player R (button) collected ($0.05)
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player Q (big blind) folded before Flop
+Seat 6: Player N folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #75:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2.03 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 5: Player Q ($1.32 in chips)
+Player Q: posts small blind $0.01
+Player O: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [8h 5s]
+Player R: raises $0.03 to $0.05
+Player C: folds
+Player Q: folds
+Player O: folds
+Uncalled bet ($0.03) returned to Player R
+Player R collected $0.05 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O (big blind) folded before Flop
+Seat 2: Player R collected ($0.05)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 5: Player Q (small blind) folded before Flop
+
+
+
+PokerIXI Hand #76:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player O ($2.74 in chips)
+Seat 2: Player R ($2.06 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Player O: posts small blind $0.01
+Player R: posts big blind $0.02
+Player S: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Qh 2s]
+Player C: folds
+Player Q: folds
+Player O: raises $0.04 to $0.06
+Player R: folds
+Uncalled bet ($0.04) returned to Player O
+Player O collected $0.04 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.04 | Rake $0
+Seat 1: Player O (small blind) collected ($0.04)
+Seat 2: Player R (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player Q (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #77:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2.04 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Player R: posts small blind $0.01
+Player C: posts big blind $0.02
+Player S: sits out
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [8c Qs]
+Player Q: folds
+Player O: folds
+Player R: folds
+Uncalled bet ($0.01) returned to Player C
+Player C collected $0.02 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 1: Player O (button) folded before Flop (didn't bet)
+Seat 2: Player R (small blind) folded before Flop
+Seat 3: Player C (big blind) collected ($0.02)
+Seat 5: Player Q folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #78:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2.03 in chips)
+Seat 3: Player C ($1.40 in chips)
+Seat 4: Player S ($2 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Player C: posts small blind $0.01
+Player S: posts big blind $0.02
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Ac 8s]
+Player Q: folds
+Player O: folds
+Player R: raises $0.03 to $0.05
+Player C: folds
+Player S: folds
+Uncalled bet ($0.03) returned to Player R
+Player R collected $0.05 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 2: Player R (button) collected ($0.05)
+Seat 3: Player C (small blind) folded before Flop
+Seat 4: Player S (big blind) folded before Flop
+Seat 5: Player Q folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #79:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 1: Player O ($2.76 in chips)
+Seat 2: Player R ($2.06 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 4: Player S ($2 in chips)
+Seat 5: Player Q ($1.31 in chips)
+Player S: posts small blind $0.01
+Player Q: posts big blind $0.02
+Player N: sits out
+*** HOLE CARDS ***
+Dealt to Player C [3h Ah]
+Player O: raises $0.04 to $0.06
+Player R: folds
+Player C: folds
+Player S: folds
+Player Q: folds
+Uncalled bet ($0.04) returned to Player O
+Player O collected $0.05 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O collected ($0.05)
+Seat 2: Player R folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 4: Player S (small blind) folded before Flop
+Seat 5: Player Q (big blind) folded before Flop
+
+
+
+PokerIXI Hand #80:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #4 is the button
+Seat 1: Player O ($2.79 in chips)
+Seat 2: Player R ($2.06 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 4: Player S ($2 in chips)
+Seat 5: Player Q ($1.29 in chips)
+Seat 6: Player N ($2.08 in chips)
+Player Q: posts small blind $0.01
+Player N: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [8s 3s]
+Player O: raises $0.04 to $0.06
+Player R: raises $0.14 to $0.20
+Player C: folds
+Player S: folds
+Player Q: folds
+Player N: folds
+Player O: folds
+Uncalled bet ($0.14) returned to Player R
+Player R collected $0.15 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.15 | Rake $0
+Seat 1: Player O folded before Flop
+Seat 2: Player R collected ($0.15)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player S (button) folded before Flop (didn't bet)
+Seat 5: Player Q (small blind) folded before Flop
+Seat 6: Player N (big blind) folded before Flop
+
+
+
+PokerIXI Hand #81:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player O ($2.73 in chips)
+Seat 2: Player R ($2.15 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 4: Player S ($2 in chips)
+Seat 5: Player Q ($1.28 in chips)
+Seat 6: Player N ($2.06 in chips)
+Player N: posts small blind $0.01
+Player O: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Js 9d]
+Player R: folds
+Player C: folds
+Player S has timed out
+Player S: folds
+Player Q: folds
+Player N: raises $0.04 to $0.06
+Player O: raises $0.18 to $0.24
+Player N: folds
+Uncalled bet ($0.18) returned to Player O
+Player O collected $0.12 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.12 | Rake $0
+Seat 1: Player O (big blind) collected ($0.12)
+Seat 2: Player R folded before Flop (didn't bet)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 4: Player S folded before Flop (didn't bet)
+Seat 5: Player Q (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #82:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player O ($2.79 in chips)
+Seat 2: Player R ($2.15 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 5: Player Q ($1.28 in chips)
+Seat 6: Player N ($2 in chips)
+Player O: posts small blind $0.01
+Player R: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Ah 5c]
+Player C: folds
+Player Q: calls $0.02
+Player N: folds
+Player O: raises $0.08 to $0.10
+Player R: folds
+Player Q: calls $0.08
+*** FLOP *** [Ad 5d 7h]
+Player O: bets $0.18
+Player Q: folds
+Uncalled bet ($0.18) returned to Player O
+Player O collected $0.21 from pot
+Player O: doesn't show hand
+*** SUMMARY ***
+Total pot $0.22 | Rake $0.01
+Board [Ad 5d 7h]
+Seat 1: Player O (small blind) collected ($0.21)
+Seat 2: Player R (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player Q folded on the Flop
+Seat 6: Player N (button) folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #83:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #1 is the button
+Seat 1: Player O ($2.90 in chips)
+Seat 2: Player R ($2.13 in chips)
+Seat 3: Player C ($1.39 in chips)
+Seat 5: Player Q ($1.18 in chips)
+Seat 6: Player N ($2 in chips)
+Player R: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [5d Jh]
+Player Q: calls $0.02
+Player N: folds
+Player O: raises $0.08 to $0.10
+Player R: folds
+Player C: folds
+Player Q: calls $0.08
+*** FLOP *** [Kc 7d 5h]
+Player Q: checks
+Player O: checks
+*** TURN *** [Kc 7d 5h] [7h]
+Player Q: checks
+Player O: checks
+*** RIVER *** [Kc 7d 5h 7h] [3h]
+Player Q: checks
+Player O: checks
+*** SHOW DOWN ***
+Player Q: shows [6s As] (a pair of Sevens)
+Player O: mucks hand
+Player Q collected $0.22 from pot
+*** SUMMARY ***
+Total pot $0.23 | Rake $0.01
+Board [Kc 7d 5h 7h 3h]
+Seat 1: Player O (button) mucked [9c Qc]
+Seat 2: Player R (small blind) folded before Flop
+Seat 3: Player C (big blind) folded before Flop
+Seat 5: Player Q showed [6s As] and won ($0.22) with a pair of Sevens
+Seat 6: Player N folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #84:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 1: Player O ($2.80 in chips)
+Seat 2: Player R ($2.12 in chips)
+Seat 3: Player C ($1.37 in chips)
+Seat 5: Player Q ($1.30 in chips)
+Seat 6: Player N ($2 in chips)
+Player C: posts small blind $0.01
+Player Q: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Ah 8c]
+Player N: raises $0.05 to $0.07
+Player O: folds
+Player R: folds
+Player O leaves the table
+Player C: folds
+Player Q: folds
+Uncalled bet ($0.05) returned to Player N
+Player N collected $0.05 from pot
+Player N: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 1: Player O folded before Flop (didn't bet)
+Seat 2: Player R (button) folded before Flop (didn't bet)
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player Q (big blind) folded before Flop
+Seat 6: Player N collected ($0.05)
+
+
+
+PokerIXI Hand #85:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 2: Player R ($2.12 in chips)
+Seat 3: Player C ($1.36 in chips)
+Seat 5: Player Q ($1.28 in chips)
+Seat 6: Player N ($2.03 in chips)
+Player Q: posts small blind $0.01
+Player N: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Js 3s]
+Player R: folds
+Player C: folds
+Player Q: calls $0.01
+Player N: checks
+*** FLOP *** [4h 7s Qd]
+Player Q: checks
+Player N: bets $0.02
+Player Q: calls $0.02
+*** TURN *** [4h 7s Qd] [Tc]
+Player Q: checks
+Player N: checks
+*** RIVER *** [4h 7s Qd Tc] [4d]
+Player Q: checks
+Player N: checks
+*** SHOW DOWN ***
+Player Q: shows [5s 5h] (two pair, Fives and Fours)
+Player N: mucks hand
+Player Q collected $0.08 from pot
+*** SUMMARY ***
+Total pot $0.08 | Rake $0
+Board [4h 7s Qd Tc 4d]
+Seat 2: Player R folded before Flop (didn't bet)
+Seat 3: Player C (button) folded before Flop (didn't bet)
+Seat 5: Player Q (small blind) showed [5s 5h] and won ($0.08) with two pair, Fives and Fours
+Seat 6: Player N (big blind) mucked [6d Kc]
+
+
+
+PokerIXI Hand #86:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 2: Player R ($2.12 in chips)
+Seat 3: Player C ($1.36 in chips)
+Seat 5: Player Q ($1.32 in chips)
+Seat 6: Player N ($2 in chips)
+Player N: posts small blind $0.01
+Player R: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Jh 3d]
+Player C: folds
+Player Q: folds
+Player N: folds
+Uncalled bet ($0.01) returned to Player R
+Player R collected $0.02 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.02 | Rake $0
+Seat 2: Player R (big blind) collected ($0.02)
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player Q (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #87:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 2: Player R ($2.13 in chips)
+Seat 3: Player C ($1.36 in chips)
+Seat 5: Player Q ($1.32 in chips)
+Seat 6: Player N ($2 in chips)
+Player R: posts small blind $0.01
+Player C: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6h 6d]
+Player Q: folds
+Player N: raises $0.02 to $0.04
+Player R: raises $0.12 to $0.16
+Player C: folds
+Player N: folds
+Uncalled bet ($0.12) returned to Player R
+Player R collected $0.10 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.10 | Rake $0
+Seat 2: Player R (small blind) collected ($0.10)
+Seat 3: Player C (big blind) folded before Flop
+Seat 5: Player Q folded before Flop (didn't bet)
+Seat 6: Player N (button) folded before Flop
+
+
+
+PokerIXI Hand #88:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #2 is the button
+Seat 2: Player R ($2.19 in chips)
+Seat 3: Player C ($1.34 in chips)
+Seat 5: Player Q ($1.32 in chips)
+Seat 6: Player N ($2 in chips)
+Player C: posts small blind $0.01
+Player Q: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [Tc 6d]
+Player N: folds
+Player R: raises $0.03 to $0.05
+Player C: folds
+Player Q: calls $0.03
+*** FLOP *** [8d 4c 6s]
+Player Q: bets $0.04
+Player R: calls $0.04
+*** TURN *** [8d 4c 6s] [Ac]
+Player Q: checks
+Player T joins the table at seat #1
+Player R: bets $0.11
+Player Q: folds [8c]
+Uncalled bet ($0.11) returned to Player R
+Player R collected $0.18 from pot
+Player R: doesn't show hand
+*** SUMMARY ***
+Total pot $0.19 | Rake $0.01
+Board [8d 4c 6s Ac]
+Seat 2: Player R (button) collected ($0.18)
+Seat 3: Player C (small blind) folded before Flop
+Seat 5: Player Q (big blind) folded on the Turn
+Seat 6: Player N folded before Flop (didn't bet)
+
+
+
+PokerIXI Hand #89:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #3 is the button
+Seat 2: Player R ($2.28 in chips)
+Seat 3: Player C ($1.33 in chips)
+Seat 5: Player Q ($1.23 in chips)
+Seat 6: Player N ($2 in chips)
+Player Q: posts small blind $0.01
+Player N: posts big blind $0.02
+Player T: sits out
+*** HOLE CARDS ***
+Dealt to Player C [Th Kd]
+Player R: folds
+Player C: raises $0.04 to $0.06
+Player Q: folds
+Player N: folds
+Uncalled bet ($0.04) returned to Player C
+Player C collected $0.05 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.05 | Rake $0
+Seat 2: Player R folded before Flop (didn't bet)
+Seat 3: Player C (button) collected ($0.05)
+Seat 5: Player Q (small blind) folded before Flop
+Seat 6: Player N (big blind) folded before Flop
+
+
+
+PokerIXI Hand #90:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #5 is the button
+Seat 1: Player T ($2 in chips)
+Seat 2: Player R ($2.28 in chips)
+Seat 3: Player C ($1.36 in chips)
+Seat 5: Player Q ($1.22 in chips)
+Seat 6: Player N ($2 in chips)
+Player N: posts small blind $0.01
+Player T: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [As Ad]
+Player R: folds
+Player C: raises $0.04 to $0.06
+Player Q: folds
+Player N: folds
+Player T: calls $0.04
+*** FLOP *** [Jd 6c Qh]
+Player T: checks
+Player C: bets $0.10
+Player T: folds
+Uncalled bet ($0.10) returned to Player C
+Player C collected $0.13 from pot
+Player C: doesn't show hand
+*** SUMMARY ***
+Total pot $0.13 | Rake $0
+Board [Jd 6c Qh]
+Seat 1: Player T (big blind) folded on the Flop
+Seat 2: Player R folded before Flop (didn't bet)
+Seat 3: Player C collected ($0.13)
+Seat 5: Player Q (button) folded before Flop (didn't bet)
+Seat 6: Player N (small blind) folded before Flop
+
+
+
+PokerIXI Hand #91:  Hold'em No Limit ($0.01/$0.02 USD)
+Table 'EC III' 6-max Seat #6 is the button
+Seat 1: Player T ($1.94 in chips)
+Seat 2: Player R ($2.28 in chips)
+Seat 3: Player C ($1.43 in chips)
+Seat 5: Player Q ($1.22 in chips)
+Seat 6: Player N ($2 in chips)
+Player T: posts small blind $0.01
+Player R: posts big blind $0.02
+*** HOLE CARDS ***
+Dealt to Player C [6c 8h]
+Player C: folds
+Player Q: folds
+Player N: folds
+Player T: raises $0.02 to $0.04
+Player R: folds
+Uncalled bet ($0.02) returned to Player T
+Player T collected $0.04 from pot
+Player T: doesn't show hand
+*** SUMMARY ***
+Total pot $0.04 | Rake $0
+Seat 1: Player T (small blind) collected ($0.04)
+Seat 2: Player R (big blind) folded before Flop
+Seat 3: Player C folded before Flop (didn't bet)
+Seat 5: Player Q folded before Flop (didn't bet)
+Seat 6: Player N (button) folded before Flop (didn't bet)
+
+
+

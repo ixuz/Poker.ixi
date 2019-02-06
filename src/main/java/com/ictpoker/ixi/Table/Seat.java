@@ -43,6 +43,17 @@ public class Seat {
         setCommitted(getCommitted()+amount);
     }
 
+    public synchronized void commitDead(final int amount)
+            throws Exception {
+
+        if (amount > getStack()) {
+            throw new Exception("Insufficient stack");
+        }
+
+        setStack(getStack()-amount);
+        setCollected(getCollected()+amount);
+    }
+
     public Player getPlayer() {
         return player;
     }
