@@ -41,7 +41,7 @@ public class CheckEventTest {
      * @throws TableException
      */
     @Test
-    public void testNegative3() throws TableException {
+    public void testNegative2() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
 
@@ -67,7 +67,7 @@ public class CheckEventTest {
      * @throws TableException
      */
     @Test
-    public void testNegative2() throws TableException {
+    public void testNegative3() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
 
