@@ -22,6 +22,14 @@ public class CheckEvent extends TableEvent {
                 throw new TableStateException("Player is not seated at the table");
             }
 
+            if (!table.isSmallBlindPosted()) {
+                throw new TableEventException("The player can't check, must post the small blind to play");
+            }
+
+            if (!table.isBigBlindPosted()) {
+                throw new TableEventException("The player can't check, must post the big blind to play");
+            }
+
             if (seat != table.getSeatToAct()) {
                 throw new TableEventException("It's not the player's turn to act");
             }
