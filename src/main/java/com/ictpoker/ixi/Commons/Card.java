@@ -1,5 +1,7 @@
 package com.ictpoker.ixi.Commons;
 
+import com.ictpoker.ixi.eval.Constants;
+
 public class Card {
 
     private final Rank rank;
@@ -16,6 +18,14 @@ public class Card {
 
     public Suit getSuit() {
         return suit;
+    }
+
+    public int getIndex() {
+        return suit.ordinal() * Constants.NUM_RANKS + rank.ordinal();
+    }
+
+    public long getBitmask() {
+        return 0x1L << getIndex();
     }
 
     @Override
