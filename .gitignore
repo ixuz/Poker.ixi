@@ -24,3 +24,5 @@ gradlew.bat
 *.jar
 out
 build
+
+bin/

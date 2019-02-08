@@ -60,4 +60,16 @@ public class CardTest {
         Assert.assertEquals(new Card(Rank.KING, Suit.SPADES).toString(), "Ks");
         Assert.assertEquals(new Card(Rank.ACE, Suit.SPADES).toString(), "As");
     }
+
+    @Test
+    public void testIndex() {
+        Assert.assertEquals(13, new Card(Rank.TWO, Suit.DIAMONDS).getIndex());
+        Assert.assertEquals(47, new Card(Rank.TEN, Suit.SPADES).getIndex());
+    }
+
+    @Test
+    public void testGetBitmask() {
+        Assert.assertEquals(8192L, new Card(Rank.TWO, Suit.DIAMONDS).getBitmask()); // 2^13
+        Assert.assertEquals(140737488355328L, new Card(Rank.TEN, Suit.SPADES).getBitmask()); // 2^47
+    }
 }
