@@ -28,6 +28,6 @@ public class EvaluationTest {
         Evaluation eval = new Evaluation(code);
 
         // System.out.println(eval.toString());
-        Assert.assertEquals("TwoPair Q T 8", eval.toString());
+        Assert.assertEquals("Two-Pair Q T 8", eval.toString());
     }
 }
