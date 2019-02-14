@@ -6,6 +6,8 @@ import com.ictpoker.ixi.Table.TableEvent.Info.DealEvent;
 import com.ictpoker.ixi.Table.TableEvent.Info.SetHandDetailsEvent;
 import com.ictpoker.ixi.Table.TableEvent.Info.SetSeatEvent;
 import com.ictpoker.ixi.Table.TableEvent.Info.SetTableDetailsEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HandHistoryParser {
+
+    private final static Logger LOGGER = LogManager.getLogger(HandHistoryParser.class);
 
     private final static Pattern infoNewHandPattern = Pattern.compile(".*#(\\d+):  Hold'em No Limit \\(\\$(\\d*.?\\d*)\\/\\$(\\d*.?\\d*) USD\\)");
     private final static Pattern infoTablePattern = Pattern.compile("Table '([^']+)\\' (\\d+)-max Seat #(\\d+) is the button");
@@ -77,7 +81,7 @@ public class HandHistoryParser {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warn(e);
         }
         return tableEvents;
     }

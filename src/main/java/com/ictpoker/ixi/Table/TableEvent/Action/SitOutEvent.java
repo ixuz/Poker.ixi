@@ -3,8 +3,12 @@ package com.ictpoker.ixi.Table.TableEvent.Action;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SitOutEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(SitOutEvent.class);
 
     private final boolean sittingOut;
 

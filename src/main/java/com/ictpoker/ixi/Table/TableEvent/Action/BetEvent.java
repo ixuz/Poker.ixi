@@ -5,8 +5,12 @@ import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BetEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(BetEvent.class);
 
     public BetEvent(final String playerName,
                     final int amount) {

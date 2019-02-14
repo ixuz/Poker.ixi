@@ -30,11 +30,11 @@ public class Constants {
         public static final int ROYAL_FLUSH = 9;
 
         // Holds all the possible hand types.
-        public static final String[] TYPES = { "Highcard", "Pair", "Two-Pair", "Three-of-a-kind", "Straight", "Flush",
+        protected static final String[] TYPES = { "Highcard", "Pair", "Two-Pair", "Three-of-a-kind", "Straight", "Flush",
                         "Full-house", "Four-of-a-kind", "Straight-flush", "Royal-flush" };
 
         // Holds the corresponding bitmasks for all ranks (TWO=0x0001, ..., ACE=0x1000)
-        public static final int[] BITMASK_RANK = { 0x0001, 0x0002, 0x0004, 0x0008, 0x0010, 0x0020, 0x0040, 0x0080,
+        protected static final int[] BITMASK_RANK = { 0x0001, 0x0002, 0x0004, 0x0008, 0x0010, 0x0020, 0x0040, 0x0080,
                         0x0100, 0x0200, 0x0400, 0x0800, 0x1000 };
 
 }

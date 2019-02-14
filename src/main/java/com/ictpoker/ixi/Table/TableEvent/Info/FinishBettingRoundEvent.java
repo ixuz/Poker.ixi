@@ -3,11 +3,15 @@ package com.ictpoker.ixi.Table.TableEvent.Info;
 import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FinishBettingRoundEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(FinishBettingRoundEvent.class);
 
     protected final static int FLOP = 3;
     protected final static int TURN = 1;

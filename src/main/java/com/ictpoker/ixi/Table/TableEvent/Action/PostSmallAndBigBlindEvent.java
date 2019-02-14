@@ -5,8 +5,12 @@ import com.ictpoker.ixi.Table.Exception.TableStateException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PostSmallAndBigBlindEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(PostSmallAndBigBlindEvent.class);
 
     public PostSmallAndBigBlindEvent(String playerName) {
         super(playerName, 0);

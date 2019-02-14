@@ -10,11 +10,15 @@ import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 import com.ictpoker.ixi.eval.Evaluation;
 import com.ictpoker.ixi.eval.Evaluator;
 import com.ictpoker.ixi.eval.Hand;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class DeliverWinningsEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(DeliverWinningsEvent.class);
 
     @Override
     public TableEvent handle(Table table) throws TableEventException {
@@ -46,7 +50,7 @@ public class DeliverWinningsEvent extends TableEvent {
                 handSeatMap.put(new Hand(cards), activeSeat);
             } catch (Exception e) {
                 // TODO: Handle exception
-                e.printStackTrace();
+                LOGGER.warn(e);
             }
         }
 
@@ -151,7 +155,7 @@ public class DeliverWinningsEvent extends TableEvent {
                                     evaluation));
                         } catch (Exception e) {
                             // TODO: Unhandled exception
-                            e.printStackTrace();
+                            LOGGER.warn(e);
                         }
                     }
                 }

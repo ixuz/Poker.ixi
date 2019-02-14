@@ -5,10 +5,14 @@ import com.ictpoker.ixi.Table.Exception.TableEventException;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Collection;
 
 public class SetHoleCardsEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(SetHoleCardsEvent.class);
 
     private final String playerName;
     private final Collection<Card> cards;

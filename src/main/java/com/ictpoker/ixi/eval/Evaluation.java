@@ -4,10 +4,10 @@ import com.ictpoker.ixi.Commons.Rank;
 import java.util.ArrayList;
 
 public final class Evaluation {
-    public int handType = 0;
-    public int majorRank = 0;
-    public int minorRank = 0;
-    public int kickers = 0;
+    private final int handType;
+    private final int majorRank;
+    private final int minorRank;
+    private final int kickers;
 
     public Evaluation(int code) {
         handType = (code >> Constants.OFFSET_TYPE) & 0xF;
@@ -52,19 +52,21 @@ public final class Evaluation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Constants.TYPES[getType()]);
-        if (getMajor() != null) {
+        final Rank major = getMajor();
+        if (major != null) {
             sb.append(" ");
-            sb.append(getMajor().toString());
+            sb.append(major.toString());
         }
-        if (getMinor() != null) {
+        final Rank minor = getMinor();
+        if (minor != null) {
             sb.append(" ");
-            sb.append(getMinor().toString());
+            sb.append(minor.toString());
         }
         if (getKickers().size() > 0) {
             sb.append(" ");
             ArrayList<Rank> ranks = getKickers();
-            for (int i = 0; i < ranks.size(); i++) {
-                sb.append(ranks.get(i).toString());
+            for (Rank rank : ranks) {
+                sb.append(rank.toString());
             }
 
         }

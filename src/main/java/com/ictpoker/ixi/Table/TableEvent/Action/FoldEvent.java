@@ -4,8 +4,12 @@ import com.ictpoker.ixi.Table.Exception.*;
 import com.ictpoker.ixi.Table.Seat;
 import com.ictpoker.ixi.Table.Table;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FoldEvent extends TableEvent {
+
+    private final static Logger LOGGER = LogManager.getLogger(FoldEvent.class);
 
     public FoldEvent(final String playerName) {
 

@@ -41,7 +41,7 @@ public final class Evaluator {
             }
 
             if (suit != 0) {
-                majorRank = Straight.STRAIGHT[suit];
+                majorRank = Straight.at(suit);
 
                 if (majorRank != 0) {
                     if (majorRank == Rank.ACE.ordinal()) {
@@ -53,10 +53,10 @@ public final class Evaluator {
                     }
                 } else {
                     // Flush
-                    return encode(Constants.FLUSH, Constants.NULL, Constants.NULL, Msb5.MSB5[suit]);
+                    return encode(Constants.FLUSH, Constants.NULL, Constants.NULL, Msb5.at(suit));
                 }
             } else {
-                majorRank = Straight.STRAIGHT[ranks];
+                majorRank = Straight.at(ranks);
 
                 if (majorRank != 0) {
                     // Straight
@@ -69,12 +69,12 @@ public final class Evaluator {
         switch (numDuplicateRanks) {
             case 0: {
                 // Highcard
-                return encode(Constants.HIGHCARD, Constants.NULL, Constants.NULL, Msb5.MSB5[ranks]);
+                return encode(Constants.HIGHCARD, Constants.NULL, Constants.NULL, Msb5.at(ranks));
             }
             case 1: {
                 int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
-                majorRank = TopRank.TOP_RANK[pairs];
-                kickers = Msb3.MSB3[ranks ^ Constants.BITMASK_RANK[majorRank]];
+                majorRank = TopRank.at(pairs);
+                kickers = Msb3.at(ranks ^ Constants.BITMASK_RANK[majorRank]);
 
                 // Pair
                 return encode(Constants.PAIR, majorRank, Constants.NULL, kickers);
@@ -82,17 +82,17 @@ public final class Evaluator {
             case 2: {
                 int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
                 if (pairs != 0) {
-                    majorRank = TopRank.TOP_RANK[pairs];
-                    minorRank = TopRank.TOP_RANK[pairs ^ Msb1.MSB1[pairs]];
-                    kickers = Msb1.MSB1[ranks ^ pairs];
+                    majorRank = TopRank.at(pairs);
+                    minorRank = TopRank.at(pairs ^ Msb1.at(pairs));
+                    kickers = Msb1.at(ranks ^ pairs);
 
                     // TwoPair
                     return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
                 } else {
                     int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
-                    majorRank = TopRank.TOP_RANK[trips];
-                    int kicker1 = Msb1.MSB1[ranks ^ trips];
-                    int kicker2 = Msb1.MSB1[(ranks ^ trips) ^ kicker1];
+                    majorRank = TopRank.at(trips);
+                    int kicker1 = Msb1.at(ranks ^ trips);
+                    int kicker2 = Msb1.at((ranks ^ trips) ^ kicker1);
                     kickers = kicker1 | kicker2;
 
                     // Three-of-a-kind
@@ -103,8 +103,8 @@ public final class Evaluator {
                 int quads = clubs & diamonds & hearts & spades;
 
                 if (quads != 0) {
-                    majorRank = TopRank.TOP_RANK[quads];
-                    kickers = Msb1.MSB1[ranks ^ quads];
+                    majorRank = TopRank.at(quads);
+                    kickers = Msb1.at(ranks ^ quads);
 
                     // Four-of-a-kind
                     return encode(Constants.QUADS, majorRank, Constants.NULL, kickers);
@@ -114,24 +114,24 @@ public final class Evaluator {
                     if (countRanks(pairs) != numDuplicateRanks) {
                         int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
 
-                        majorRank = TopRank.TOP_RANK[trips];
+                        majorRank = TopRank.at(trips);
 
                         if (pairs != 0) {
-                            minorRank = TopRank.TOP_RANK[pairs];
+                            minorRank = TopRank.at(pairs);
 
                             // Fullhouse (with 1 triple and 1 pair)
                             return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
                         } else {
-                            minorRank = TopRank.TOP_RANK[trips ^ Constants.BITMASK_RANK[majorRank]];
+                            minorRank = TopRank.at(trips ^ Constants.BITMASK_RANK[majorRank]);
 
                             // Fullhouse (with 2 triples)
                             return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
                         }
                     } else {
-                        majorRank = TopRank.TOP_RANK[pairs];
-                        minorRank = TopRank.TOP_RANK[pairs ^ Constants.BITMASK_RANK[majorRank]];
-                        kickers = Msb1.MSB1[(ranks ^ Constants.BITMASK_RANK[majorRank])
-                                ^ Constants.BITMASK_RANK[minorRank]];
+                        majorRank = TopRank.at(pairs);
+                        minorRank = TopRank.at(pairs ^ Constants.BITMASK_RANK[majorRank]);
+                        kickers = Msb1.at((ranks ^ Constants.BITMASK_RANK[majorRank])
+                                ^ Constants.BITMASK_RANK[minorRank]);
 
                         // TwoPair (with 3 pairs)
                         return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
