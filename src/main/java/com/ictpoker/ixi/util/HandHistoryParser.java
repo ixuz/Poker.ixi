@@ -61,6 +61,10 @@ public class HandHistoryParser {
     private final static Pattern summaryTotalPotPattern = Pattern.compile("Total pot");
     private final static Pattern summaryCollectedPattern = Pattern.compile("(.+?(?= collected)) collected \\(\\$(\\d*.?\\d*)\\)");
 
+    private HandHistoryParser() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static final List<TableEvent> parseFile(final String filePath)
             throws ParseException {
 
@@ -338,12 +342,10 @@ public class HandHistoryParser {
     public static class ParseException extends Exception {
 
         public ParseException(final String message) {
-
             super(message);
         }
 
         public ParseException(final String message, Exception e) {
-
             super(message, e);
         }
     }

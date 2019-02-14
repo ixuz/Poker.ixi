@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.table.event.action;
 
+import com.ictpoker.ixi.table.exception.SeatException;
 import com.ictpoker.ixi.table.exception.TableEventException;
 import com.ictpoker.ixi.table.exception.TableStateException;
 import com.ictpoker.ixi.table.Seat;
@@ -48,7 +49,7 @@ public class PostBigBlindEvent extends TableEvent {
                 log(String.format("%s: posts big blind $%d",
                         getPlayerName(),
                         add));
-            } catch (Exception e) {
+            } catch (SeatException e) {
                 throw new TableEventException("Failed to commit", e);
             }
 

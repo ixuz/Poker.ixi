@@ -1,4 +1,4 @@
-package com.ictpoker.ixi.commons;
+package com.ictpoker.ixi.util;
 
 public class Constants {
 
@@ -6,4 +6,8 @@ public class Constants {
     public static final String TAG = "POKER9IXI99999999999999999";
     public static final String PROPERTIES_LOCATION = "modules/poker.ixi";
     public static final String PROPERTIES_FILE = PROPERTIES_LOCATION+"/poker.ixi.cfg";
+
+    private Constants() {
+        throw new IllegalStateException("Utility class");
+    }
 }

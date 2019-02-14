@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.table.event.action;
 
+import com.ictpoker.ixi.table.exception.SeatException;
 import com.ictpoker.ixi.table.exception.TableEventException;
 import com.ictpoker.ixi.table.exception.TableStateException;
 import com.ictpoker.ixi.table.Seat;
@@ -68,7 +69,7 @@ public class RaiseEvent extends TableEvent {
 
             try {
                 seat.commit(getAmount() - seat.getCommitted());
-            } catch (Exception e) {
+            } catch (SeatException e) {
                 throw new TableEventException("Failed to commit", e);
             }
 

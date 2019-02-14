@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 
 public class DeckTest {
 
@@ -23,7 +24,7 @@ public class DeckTest {
         try {
             deck.draw();
             Assert.fail("An empty stack should fail to pop!");
-        } catch (EmptyStackException e) {
+        } catch (NoSuchElementException e) {
             // Intended exception thrown, an empty stack should throw an error on pop()
         }
     }

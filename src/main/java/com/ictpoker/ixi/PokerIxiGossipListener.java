@@ -1,6 +1,6 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.commons.Constants;
+import com.ictpoker.ixi.util.Constants;
 import org.iota.ict.model.Transaction;
 import org.iota.ict.network.event.GossipEvent;
 import org.iota.ict.network.event.GossipFilter;
@@ -26,10 +26,10 @@ public class PokerIxiGossipListener extends GossipListener {
     }
 
     private void handleInbound(final Transaction transaction) {
-
+        // TODO: Not yet implemented
     }
 
     private void handleOutbound(final Transaction transaction) {
-
+        // TODO: Not yet implemented
     }
 }

@@ -2,36 +2,32 @@ package com.ictpoker.ixi.commons;
 
 import com.google.common.collect.Lists;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Deck {
 
-    private final Stack<Card> deck = new Stack<>();
+    private final Deque<Card> cards = new LinkedList<>();
 
     public Deck() {
+        List<Card> temp = new LinkedList<>();
         for (final Rank rank : Rank.values()) {
             for (final Suit suit : Suit.values()) {
-                deck.add(new Card(rank, suit));
+                temp.add(new Card(rank, suit));
             }
         }
-        shuffle();
+        Collections.shuffle(temp);
+        cards.addAll(temp);
     }
 
     public Deck(final List<Card> fixedCardOrder) {
-        deck.addAll(Lists.reverse(fixedCardOrder));
-    }
-
-    public void shuffle() {
-        Collections.shuffle(deck);
+        cards.addAll(Lists.reverse(fixedCardOrder));
     }
 
     public Card draw() {
-        return deck.pop();
+        return cards.removeLast();
     }
 
     public int size() {
-        return deck.size();
+        return cards.size();
     }
 }

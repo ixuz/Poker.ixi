@@ -2,14 +2,16 @@ package com.ictpoker.ixi.table;
 
 import com.ictpoker.ixi.commons.Card;
 import com.ictpoker.ixi.player.Player;
+import com.ictpoker.ixi.table.exception.SeatException;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Seat {
 
     private final Player player;
     private int stack = 0;
-    private Stack<Card> cards = new Stack<>();
+    private Deque<Card> cards = new LinkedList<>();
     private boolean folded = false;
     private boolean acted = false;
     private boolean sittingOut = false;
@@ -33,10 +35,10 @@ public class Seat {
     }
 
     public synchronized void commit(final int amount)
-            throws Exception {
+            throws SeatException {
 
         if (amount > getStack()) {
-            throw new Exception("Insufficient stack");
+            throw new SeatException("Insufficient stack");
         }
 
         setStack(getStack()-amount);
@@ -44,10 +46,10 @@ public class Seat {
     }
 
     public synchronized void commitDead(final int amount)
-            throws Exception {
+            throws SeatException {
 
         if (amount > getStack()) {
-            throw new Exception("Insufficient stack");
+            throw new SeatException("Insufficient stack");
         }
 
         setStack(getStack()-amount);
@@ -66,11 +68,11 @@ public class Seat {
         this.stack = stack;
     }
 
-    public Stack<Card> getCards() {
+    public Deque<Card> getCards() {
         return cards;
     }
 
-    public void setCards(Stack<Card> cards) {
+    public void setCards(Deque<Card> cards) {
         this.cards = cards;
     }
 

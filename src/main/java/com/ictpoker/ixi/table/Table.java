@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Table extends TableState {
 
-    private final static Logger LOGGER = LogManager.getLogger(Table.class);
+    private static final  Logger LOGGER = LogManager.getLogger(Table.class);
     private final Deque<TableEvent> tableEventQueue = new LinkedList<>();
 
     public Table(final int minimumBuyIn,
