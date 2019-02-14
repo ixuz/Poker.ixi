@@ -26,7 +26,14 @@ public class DealEvent extends TableEvent {
         log(String.format("*** HOLE CARDS ***"));
 
         for (int i=0; i<CARDS_PER_SEAT; i++) {
-            for (Seat seat : table.getSeats()) {
+            for (int j=0; j<table.getSeats().size(); j++) {
+                int wrappingIndex = (j+1)%table.getSeats().size();
+                Seat seat = table.getSeats().get(wrappingIndex);
+
+                if (seat.getPlayer() == null) {
+                    continue;
+                }
+
                 if (seat.isSittingOut()) {
                     continue;
                 }

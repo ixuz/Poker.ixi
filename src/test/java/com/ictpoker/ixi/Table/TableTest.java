@@ -13,7 +13,7 @@ public class TableTest {
 
         final Table table = new Table(500, 1000, 5, 10);
 
-        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
+        table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
 
         table.handleEventQueue();
 
@@ -26,8 +26,8 @@ public class TableTest {
         try {
             final Table table = new Table(500, 1000, 5, 10);
 
-            table.pushEvent(new JoinEvent("Adam Broker", 500, 0));
-            table.pushEvent(new JoinEvent("Adam Broker", 500, 0));
+            table.addEventLast(new JoinEvent("Adam Broker", 500, 0));
+            table.addEventLast(new JoinEvent("Adam Broker", 500, 0));
 
             table.handleEventQueue();
         } catch (TableException e) {
@@ -40,8 +40,8 @@ public class TableTest {
 
         final Table table = new Table(500, 1000, 5, 10);
 
-        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
-        table.pushEvent(new JoinEvent("Carry Davis", 1000, 1));
+        table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
+        table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
 
         table.handleEventQueue();
 
@@ -49,21 +49,21 @@ public class TableTest {
         Assert.assertEquals(1, table.getSeatIndexByPlayerName("Carry Davis"));
 
         try {
-            table.pushEvent(new JoinEvent("Eric Flores", 1000, 0));
+            table.addEventLast(new JoinEvent("Eric Flores", 1000, 0));
             table.handleEventQueue();
         } catch (TableException e) {
             // Intended exception, the player should not be able to join an already occupied seat.
         }
 
         try {
-            table.pushEvent(new JoinEvent("Eric Flores", 1000, 1));
+            table.addEventLast(new JoinEvent("Eric Flores", 1000, 1));
             table.handleEventQueue();
         } catch (TableException e) {
             // Intended exception, the player should not be able to join an already occupied seat.
         }
 
         try {
-            table.pushEvent(new JoinEvent("Eric Flores", 1000, 2));
+            table.addEventLast(new JoinEvent("Eric Flores", 1000, 2));
             table.handleEventQueue();
         } catch (TableException e) {
             // Intended exception, the player should not be able to join a non-existant seat.
@@ -75,8 +75,8 @@ public class TableTest {
 
         final Table table = new Table(500, 1000, 5, 10);
 
-        table.pushEvent(new JoinEvent("Adam Broker", 1000, 0));
-        table.pushEvent(new LeaveEvent("Adam Broker"));
+        table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
+        table.addEventLast(new LeaveEvent("Adam Broker"));
 
         table.handleEventQueue();
 
@@ -91,7 +91,7 @@ public class TableTest {
         final Table table = new Table(500, 1000, 5, 10);
 
         try {
-            table.pushEvent(new JoinEvent("Adam Broker", 200, 0));
+            table.addEventLast(new JoinEvent("Adam Broker", 200, 0));
 
             table.handleEventQueue();
             Assert.fail("The buy in is too small for this table");
@@ -100,7 +100,7 @@ public class TableTest {
         }
 
         try {
-            table.pushEvent(new JoinEvent("Carry Davis", 3000, 0));
+            table.addEventLast(new JoinEvent("Carry Davis", 3000, 0));
 
             table.handleEventQueue();
             Assert.fail("The buy in is too big for this table");

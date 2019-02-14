@@ -1,6 +1,10 @@
 package com.ictpoker.ixi.Commons;
 
+import com.google.common.collect.Lists;
+
+import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 public class Deck {
@@ -14,6 +18,10 @@ public class Deck {
             }
         }
         shuffle();
+    }
+
+    public Deck(final List<Card> fixedCardOrder) {
+        deck.addAll(Lists.reverse(fixedCardOrder));
     }
 
     public void shuffle() {

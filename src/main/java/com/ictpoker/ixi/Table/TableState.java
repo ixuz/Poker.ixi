@@ -68,6 +68,10 @@ public class TableState {
         return boardCards;
     }
 
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
     public Deck getDeck() {
         return deck;
     }

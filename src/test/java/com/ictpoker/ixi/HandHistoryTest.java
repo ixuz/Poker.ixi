@@ -14,7 +14,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.pushEvents(HandHistoryParser.parseFile("handHistories/handHistory1.txt"));
+            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory1.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.pushEvents(HandHistoryParser.parseFile("handHistories/handHistory2.txt"));
+            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory2.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.pushEvents(HandHistoryParser.parseFile("handHistories/handHistory3.txt"));
+            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory3.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();

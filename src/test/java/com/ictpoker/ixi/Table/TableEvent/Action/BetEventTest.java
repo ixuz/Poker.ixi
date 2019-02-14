@@ -19,13 +19,13 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         table.handleEventQueue();
         // Pre-flop
-        table.pushEvent(new BetEvent("Player A", 20));
+        table.addEventLast(new BetEvent("Player A", 20));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -45,14 +45,14 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player B", 20));
+        table.addEventLast(new BetEvent("Player B", 20));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -72,15 +72,15 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player C", 20));
+        table.addEventLast(new BetEvent("Player C", 20));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -100,15 +100,15 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player A", 20));
+        table.addEventLast(new BetEvent("Player A", 20));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -128,16 +128,16 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new RaiseEvent("Player A", 20));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new RaiseEvent("Player A", 20));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player B", 50));
+        table.addEventLast(new BetEvent("Player B", 50));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -157,15 +157,15 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player B", 50));
+        table.addEventLast(new BetEvent("Player B", 50));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -185,15 +185,15 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player C", 50));
+        table.addEventLast(new BetEvent("Player C", 50));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -213,16 +213,16 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new CallEvent("Player A"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new CallEvent("Player A"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player C", 50));
+        table.addEventLast(new BetEvent("Player C", 50));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -242,17 +242,17 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new CallEvent("Player A"));
-        table.pushEvent(new CallEvent("Player B"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new CallEvent("Player A"));
+        table.addEventLast(new CallEvent("Player B"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player A", 50));
+        table.addEventLast(new BetEvent("Player A", 50));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -272,17 +272,17 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new CallEvent("Player A"));
-        table.pushEvent(new CallEvent("Player B"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new CallEvent("Player A"));
+        table.addEventLast(new CallEvent("Player B"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player C", 20));
+        table.addEventLast(new BetEvent("Player C", 20));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -302,18 +302,18 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new CallEvent("Player A"));
-        table.pushEvent(new CallEvent("Player B"));
-        table.pushEvent(new CheckEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new CallEvent("Player A"));
+        table.addEventLast(new CallEvent("Player B"));
+        table.addEventLast(new CheckEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player B", 9));
+        table.addEventLast(new BetEvent("Player B", 9));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();
@@ -333,18 +333,18 @@ public class BetEventTest {
 
         final Table table = new Table(500, 1000, 5,10);
 
-        table.pushEvent(new SetSeatEvent("Player A", 1000, 0));
-        table.pushEvent(new SetSeatEvent("Player B", 1000, 1));
-        table.pushEvent(new SetSeatEvent("Player C", 1000, 2));
-        table.pushEvent(new MoveButtonEvent(0));
+        table.addEventLast(new SetSeatEvent("Player A", 1000, 0));
+        table.addEventLast(new SetSeatEvent("Player B", 1000, 1));
+        table.addEventLast(new SetSeatEvent("Player C", 1000, 2));
+        table.addEventLast(new MoveButtonEvent(0));
         // Pre-flop
-        table.pushEvent(new PostSmallBlindEvent("Player B"));
-        table.pushEvent(new PostBigBlindEvent("Player C"));
-        table.pushEvent(new CallEvent("Player A"));
-        table.pushEvent(new CallEvent("Player B"));
-        table.pushEvent(new CheckEvent("Player C"));
+        table.addEventLast(new PostSmallBlindEvent("Player B"));
+        table.addEventLast(new PostBigBlindEvent("Player C"));
+        table.addEventLast(new CallEvent("Player A"));
+        table.addEventLast(new CallEvent("Player B"));
+        table.addEventLast(new CheckEvent("Player C"));
         table.handleEventQueue();
-        table.pushEvent(new BetEvent("Player B", 2000));
+        table.addEventLast(new BetEvent("Player B", 2000));
         try {
             table.handleEventQueue(); // Must throw
             Assert.fail();

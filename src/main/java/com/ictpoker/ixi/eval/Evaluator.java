@@ -67,77 +67,77 @@ public final class Evaluator {
 
         int numDuplicateRanks = Constants.SIZE_HAND - numRanks;
         switch (numDuplicateRanks) {
-        case 0: {
-            // Highcard
-            return encode(Constants.HIGHCARD, Constants.NULL, Constants.NULL, Msb5.MSB5[ranks]);
-        }
-        case 1: {
-            int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
-            majorRank = TopRank.TOP_RANK[pairs];
-            kickers = Msb3.MSB3[ranks ^ Constants.BITMASK_RANK[majorRank]];
-
-            // Pair
-            return encode(Constants.PAIR, majorRank, Constants.NULL, kickers);
-        }
-        case 2: {
-            int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
-            if (pairs != 0) {
-                majorRank = TopRank.TOP_RANK[pairs];
-                minorRank = TopRank.TOP_RANK[pairs ^ Msb1.MSB1[pairs]];
-                kickers = Msb1.MSB1[ranks ^ pairs];
-
-                // TwoPair
-                return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
-            } else {
-                int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
-                majorRank = TopRank.TOP_RANK[trips];
-                int kicker1 = Msb1.MSB1[ranks ^ trips];
-                int kicker2 = Msb1.MSB1[(ranks ^ trips) ^ kicker1];
-                kickers = kicker1 | kicker2;
-
-                // Three-of-a-kind
-                return encode(Constants.TRIPS, majorRank, Constants.NULL, kickers);
+            case 0: {
+                // Highcard
+                return encode(Constants.HIGHCARD, Constants.NULL, Constants.NULL, Msb5.MSB5[ranks]);
             }
-        }
-        default: {
-            int quads = clubs & diamonds & hearts & spades;
-
-            if (quads != 0) {
-                majorRank = TopRank.TOP_RANK[quads];
-                kickers = Msb1.MSB1[ranks ^ quads];
-
-                // Four-of-a-kind
-                return encode(Constants.QUADS, majorRank, Constants.NULL, kickers);
-            } else {
+            case 1: {
                 int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
+                majorRank = TopRank.TOP_RANK[pairs];
+                kickers = Msb3.MSB3[ranks ^ Constants.BITMASK_RANK[majorRank]];
 
-                if (countRanks(pairs) != numDuplicateRanks) {
-                    int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
-
-                    majorRank = TopRank.TOP_RANK[trips];
-
-                    if (pairs != 0) {
-                        minorRank = TopRank.TOP_RANK[pairs];
-
-                        // Fullhouse (with 1 triple and 1 pair)
-                        return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
-                    } else {
-                        minorRank = TopRank.TOP_RANK[trips ^ Constants.BITMASK_RANK[majorRank]];
-
-                        // Fullhouse (with 2 triples)
-                        return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
-                    }
-                } else {
+                // Pair
+                return encode(Constants.PAIR, majorRank, Constants.NULL, kickers);
+            }
+            case 2: {
+                int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
+                if (pairs != 0) {
                     majorRank = TopRank.TOP_RANK[pairs];
-                    minorRank = TopRank.TOP_RANK[pairs ^ Constants.BITMASK_RANK[majorRank]];
-                    kickers = Msb1.MSB1[(ranks ^ Constants.BITMASK_RANK[majorRank])
-                            ^ Constants.BITMASK_RANK[minorRank]];
+                    minorRank = TopRank.TOP_RANK[pairs ^ Msb1.MSB1[pairs]];
+                    kickers = Msb1.MSB1[ranks ^ pairs];
 
-                    // TwoPair (with 3 pairs)
+                    // TwoPair
                     return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
+                } else {
+                    int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
+                    majorRank = TopRank.TOP_RANK[trips];
+                    int kicker1 = Msb1.MSB1[ranks ^ trips];
+                    int kicker2 = Msb1.MSB1[(ranks ^ trips) ^ kicker1];
+                    kickers = kicker1 | kicker2;
+
+                    // Three-of-a-kind
+                    return encode(Constants.TRIPS, majorRank, Constants.NULL, kickers);
                 }
             }
-        }
+            default: {
+                int quads = clubs & diamonds & hearts & spades;
+
+                if (quads != 0) {
+                    majorRank = TopRank.TOP_RANK[quads];
+                    kickers = Msb1.MSB1[ranks ^ quads];
+
+                    // Four-of-a-kind
+                    return encode(Constants.QUADS, majorRank, Constants.NULL, kickers);
+                } else {
+                    int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
+
+                    if (countRanks(pairs) != numDuplicateRanks) {
+                        int trips = ((clubs & diamonds) | (hearts & spades)) & ((clubs & hearts) | (diamonds & spades));
+
+                        majorRank = TopRank.TOP_RANK[trips];
+
+                        if (pairs != 0) {
+                            minorRank = TopRank.TOP_RANK[pairs];
+
+                            // Fullhouse (with 1 triple and 1 pair)
+                            return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
+                        } else {
+                            minorRank = TopRank.TOP_RANK[trips ^ Constants.BITMASK_RANK[majorRank]];
+
+                            // Fullhouse (with 2 triples)
+                            return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
+                        }
+                    } else {
+                        majorRank = TopRank.TOP_RANK[pairs];
+                        minorRank = TopRank.TOP_RANK[pairs ^ Constants.BITMASK_RANK[majorRank]];
+                        kickers = Msb1.MSB1[(ranks ^ Constants.BITMASK_RANK[majorRank])
+                                ^ Constants.BITMASK_RANK[minorRank]];
+
+                        // TwoPair (with 3 pairs)
+                        return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
+                    }
+                }
+            }
         }
     }
 
@@ -209,19 +209,4 @@ public final class Evaluator {
                 ^ (minorRank << Constants.OFFSET_MINOR) ^ (kicker << Constants.OFFSET_KICKER);
     }
 
-}
-
-class Result implements Comparable<Result> {
-    Hand hand;
-    int strength;
-
-    public Result(Hand hand, int strength) {
-        this.hand = hand;
-        this.strength = strength;
-    }
-
-    @Override
-    public int compareTo(Result other) {
-        return Integer.compare(-this.strength, -other.strength);
-    }
 }

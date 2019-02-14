@@ -1,7 +1,10 @@
 package com.ictpoker.ixi.Table;
 
+import com.google.common.collect.Lists;
 import com.ictpoker.ixi.Player.Player;
 import com.ictpoker.ixi.Table.Exception.*;
+import com.ictpoker.ixi.Table.TableEvent.Info.CollectEvent;
+import com.ictpoker.ixi.Table.TableEvent.Info.FinishBettingRoundEvent;
 import com.ictpoker.ixi.Table.TableEvent.TableEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +15,7 @@ import java.util.stream.Collectors;
 public class Table extends TableState {
 
     private final static Logger LOGGER = LogManager.getLogger(Table.class);
-    private final Queue<TableEvent> tableEventQueue = new LinkedList<>();
+    private final Deque<TableEvent> tableEventQueue = new LinkedList<>();
 
     public Table(final int minimumBuyIn,
                  final int maximumBuyIn,
@@ -26,23 +29,31 @@ public class Table extends TableState {
 
         while (!tableEventQueue.isEmpty()) {
             try {
-                tableEventQueue.remove().handle(this);
+                tableEventQueue.removeFirst().handle(this);
             } catch (TableEventException e) {
                 throw new TableException("Failed to handle table event", e);
             }
         }
     }
 
-    public void pushEvent(final TableEvent tableEvent) {
-        tableEventQueue.add(tableEvent);
+    public void addEventLast(final TableEvent tableEvent) {
+        tableEventQueue.addLast(tableEvent);
     }
 
-    public void pushEvents(final Collection<TableEvent> tableEvents) {
+    public void addEventFirst(final TableEvent tableEvent) {
+        tableEventQueue.addFirst(tableEvent);
+    }
+
+    public void addEventsFirst(final List<TableEvent> tableEvents) {
+        Lists.reverse(tableEvents).forEach(tableEventQueue::addFirst);
+    }
+
+    public void addEvents(final Collection<TableEvent> tableEvents) {
         tableEventQueue.addAll(tableEvents);
     }
 
     public int getPlayerSeatIndex(final Player player) {
-        return getSeats().indexOf(getSeat(player).orElse(null));
+        return getSeats().indexOf(getSeat(player));
     }
 
     public int getSeatIndexByPlayerName(final String playerName) {
@@ -54,20 +65,19 @@ public class Table extends TableState {
     }
 
     public Seat getSeatByPlayerName(final String playerName) {
-        Optional<Seat> seat = getSeats()
+        return getSeats()
                 .stream()
                 .filter(x -> x != null && x.getPlayer() != null && x.getPlayer().getName().equals(playerName))
-                .findFirst();
-        return seat.orElse(null);
+                .findFirst().orElse(null);
     }
 
     public Player getPlayerByName(final String playerName) {
-        Optional<Seat> seat = getSeats()
-                .stream()
-                .filter(x -> x.getPlayer() != null)
-                .filter(x -> x.getPlayer().getName().equals(""))
-                .findFirst();
-        return seat.map(Seat::getPlayer).orElse(null);
+
+        Seat seat = getSeatByPlayerName(playerName);
+        if (seat != null) {
+            return seat.getPlayer();
+        }
+        return null;
     }
 
     public boolean isSeatOccupied(final int seatIndex) {
@@ -82,8 +92,8 @@ public class Table extends TableState {
         return getSeats().get(seatIndex);
     }
 
-    public Optional<Seat> getSeat(final Player player) {
-        return getSeats().stream().filter(seat -> seat.getPlayer() == player).findFirst();
+    public Seat getSeat(final Player player) {
+        return getSeats().stream().filter(seat -> seat.getPlayer() == player).findFirst().orElse(null);
     }
 
     public List<Seat> getOccupiedSeats() {
@@ -95,7 +105,7 @@ public class Table extends TableState {
         if (nextSeatToAct != null) {
             setSeatToAct(nextSeatToAct);
         } else {
-            finishBettingRound();
+            addEventsFirst(Arrays.asList(new CollectEvent(), new FinishBettingRoundEvent()));
         }
     }
 
@@ -137,6 +147,12 @@ public class Table extends TableState {
         return numberOfPlayersLeftToAct <= 1;
     }
 
+    public List<Seat> getActiveSeats() {
+        return getSeats().stream()
+                .filter(seat -> isSeatOccupied(seat) && !seat.isSittingOut() && !seat.isFolded())
+                .collect(Collectors.toList());
+    }
+
     public int getNumberOfActiveSeats() {
         return getSeats().stream()
                 .filter(seat -> isSeatOccupied(seat) && !seat.isSittingOut() && !seat.isFolded())
@@ -167,76 +183,6 @@ public class Table extends TableState {
     public int getRequiredAmountToRaise() {
         final int toRaise = Math.max(getRequiredAmountToCall() + getLastRaiseAmount(), getBigBlindAmount());
         return Math.min(getSeatToAct().getStack(), toRaise);
-    }
-
-    public void finishBettingRound() {
-        // Return uncontested chips
-        final Seat highestCommitSeat = getSeatWithHighestCommit(0);
-        final Seat secondHighestCommitSeat = getSeatWithHighestCommit(1);
-        final int commitDifference = highestCommitSeat.getCommitted() - secondHighestCommitSeat.getCommitted();
-
-        if (commitDifference > 0) {
-            highestCommitSeat.setCommitted(highestCommitSeat.getCommitted() - commitDifference);
-            highestCommitSeat.setStack(highestCommitSeat.getStack() + commitDifference);
-            LOGGER.info(String.format("Uncalled bet ($%d) returned to %s",
-                    commitDifference,
-                    highestCommitSeat.getPlayer().getName()));
-        }
-
-        // Collect all committed chips
-        for (Seat seat : getSeats()) {
-            seat.moveCommittedToCollected();
-        }
-
-        // Deal flop, turn, river
-        if (getNumberOfActiveSeats() > 1) {
-            if (hasAllSeatsActed() && getBoardCards().size() == 0) {
-                getBoardCards().add(getDeck().draw());
-                getBoardCards().add(getDeck().draw());
-                getBoardCards().add(getDeck().draw());
-                LOGGER.info(String.format("*** FLOP *** %s",
-                        getBoardCards()));
-
-                for (Seat seat : getSeats()) {
-                    seat.setActed(false);
-                }
-            }
-
-            if (hasAllSeatsActed() && getBoardCards().size() == FLOP) {
-                getBoardCards().add(getDeck().draw());
-                LOGGER.info(String.format("*** TURN *** %s [%s]",
-                        getBoardCards().subList(0, 3),
-                        getBoardCards().get(3)));
-
-                for (Seat seat : getSeats()) {
-                    seat.setActed(false);
-                }
-            }
-
-            if (hasAllSeatsActed() && getBoardCards().size() == FLOP+TURN) {
-                getBoardCards().add(getDeck().draw());
-                LOGGER.info(String.format("*** RIVER *** %s [%s] [%s]",
-                        getBoardCards().subList(0, 3),
-                        getBoardCards().get(3),
-                        getBoardCards().get(4)));
-
-                for (Seat seat : getSeats()) {
-                    seat.setActed(false);
-                }
-
-            }
-
-            if (hasAllSeatsActed() && getBoardCards().size() == FLOP+TURN+RIVER) {
-                LOGGER.info("Hand finished");
-            } else {
-                setSeatToAct(getSeat(getButtonPosition()));
-                setLastRaiseAmount(0);
-                moveActionToNextPlayer();
-            }
-        } else {
-            LOGGER.info("Hand finished, no contestants for the pot");
-            // TODO: Deliver winnings to seats
-        }
     }
 
     public String toString() {
