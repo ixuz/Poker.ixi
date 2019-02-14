@@ -1,6 +1,6 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.Commons.Constants;
+import com.ictpoker.ixi.commons.Constants;
 import org.iota.ict.model.Transaction;
 import org.iota.ict.network.event.GossipEvent;
 import org.iota.ict.network.event.GossipFilter;

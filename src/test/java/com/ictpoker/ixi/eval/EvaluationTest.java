@@ -7,7 +7,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-import com.ictpoker.ixi.Commons.*;
+import com.ictpoker.ixi.commons.*;
 
 public class EvaluationTest {
 

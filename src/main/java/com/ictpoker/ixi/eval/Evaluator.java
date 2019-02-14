@@ -1,6 +1,6 @@
 package com.ictpoker.ixi.eval;
 
-import com.ictpoker.ixi.Commons.Rank;
+import com.ictpoker.ixi.commons.Rank;
 import com.ictpoker.ixi.eval.luts.*;
 
 import java.util.Map;

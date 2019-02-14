@@ -1,8 +1,8 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.Table.Exception.TableException;
-import com.ictpoker.ixi.Table.Table;
-import com.ictpoker.ixi.Util.HandHistoryParser;
+import com.ictpoker.ixi.table.exception.TableException;
+import com.ictpoker.ixi.table.Table;
+import com.ictpoker.ixi.util.HandHistoryParser;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory1.txt"));
+            table.addEvents(HandHistoryParser.parseFile("histories/handHistory1.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory2.txt"));
+            table.addEvents(HandHistoryParser.parseFile("histories/handHistory2.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class HandHistoryTest {
         final Table table = new Table(500, 1000, 5,10);
 
         try {
-            table.addEvents(HandHistoryParser.parseFile("handHistories/handHistory3.txt"));
+            table.addEvents(HandHistoryParser.parseFile("histories/handHistory3.txt"));
             table.handleEventQueue();
         } catch (TableException | HandHistoryParser.ParseException e) {
             e.printStackTrace();

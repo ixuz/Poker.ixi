@@ -1,7 +1,7 @@
 package com.ictpoker.ixi.eval;
 
 import java.util.ArrayList;
-import com.ictpoker.ixi.Commons.*;
+import com.ictpoker.ixi.commons.*;
 
 public final class Hand {
     private long bitmask = 0x0L;

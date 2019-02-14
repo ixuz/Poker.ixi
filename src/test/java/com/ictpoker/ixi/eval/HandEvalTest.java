@@ -8,7 +8,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 import java.util.ArrayList;
-import com.ictpoker.ixi.Commons.*;
+import com.ictpoker.ixi.commons.*;
 
 public class HandEvalTest {
 

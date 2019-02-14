@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ictpoker.ixi.Commons.*;
+import com.ictpoker.ixi.commons.*;
 
 public class EvaluatorTest {
 
