@@ -28,7 +28,7 @@ public class SetHandDetailsEvent extends TableEvent {
         table.setHandId(handId);
         table.setSmallBlindAmount(smallBlind);
         table.setBigBlindAmount(bigBlind);
-        log(String.format("Poker.ixi Hand #%d:  Hold'em No Limit ($%d/$%d)", handId, smallBlind, bigBlind));
+        LOGGER.info(String.format("Poker.ixi Hand #%d:  Hold'em No Limit ($%d/$%d)", handId, smallBlind, bigBlind));
 
         return this;
     }

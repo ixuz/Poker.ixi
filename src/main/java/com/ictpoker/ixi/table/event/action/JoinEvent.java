@@ -41,7 +41,7 @@ public class JoinEvent extends TableEvent {
                 throw new TableEventException("player has insufficient balance", e);
             }
 
-            log(String.format("%s joined the table at seat #%d with stack %d",
+            LOGGER.info(String.format("%s joined the table at seat #%d with stack %d",
                     getPlayerName(),
                     getSeatIndex(),
                     getAmount()));

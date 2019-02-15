@@ -28,9 +28,9 @@ public class SitOutEvent extends TableEvent {
         }
 
         if (sittingOut) {
-            log(String.format("%s is sitting out", getPlayerName()));
+            LOGGER.info(String.format("%s is sitting out", getPlayerName()));
         } else {
-            log(String.format("%s is no longer sitting out", getPlayerName()));
+            LOGGER.info(String.format("%s is no longer sitting out", getPlayerName()));
         }
 
         return this;

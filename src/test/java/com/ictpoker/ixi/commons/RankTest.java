@@ -7,18 +7,18 @@ public class RankTest {
 
     @Test
     public void testRank() {
-        Assert.assertEquals(Rank.TWO.toString(), "2");
-        Assert.assertEquals(Rank.THREE.toString(), "3");
-        Assert.assertEquals(Rank.FOUR.toString(), "4");
-        Assert.assertEquals(Rank.FIVE.toString(), "5");
-        Assert.assertEquals(Rank.SIX.toString(), "6");
-        Assert.assertEquals(Rank.SEVEN.toString(), "7");
-        Assert.assertEquals(Rank.EIGHT.toString(), "8");
-        Assert.assertEquals(Rank.NINE.toString(), "9");
-        Assert.assertEquals(Rank.TEN.toString(), "T");
-        Assert.assertEquals(Rank.JACK.toString(), "J");
-        Assert.assertEquals(Rank.QUEEN.toString(), "Q");
-        Assert.assertEquals(Rank.KING.toString(), "K");
-        Assert.assertEquals(Rank.ACE.toString(), "A");
+        Assert.assertEquals("2", Rank.TWO.toString());
+        Assert.assertEquals("3", Rank.THREE.toString());
+        Assert.assertEquals("4", Rank.FOUR.toString());
+        Assert.assertEquals("5", Rank.FIVE.toString());
+        Assert.assertEquals("6", Rank.SIX.toString());
+        Assert.assertEquals("7", Rank.SEVEN.toString());
+        Assert.assertEquals("8", Rank.EIGHT.toString());
+        Assert.assertEquals("9", Rank.NINE.toString());
+        Assert.assertEquals("T", Rank.TEN.toString());
+        Assert.assertEquals("J", Rank.JACK.toString());
+        Assert.assertEquals("Q", Rank.QUEEN.toString());
+        Assert.assertEquals("K", Rank.KING.toString());
+        Assert.assertEquals("A", Rank.ACE.toString());
     }
 }

@@ -21,7 +21,7 @@ public class MoveButtonEvent extends TableEvent {
 
         table.setButtonPosition(buttonPosition);
 
-        log(String.format("Moved button to seat #%d",
+        LOGGER.info(String.format("Moved button to seat #%d",
                 buttonPosition));
 
         return this;

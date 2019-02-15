@@ -24,7 +24,7 @@ public class SetSeatEvent extends TableEvent {
     public TableEvent handle(Table table) {
 
         table.getSeats().set(seatIndex, new Seat(new Player(getPlayerName()), stack));
-        log(String.format("Seat %d: %s ($%d in chips)", seatIndex+1, getPlayerName(), stack));
+        LOGGER.info(String.format("Seat %d: %s ($%d in chips)", seatIndex+1, getPlayerName(), stack));
 
         return this;
     }

@@ -2,8 +2,10 @@ package com.ictpoker.ixi.eval;
 
 import com.ictpoker.ixi.commons.Rank;
 import java.util.ArrayList;
+import java.util.List;
 
 public final class Evaluation {
+
     private final int handType;
     private final int majorRank;
     private final int minorRank;
@@ -36,11 +38,11 @@ public final class Evaluation {
         }
     }
 
-    public ArrayList<Rank> getKickers() {
-        ArrayList<Rank> ranks = new ArrayList<Rank>();
+    public List<Rank> getKickers() {
+        ArrayList<Rank> ranks = new ArrayList<>();
         if (kickers != 0) {
             for (int i = 0; i < Constants.NUM_RANKS; i++) {
-                if ((kickers & Constants.BITMASK_RANK[12 - i]) != 0) {
+                if ((kickers & Constants.bitmaskRank(12 - i)) != 0) {
                     ranks.add(Rank.values()[12 - i]);
                 }
             }
@@ -51,7 +53,7 @@ public final class Evaluation {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Constants.TYPES[getType()]);
+        sb.append(Constants.types(getType()));
         final Rank major = getMajor();
         if (major != null) {
             sb.append(" ");
@@ -62,9 +64,9 @@ public final class Evaluation {
             sb.append(" ");
             sb.append(minor.toString());
         }
-        if (getKickers().size() > 0) {
+        if (!getKickers().isEmpty()) {
             sb.append(" ");
-            ArrayList<Rank> ranks = getKickers();
+            List<Rank> ranks = getKickers();
             for (Rank rank : ranks) {
                 sb.append(rank.toString());
             }

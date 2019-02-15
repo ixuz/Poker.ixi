@@ -54,7 +54,7 @@ public class BetEvent extends TableEvent {
             final int actualRaiseAmount = getAmount() - toCall;
             table.setLastRaiseAmount(actualRaiseAmount - seat.getCommitted());
 
-            log(String.format("%s: bets $%d",
+            LOGGER.info(String.format("%s: bets $%d",
                     getPlayerName(),
                     getAmount()));
 
@@ -67,7 +67,7 @@ public class BetEvent extends TableEvent {
             seat.setActed(true);
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
             table.moveActionToNextPlayer();

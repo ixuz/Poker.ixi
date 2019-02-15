@@ -15,7 +15,7 @@ public class DealRiverEvent extends TableEvent {
     public TableEvent handle(Table table) throws TableEventException {
 
         table.getBoardCards().add(table.getDeck().draw());
-        log(String.format("*** RIVER *** %s [%s] [%s]",
+        LOGGER.info(String.format("*** RIVER *** %s [%s] [%s]",
                 table.getBoardCards().subList(0, 3),
                 table.getBoardCards().get(3),
                 table.getBoardCards().get(4)));

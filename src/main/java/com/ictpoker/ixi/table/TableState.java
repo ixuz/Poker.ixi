@@ -10,13 +10,13 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toCollection;
 
 public class TableState {
-    protected final static int SEATS = 6;
-    protected final static int FLOP = 3;
-    protected final static int TURN = 1;
-    protected final static int RIVER = 1;
+    protected static final int SEAT_COUNT = 6;
+    protected static final int FLOP = 3;
+    protected static final int TURN = 1;
+    protected static final int RIVER = 1;
 
     private String name = "Unnamed";
-    private List<Seat> seats = Stream.generate(Seat::new).limit(SEATS).collect(toCollection(ArrayList::new));
+    private List<Seat> seats = Stream.generate(Seat::new).limit(SEAT_COUNT).collect(toCollection(ArrayList::new));
     private final List<Card> boardCards = new ArrayList<>();
     private Deck deck = new Deck();
     private int buttonPosition = 0;

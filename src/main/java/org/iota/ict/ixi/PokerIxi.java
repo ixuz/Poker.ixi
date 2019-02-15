@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PokerIxi extends IxiModule {
 
-    private final static Logger LOGGER = LogManager.getLogger(PokerIxi.class);
+    private static final Logger LOGGER = LogManager.getLogger(PokerIxi.class);
 
     public PokerIxi(final Ixi ixi) {
         super(ixi);

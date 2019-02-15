@@ -27,7 +27,7 @@ public class DealEvent extends TableEvent {
             throw new TableEventException("Insufficient amount of active players to start a new hand");
         }
 
-        log(String.format("*** HOLE CARDS ***"));
+        LOGGER.info(String.format("*** HOLE CARDS ***"));
 
         for (int i=0; i<CARDS_PER_SEAT; i++) {
             for (int j=0; j<table.getSeats().size(); j++) {

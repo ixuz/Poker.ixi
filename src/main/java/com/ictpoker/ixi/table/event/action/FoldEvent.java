@@ -33,7 +33,7 @@ public class FoldEvent extends TableEvent {
             seat.setActed(true);
             seat.setFolded(true);
 
-            log(String.format("%s: folds", getPlayerName()));
+            LOGGER.info(String.format("%s: folds", getPlayerName()));
 
             table.moveActionToNextPlayer();
         } catch (TableStateException e) {

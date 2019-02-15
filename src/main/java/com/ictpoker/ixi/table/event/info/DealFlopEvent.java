@@ -16,7 +16,7 @@ public class DealFlopEvent extends TableEvent {
         table.getBoardCards().add(table.getDeck().draw());
         table.getBoardCards().add(table.getDeck().draw());
         table.getBoardCards().add(table.getDeck().draw());
-        log(String.format("*** FLOP *** %s", table.getBoardCards()));
+        LOGGER.info(String.format("*** FLOP *** %s", table.getBoardCards()));
 
         for (Seat seat : table.getSeats()) {
             seat.setActed(false);

@@ -23,8 +23,8 @@ public final class Evaluator {
         int ranks = clubs | diamonds | hearts | spades;
         int numRanks = countRanks(ranks);
         int suit = 0;
-        int majorRank = Constants.NULL;
-        int minorRank = Constants.NULL;
+        int majorRank;
+        int minorRank;
         int kickers = 0;
 
         if (numRanks >= 5) {
@@ -74,7 +74,7 @@ public final class Evaluator {
             case 1: {
                 int pairs = ranks ^ (clubs ^ diamonds ^ hearts ^ spades);
                 majorRank = TopRank.at(pairs);
-                kickers = Msb3.at(ranks ^ Constants.BITMASK_RANK[majorRank]);
+                kickers = Msb3.at(ranks ^ Constants.bitmaskRank(majorRank));
 
                 // Pair
                 return encode(Constants.PAIR, majorRank, Constants.NULL, kickers);
@@ -122,16 +122,16 @@ public final class Evaluator {
                             // Fullhouse (with 1 triple and 1 pair)
                             return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
                         } else {
-                            minorRank = TopRank.at(trips ^ Constants.BITMASK_RANK[majorRank]);
+                            minorRank = TopRank.at(trips ^ Constants.bitmaskRank(majorRank));
 
                             // Fullhouse (with 2 triples)
                             return encode(Constants.FULLHOUSE, majorRank, minorRank, 0);
                         }
                     } else {
                         majorRank = TopRank.at(pairs);
-                        minorRank = TopRank.at(pairs ^ Constants.BITMASK_RANK[majorRank]);
-                        kickers = Msb1.at((ranks ^ Constants.BITMASK_RANK[majorRank])
-                                ^ Constants.BITMASK_RANK[minorRank]);
+                        minorRank = TopRank.at(pairs ^ Constants.bitmaskRank(majorRank));
+                        kickers = Msb1.at((ranks ^ Constants.bitmaskRank(majorRank))
+                                ^ Constants.bitmaskRank(minorRank));
 
                         // TwoPair (with 3 pairs)
                         return encode(Constants.TWO_PAIR, majorRank, minorRank, kickers);
@@ -142,7 +142,7 @@ public final class Evaluator {
     }
 
     public static Map<Hand, Integer> evaluateHands(List<Hand> hands) {
-        if (hands.size() == 0)
+        if (hands.isEmpty())
             return new HashMap<>();
 
         Map<Hand, Integer> evals = new HashMap<>(hands.size());
@@ -173,16 +173,16 @@ public final class Evaluator {
 
         List<List<Hand>> outer = new ArrayList<>();
         List<Hand> first = new ArrayList<>();
-        first.add(sortedByStrength.get(0).hand);
+        first.add(sortedByStrength.get(0).getHand());
         outer.add(first);
 
         for (int i = 1; i < sortedByStrength.size(); i++) {
-            if (sortedByStrength.get(i).strength == sortedByStrength.get(i - 1).strength) {
+            if (sortedByStrength.get(i).getStrength() == sortedByStrength.get(i - 1).getStrength()) {
                 List<Hand> inner = outer.get(outer.size() - 1);
-                inner.add(sortedByStrength.get(i).hand);
+                inner.add(sortedByStrength.get(i).getHand());
             } else {
                 List<Hand> inner = new ArrayList<>();
-                inner.add(sortedByStrength.get(i).hand);
+                inner.add(sortedByStrength.get(i).getHand());
                 outer.add(inner);
             }
         }

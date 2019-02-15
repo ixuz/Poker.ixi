@@ -20,7 +20,7 @@ public class SetBigBlindEvent extends TableEvent {
     public TableEvent handle(Table table) {
 
         table.setBigBlindAmount(bigBlind);
-        log(String.format("Big blind is now set to: %d", bigBlind));
+        LOGGER.info(String.format("Big blind is now set to: %d", bigBlind));
 
         return this;
     }

@@ -55,7 +55,7 @@ public class PostSmallAndBigBlindEvent extends TableEvent {
                 seat.commitDead(table.getSmallBlindAmount());
                 seat.commit(table.getBigBlindAmount());
 
-                log(String.format("%s: posts small & big blinds $%d",
+                LOGGER.info(String.format("%s: posts small & big blinds $%d",
                         getPlayerName(),
                         add));
             } catch (SeatException e) {
@@ -63,7 +63,7 @@ public class PostSmallAndBigBlindEvent extends TableEvent {
             }
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);

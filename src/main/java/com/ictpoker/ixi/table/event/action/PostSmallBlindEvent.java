@@ -52,7 +52,7 @@ public class PostSmallBlindEvent extends TableEvent {
             try {
                 seat.commit(add);
 
-                log(String.format("%s: posts small blind $%d",
+                LOGGER.info(String.format("%s: posts small blind $%d",
                         getPlayerName(),
                         add));
             } catch (SeatException e) {
@@ -66,7 +66,7 @@ public class PostSmallBlindEvent extends TableEvent {
             }
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
         } catch (TableStateException e) {

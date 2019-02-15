@@ -47,8 +47,7 @@ public class CheckEvent extends TableEvent {
                         toCall));
             }
 
-            log(String.format("%s checks",
-                    getPlayerName()));
+            LOGGER.info(String.format("%s checks", getPlayerName()));
 
             try {
                 seat.commit(getAmount());

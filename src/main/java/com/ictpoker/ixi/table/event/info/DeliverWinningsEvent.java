@@ -3,7 +3,6 @@ package com.ictpoker.ixi.table.event.info;
 import com.google.common.collect.Maps;
 import com.ictpoker.ixi.commons.Card;
 import com.ictpoker.ixi.commons.SidePot;
-import com.ictpoker.ixi.table.exception.TableEventException;
 import com.ictpoker.ixi.table.Seat;
 import com.ictpoker.ixi.table.Table;
 import com.ictpoker.ixi.table.event.TableEvent;
@@ -21,7 +20,7 @@ public class DeliverWinningsEvent extends TableEvent {
     private final static Logger LOGGER = LogManager.getLogger(DeliverWinningsEvent.class);
 
     @Override
-    public TableEvent handle(Table table) throws TableEventException {
+    public TableEvent handle(Table table) {
 
         // TODO: Validation that the hand has finished before delivering winnings
 
@@ -35,7 +34,7 @@ public class DeliverWinningsEvent extends TableEvent {
             uncontestedWinner.setStack(uncontestedWinner.getStack() + win);
             table.getSeats().forEach(seat -> seat.setCollected(0));
 
-            log(String.format("%s win $%d from uncontested pot", uncontestedWinner.getPlayer().getName(), win));
+            LOGGER.info(String.format("%s win $%d from uncontested pot", uncontestedWinner.getPlayer().getName(), win));
 
             return this;
         }
@@ -148,7 +147,7 @@ public class DeliverWinningsEvent extends TableEvent {
                         try {
                             final Evaluation evaluation = new Evaluation(Evaluator.evaluate(new Hand(cards)));
 
-                            log(String.format("%s win $%d from pot #%d with hand [%s]",
+                            LOGGER.info(String.format("%s win $%d from pot #%d with hand [%s]",
                                     seat.getPlayer().getName(),
                                     win,
                                     potIndex,

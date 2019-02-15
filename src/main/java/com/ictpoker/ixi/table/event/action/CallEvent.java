@@ -43,7 +43,7 @@ public class CallEvent extends TableEvent {
                         getPlayerName()));
             }
 
-            log(String.format("%s: calls $%d",
+            LOGGER.info(String.format("%s: calls $%d",
                     getPlayerName(),
                     toCall));
 
@@ -56,7 +56,7 @@ public class CallEvent extends TableEvent {
             seat.setActed(true);
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
             table.moveActionToNextPlayer();

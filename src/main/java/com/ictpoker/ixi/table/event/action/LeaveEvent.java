@@ -27,7 +27,7 @@ public class LeaveEvent extends TableEvent {
                 throw new TableStateException("player is not seated at the table");
             }
             table.getSeats().set(table.getSeats().indexOf(seat), new Seat());
-            log(String.format("%s left the table", getPlayerName()));
+            LOGGER.info(String.format("%s left the table", getPlayerName()));
         } catch (TableStateException e) {
             throw new TableEventException("Failed to update table state", e);
         }

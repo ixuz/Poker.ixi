@@ -22,7 +22,7 @@ public class CollectEvent extends TableEvent {
         if (commitDifference > 0) {
             highestCommitSeat.setCommitted(highestCommitSeat.getCommitted() - commitDifference);
             highestCommitSeat.setStack(highestCommitSeat.getStack() + commitDifference);
-            log(String.format("Uncalled bet ($%d) returned to %s",
+            LOGGER.info(String.format("Uncalled bet ($%d) returned to %s",
                     commitDifference,
                     highestCommitSeat.getPlayer().getName()));
         }

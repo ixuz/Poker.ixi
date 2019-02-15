@@ -7,8 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(TableEvent.class);
-
     private final String playerName;
     private final int amount;
 
@@ -25,10 +23,6 @@ public abstract class TableEvent {
     public TableEvent() {
         this.playerName = null;
         this.amount = 0;
-    }
-
-    public void log(final String message) {
-        LOGGER.info(message);
     }
 
     public String getPlayerName() {

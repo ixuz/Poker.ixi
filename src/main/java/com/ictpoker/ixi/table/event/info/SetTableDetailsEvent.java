@@ -26,7 +26,7 @@ public class SetTableDetailsEvent extends TableEvent {
         table.setName(tableName);
         table.setSeatCount(seatCount);
         table.setButtonPosition(buttonPosition);
-        log(String.format("table '%s' %d-max Seat #%d is the button", tableName, seatCount, buttonPosition));
+        LOGGER.info(String.format("table '%s' %d-max Seat #%d is the button", tableName, seatCount, buttonPosition));
 
         return this;
     }

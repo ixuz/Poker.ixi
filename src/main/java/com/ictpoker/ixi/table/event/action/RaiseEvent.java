@@ -62,7 +62,7 @@ public class RaiseEvent extends TableEvent {
             final int raise = getAmount() - highestCommitted;
             table.setLastRaiseAmount(actualRaiseAmount - seat.getCommitted());
 
-            log(String.format("%s: raises $%d to $%d",
+            LOGGER.info(String.format("%s: raises $%d to $%d",
                     getPlayerName(),
                     raise,
                     getAmount()));
@@ -76,7 +76,7 @@ public class RaiseEvent extends TableEvent {
             seat.setActed(true);
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
             table.moveActionToNextPlayer();

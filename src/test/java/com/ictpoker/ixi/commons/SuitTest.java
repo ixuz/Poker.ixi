@@ -7,9 +7,9 @@ public class SuitTest {
 
     @Test
     public void testSuit() {
-        Assert.assertEquals(Suit.HEARTS.toString(), "h");
-        Assert.assertEquals(Suit.DIAMONDS.toString(), "d");
-        Assert.assertEquals(Suit.CLUBS.toString(), "c");
-        Assert.assertEquals(Suit.SPADES.toString(), "s");
+        Assert.assertEquals("h", Suit.HEARTS.toString());
+        Assert.assertEquals("d", Suit.DIAMONDS.toString());
+        Assert.assertEquals("c", Suit.CLUBS.toString());
+        Assert.assertEquals("s", Suit.SPADES.toString());
     }
 }

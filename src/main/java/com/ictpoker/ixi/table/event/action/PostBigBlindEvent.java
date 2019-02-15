@@ -46,7 +46,7 @@ public class PostBigBlindEvent extends TableEvent {
             try {
                 seat.commit(add);
 
-                log(String.format("%s: posts big blind $%d",
+                LOGGER.info(String.format("%s: posts big blind $%d",
                         getPlayerName(),
                         add));
             } catch (SeatException e) {
@@ -60,7 +60,7 @@ public class PostBigBlindEvent extends TableEvent {
             }
 
             if (seat.getStack() == 0) {
-                log(String.format("%s is all-in", getPlayerName()));
+                LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
             if (table.getSeatToAct() == null && !table.isSmallBlindPosted()) {
