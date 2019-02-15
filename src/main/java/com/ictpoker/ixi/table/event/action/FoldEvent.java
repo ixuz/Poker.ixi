@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class FoldEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(FoldEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(FoldEvent.class);
 
     public FoldEvent(final String playerName) {
 

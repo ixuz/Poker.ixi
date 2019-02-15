@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class DeliverWinningsEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(DeliverWinningsEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(DeliverWinningsEvent.class);
 
     @Override
     public TableEvent handle(Table table) {

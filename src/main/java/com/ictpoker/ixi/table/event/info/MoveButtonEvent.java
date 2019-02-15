@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class MoveButtonEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(MoveButtonEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(MoveButtonEvent.class);
 
     private final int buttonPosition;
 

@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PostBigBlindEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(PostBigBlindEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(PostBigBlindEvent.class);
 
     public PostBigBlindEvent(String playerName) {
         super(playerName, 0);
@@ -35,7 +35,7 @@ public class PostBigBlindEvent extends TableEvent {
             if (seat.isSittingOut()) {
                 throw new TableStateException("player can't post big blind, because the player is sitting out.");
             }
-            if (table.getBoardCards().size() > 0) {
+            if (!table.getBoardCards().isEmpty()) {
                 throw new TableStateException("player can't post big blind, because board cards are already present.");
             }
             if (table.getSeatWithHighestCommit(0).getCommitted() > table.getBigBlindAmount()) {
@@ -43,15 +43,12 @@ public class PostBigBlindEvent extends TableEvent {
             }
 
             final int add = Math.min(seat.getStack(), table.getBigBlindAmount());
-            try {
-                seat.commit(add);
 
-                LOGGER.info(String.format("%s: posts big blind $%d",
-                        getPlayerName(),
-                        add));
-            } catch (SeatException e) {
-                throw new TableEventException("Failed to commit", e);
-            }
+            seat.commit(add);
+
+            LOGGER.info(String.format("%s: posts big blind $%d",
+                    getPlayerName(),
+                    add));
 
             if (seat == table.getSeatToAct() && !table.isBigBlindPosted()) {
                 table.setLastRaiseAmount(add);
@@ -66,7 +63,7 @@ public class PostBigBlindEvent extends TableEvent {
             if (table.getSeatToAct() == null && !table.isSmallBlindPosted()) {
                 table.setSeatToAct(table.getNextSeatToAct(table.getButtonPosition()));
             }
-        } catch (TableStateException e) {
+        } catch (TableStateException | SeatException e) {
             throw new TableEventException("Failed to update table state", e);
         }
 

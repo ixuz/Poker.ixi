@@ -2,8 +2,6 @@ package com.ictpoker.ixi.table.event;
 
 import com.ictpoker.ixi.table.exception.TableEventException;
 import com.ictpoker.ixi.table.Table;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public abstract class TableEvent {
 

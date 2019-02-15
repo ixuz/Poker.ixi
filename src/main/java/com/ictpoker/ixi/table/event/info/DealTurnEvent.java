@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class DealTurnEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(DealTurnEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(DealTurnEvent.class);
 
     @Override
     public TableEvent handle(Table table) throws TableEventException {

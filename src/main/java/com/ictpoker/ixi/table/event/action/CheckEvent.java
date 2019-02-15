@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CheckEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(CheckEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(CheckEvent.class);
 
     public CheckEvent(final String playerName) {
 
@@ -49,16 +49,12 @@ public class CheckEvent extends TableEvent {
 
             LOGGER.info(String.format("%s checks", getPlayerName()));
 
-            try {
-                seat.commit(getAmount());
-            } catch (SeatException e) {
-                throw new TableEventException("Failed to commit", e);
-            }
+            seat.commit(getAmount());
 
             seat.setActed(true);
 
             table.moveActionToNextPlayer();
-        } catch (TableStateException e) {
+        } catch (TableStateException | SeatException e) {
             throw new TableEventException("Failed to update table state", e);
         }
 

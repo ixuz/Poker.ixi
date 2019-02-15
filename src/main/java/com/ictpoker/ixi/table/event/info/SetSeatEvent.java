@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SetSeatEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(SetSeatEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(SetSeatEvent.class);
 
     private final int stack;
     private final int seatIndex;

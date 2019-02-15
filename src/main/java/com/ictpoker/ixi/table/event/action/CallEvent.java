@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CallEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(CallEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(CallEvent.class);
 
     public CallEvent(String playerName) {
         super(playerName);
@@ -47,11 +47,7 @@ public class CallEvent extends TableEvent {
                     getPlayerName(),
                     toCall));
 
-            try {
-                seat.commit(toCall);
-            } catch (SeatException e) {
-                throw new TableEventException("Failed to commit", e);
-            }
+            seat.commit(toCall);
 
             seat.setActed(true);
 
@@ -60,7 +56,7 @@ public class CallEvent extends TableEvent {
             }
 
             table.moveActionToNextPlayer();
-        } catch (TableStateException e) {
+        } catch (TableStateException | SeatException e) {
             throw new TableEventException("Failed to update table state", e);
         }
 

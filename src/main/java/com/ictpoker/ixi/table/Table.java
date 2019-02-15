@@ -6,15 +6,12 @@ import com.ictpoker.ixi.table.exception.*;
 import com.ictpoker.ixi.table.event.info.CollectEvent;
 import com.ictpoker.ixi.table.event.info.FinishBettingRoundEvent;
 import com.ictpoker.ixi.table.event.TableEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Table extends TableState {
 
-    private static final  Logger LOGGER = LogManager.getLogger(Table.class);
     private final Deque<TableEvent> tableEventQueue = new LinkedList<>();
 
     public Table(final int minimumBuyIn,

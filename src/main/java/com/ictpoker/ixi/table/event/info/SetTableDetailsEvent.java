@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SetTableDetailsEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(SetTableDetailsEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(SetTableDetailsEvent.class);
 
     private final String tableName;
     private final int seatCount;

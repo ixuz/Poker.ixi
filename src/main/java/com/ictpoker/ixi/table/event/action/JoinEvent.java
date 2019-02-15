@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public class JoinEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(JoinEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(JoinEvent.class);
 
     private final int seatIndex;
 

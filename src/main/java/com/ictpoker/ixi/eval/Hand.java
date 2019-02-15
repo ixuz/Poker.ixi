@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.eval;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ictpoker.ixi.commons.*;

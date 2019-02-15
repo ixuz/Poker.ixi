@@ -9,9 +9,9 @@ import java.util.List;
 
 public class FinishBettingRoundEvent extends TableEvent {
 
-    protected final static int FLOP = 3;
-    protected final static int TURN = 1;
-    protected final static int RIVER = 1;
+    private static final int FLOP = 3;
+    private static final int TURN = 1;
+    private static final int RIVER = 1;
 
     @Override
     public TableEvent handle(Table table) throws TableEventException {
@@ -29,7 +29,7 @@ public class FinishBettingRoundEvent extends TableEvent {
                 } else if (table.getBoardCards().size() == FLOP) {
                     tableEvents.add(new DealTurnEvent());
                     tableEvents.add(new NewBettingRoundEvent());
-                } else if (table.getBoardCards().size() == 0) {
+                } else if (table.getBoardCards().isEmpty()) {
                     tableEvents.add(new DealFlopEvent());
                     tableEvents.add(new NewBettingRoundEvent());
                 }

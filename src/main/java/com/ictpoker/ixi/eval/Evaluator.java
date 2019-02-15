@@ -10,6 +10,10 @@ import java.util.ArrayList;
 
 public final class Evaluator {
 
+    private Evaluator() {
+
+    }
+
     // based off of PokerStove (c) Andrew C. Prock
     public static int evaluate(final Hand hand) {
 

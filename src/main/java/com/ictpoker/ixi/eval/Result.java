@@ -1,5 +1,7 @@
 package com.ictpoker.ixi.eval;
 
+import java.util.Objects;
+
 public class Result implements Comparable<Result> {
 
     private final Hand hand;
@@ -29,5 +31,16 @@ public class Result implements Comparable<Result> {
     }
 
     @Override
-    public boolean equals(Object other) { return compareTo((Result)other) == 0; }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Result result = (Result) o;
+        return strength == result.strength &&
+                hand.equals(result.hand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hand, strength);
+    }
 }

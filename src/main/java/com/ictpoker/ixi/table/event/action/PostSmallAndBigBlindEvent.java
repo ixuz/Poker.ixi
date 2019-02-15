@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PostSmallAndBigBlindEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(PostSmallAndBigBlindEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(PostSmallAndBigBlindEvent.class);
 
     public PostSmallAndBigBlindEvent(String playerName) {
         super(playerName, 0);
@@ -38,7 +38,7 @@ public class PostSmallAndBigBlindEvent extends TableEvent {
                 throw new TableStateException("player can't post small & big blind, because the player is sitting out.");
             }
 
-            if (table.getBoardCards().size() > 0) {
+            if (!table.getBoardCards().isEmpty()) {
                 throw new TableStateException("player can't post small & big blind, because board cards are already present.");
             }
 
@@ -51,21 +51,17 @@ public class PostSmallAndBigBlindEvent extends TableEvent {
                 throw new TableStateException("player can't post small & big blind, because insufficient stack");
             }
 
-            try {
-                seat.commitDead(table.getSmallBlindAmount());
-                seat.commit(table.getBigBlindAmount());
+            seat.commitDead(table.getSmallBlindAmount());
+            seat.commit(table.getBigBlindAmount());
 
-                LOGGER.info(String.format("%s: posts small & big blinds $%d",
-                        getPlayerName(),
-                        add));
-            } catch (SeatException e) {
-                throw new TableEventException("Failed to commit", e);
-            }
+            LOGGER.info(String.format("%s: posts small & big blinds $%d",
+                    getPlayerName(),
+                    add));
 
             if (seat.getStack() == 0) {
                 LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
-        } catch (TableStateException e) {
+        } catch (TableStateException | SeatException e) {
             throw new TableEventException("Failed to update table state", e);
         }
 

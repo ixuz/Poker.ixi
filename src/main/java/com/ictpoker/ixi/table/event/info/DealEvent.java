@@ -10,9 +10,9 @@ import org.apache.logging.log4j.Logger;
 
 public class DealEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(DealEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(DealEvent.class);
 
-    private final static int CARDS_PER_SEAT = 2;
+    private static final int CARDS_PER_SEAT = 2;
 
     public DealEvent() {
 
@@ -27,18 +27,14 @@ public class DealEvent extends TableEvent {
             throw new TableEventException("Insufficient amount of active players to start a new hand");
         }
 
-        LOGGER.info(String.format("*** HOLE CARDS ***"));
+        LOGGER.info("*** HOLE CARDS ***");
 
         for (int i=0; i<CARDS_PER_SEAT; i++) {
             for (int j=0; j<table.getSeats().size(); j++) {
                 int wrappingIndex = (j+1)%table.getSeats().size();
                 Seat seat = table.getSeats().get(wrappingIndex);
 
-                if (seat.getPlayer() == null) {
-                    continue;
-                }
-
-                if (seat.isSittingOut()) {
+                if (seat.getPlayer() == null || seat.isSittingOut()) {
                     continue;
                 }
 

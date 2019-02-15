@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CollectEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(CollectEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(CollectEvent.class);
 
     @Override
     public TableEvent handle(Table table) throws TableEventException {

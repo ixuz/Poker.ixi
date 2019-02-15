@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SetSmallBlindEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(SetSmallBlindEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(SetSmallBlindEvent.class);
 
     private final int smallBlind;
 

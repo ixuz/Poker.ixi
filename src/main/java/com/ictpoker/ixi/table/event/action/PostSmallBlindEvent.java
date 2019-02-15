@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PostSmallBlindEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(PostSmallBlindEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(PostSmallBlindEvent.class);
 
     public PostSmallBlindEvent(String playerName) {
         super(playerName, 0);
@@ -49,15 +49,11 @@ public class PostSmallBlindEvent extends TableEvent {
             }
 
             final int add = Math.min(seat.getStack(), table.getSmallBlindAmount());
-            try {
-                seat.commit(add);
+            seat.commit(add);
 
-                LOGGER.info(String.format("%s: posts small blind $%d",
-                        getPlayerName(),
-                        add));
-            } catch (SeatException e) {
-                throw new TableEventException("Failed to commit", e);
-            }
+            LOGGER.info(String.format("%s: posts small blind $%d",
+                    getPlayerName(),
+                    add));
 
             if (seat == table.getSeatToAct() && !table.isSmallBlindPosted()) {
                 table.setLastRaiseAmount(add);
@@ -69,7 +65,7 @@ public class PostSmallBlindEvent extends TableEvent {
                 LOGGER.info(String.format("%s is all-in", getPlayerName()));
             }
 
-        } catch (TableStateException e) {
+        } catch (TableStateException | SeatException e) {
             throw new TableEventException("Failed to update table state", e);
         }
 

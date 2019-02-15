@@ -10,7 +10,7 @@ public class DeckTest {
 
     @Test
     public void testDeck() {
-        Assert.assertEquals(new Deck().size(), 52);
+        Assert.assertEquals(52, new Deck().size());
     }
 
     @Test

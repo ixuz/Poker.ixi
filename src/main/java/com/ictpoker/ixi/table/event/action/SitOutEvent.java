@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SitOutEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(SitOutEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(SitOutEvent.class);
 
     private final boolean sittingOut;
 
