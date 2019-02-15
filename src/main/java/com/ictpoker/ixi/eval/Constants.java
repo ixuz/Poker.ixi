@@ -1,6 +1,7 @@
 package com.ictpoker.ixi.eval;
 
 public class Constants {
+
     // general
     public static final int NUM_RANKS = 13;
     public static final int SIZE_HAND = 7;

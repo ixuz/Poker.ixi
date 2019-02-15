@@ -1,5 +1,7 @@
 package com.ictpoker.ixi.eval;
 
+import com.ictpoker.ixi.commons.Evaluation;
+import com.ictpoker.ixi.commons.Hand;
 import com.ictpoker.ixi.commons.Rank;
 import com.ictpoker.ixi.eval.luts.*;
 
@@ -8,7 +10,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public final class Evaluator {
+public class Evaluator {
 
     private Evaluator() {
 
@@ -163,13 +165,13 @@ public final class Evaluator {
         if (evals.size() == 0)
             return new ArrayList<>();
 
-        List<Result> sortedByStrength = new ArrayList<>();
+        List<Evaluation> sortedByStrength = new ArrayList<>();
 
         for (Map.Entry<Hand, Integer> entry : evals.entrySet()) {
             Hand hand = entry.getKey();
             int strength = entry.getValue();
 
-            sortedByStrength.add(new Result(hand, strength));
+            sortedByStrength.add(new Evaluation(hand));
         }
 
         // sort evaluations (from strongest to weakest)
@@ -212,5 +214,4 @@ public final class Evaluator {
         return (type << Constants.OFFSET_TYPE) ^ (majorRank << Constants.OFFSET_MAJOR)
                 ^ (minorRank << Constants.OFFSET_MINOR) ^ (kicker << Constants.OFFSET_KICKER);
     }
-
 }

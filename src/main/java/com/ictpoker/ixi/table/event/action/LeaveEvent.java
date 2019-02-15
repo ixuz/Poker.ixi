@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public class LeaveEvent extends TableEvent {
 
-    private final static Logger LOGGER = LogManager.getLogger(LeaveEvent.class);
+    private static final Logger LOGGER = LogManager.getLogger(LeaveEvent.class);
 
     public LeaveEvent(final String playerName) {
 

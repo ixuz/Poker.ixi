@@ -1,21 +1,40 @@
-package com.ictpoker.ixi.eval;
+package com.ictpoker.ixi.commons;
 
-import com.ictpoker.ixi.commons.Rank;
+import com.ictpoker.ixi.eval.Constants;
+import com.ictpoker.ixi.eval.Evaluator;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public final class Evaluation {
+public final class Evaluation implements Comparable<Evaluation> {
 
+    private final Hand hand;
+    private final int strength;
     private final int handType;
     private final int majorRank;
     private final int minorRank;
     private final int kickers;
 
-    public Evaluation(int code) {
-        handType = (code >> Constants.OFFSET_TYPE) & 0xF;
-        majorRank = (code >> Constants.OFFSET_MAJOR) & 0xF;
-        minorRank = (code >> Constants.OFFSET_MINOR) & 0xF;
-        kickers = code & 0x1FFF;
+    public Evaluation(Hand hand) {
+        if (hand.size() != Constants.SIZE_HAND) {
+            throw new IllegalStateException("A hand for evaluation must consist of exactly 7 cards.");
+        }
+
+        this.hand = hand;
+        this.strength = Evaluator.evaluate(hand);
+        handType = (strength >> Constants.OFFSET_TYPE) & 0xF;
+        majorRank = (strength >> Constants.OFFSET_MAJOR) & 0xF;
+        minorRank = (strength >> Constants.OFFSET_MINOR) & 0xF;
+        kickers = strength & 0x1FFF;
+    }
+
+    public Hand getHand() {
+        return hand;
+    }
+
+    public int getStrength() {
+        return strength;
     }
 
     public int getType() {
@@ -73,5 +92,27 @@ public final class Evaluation {
 
         }
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Evaluation other) {
+        return Integer.compare(-this.strength, -other.strength);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evaluation that = (Evaluation) o;
+        return strength == that.strength &&
+                handType == that.handType &&
+                majorRank == that.majorRank &&
+                minorRank == that.minorRank &&
+                kickers == that.kickers;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(strength, handType, majorRank, minorRank, kickers);
     }
 }

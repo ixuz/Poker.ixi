@@ -6,9 +6,9 @@ import com.ictpoker.ixi.commons.SidePot;
 import com.ictpoker.ixi.table.Seat;
 import com.ictpoker.ixi.table.Table;
 import com.ictpoker.ixi.table.event.TableEvent;
-import com.ictpoker.ixi.eval.Evaluation;
+import com.ictpoker.ixi.commons.Evaluation;
 import com.ictpoker.ixi.eval.Evaluator;
-import com.ictpoker.ixi.eval.Hand;
+import com.ictpoker.ixi.commons.Hand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -145,7 +145,7 @@ public class DeliverWinningsEvent extends TableEvent {
                         final ArrayList<Card> cards = new ArrayList<>(table.getBoardCards());
                         cards.addAll(seat.getCards());
                         try {
-                            final Evaluation evaluation = new Evaluation(Evaluator.evaluate(new Hand(cards)));
+                            final Evaluation evaluation = new Evaluation(new Hand(cards));
 
                             LOGGER.info(String.format("%s win $%d from pot #%d with hand [%s]",
                                     seat.getPlayer().getName(),

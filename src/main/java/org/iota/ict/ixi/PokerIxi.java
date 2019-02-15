@@ -1,6 +1,5 @@
 package org.iota.ict.ixi;
 
-import com.ictpoker.ixi.PokerIxiGossipListener;
 import com.ictpoker.ixi.util.Constants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,7 +22,6 @@ public class PokerIxi extends IxiModule {
     @Override
     public void run() {
         LOGGER.info(String.format("Poker.ixi %s: Starting...", Constants.VERSION));
-        ixi.addGossipListener(new PokerIxiGossipListener());
         LOGGER.info(String.format("Poker.ixi %s: Started on port: %d", Constants.VERSION, 1234));
     }
 

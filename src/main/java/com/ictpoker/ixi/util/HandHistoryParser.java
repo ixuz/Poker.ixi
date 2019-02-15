@@ -62,7 +62,7 @@ public class HandHistoryParser {
     private static final Pattern summaryCollectedPattern = Pattern.compile("(.+?(?= collected)) collected \\(\\$(\\d*.?\\d*)\\)");
 
     private HandHistoryParser() {
-        throw new IllegalStateException("Utility class");
+
     }
 
     public static final List<TableEvent> parseFile(final String filePath)

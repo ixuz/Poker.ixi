@@ -8,6 +8,6 @@ public class Constants {
     public static final String PROPERTIES_FILE = PROPERTIES_LOCATION+"/poker.ixi.cfg";
 
     private Constants() {
-        throw new IllegalStateException("Utility class");
+
     }
 }

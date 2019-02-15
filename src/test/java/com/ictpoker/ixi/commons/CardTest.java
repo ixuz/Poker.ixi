@@ -6,6 +6,31 @@ import org.junit.Test;
 public class CardTest {
 
     @Test
+    public void testCardRank() {
+        Assert.assertEquals(Rank.TWO, new Card(Rank.TWO, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.THREE, new Card(Rank.THREE, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.FOUR, new Card(Rank.FOUR, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.FIVE, new Card(Rank.FIVE, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.SIX, new Card(Rank.SIX, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.SEVEN, new Card(Rank.SEVEN, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.EIGHT, new Card(Rank.EIGHT, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.NINE, new Card(Rank.NINE, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.TEN, new Card(Rank.TEN, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.JACK, new Card(Rank.JACK, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.QUEEN, new Card(Rank.QUEEN, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.KING, new Card(Rank.KING, Suit.SPADES).getRank());
+        Assert.assertEquals(Rank.ACE, new Card(Rank.ACE, Suit.SPADES).getRank());
+    }
+
+    @Test
+    public void testCardSuit() {
+        Assert.assertEquals(Suit.HEARTS, new Card(Rank.TWO, Suit.HEARTS).getSuit());
+        Assert.assertEquals(Suit.CLUBS, new Card(Rank.TWO, Suit.CLUBS).getSuit());
+        Assert.assertEquals(Suit.SPADES, new Card(Rank.TWO, Suit.SPADES).getSuit());
+        Assert.assertEquals(Suit.DIAMONDS, new Card(Rank.TWO, Suit.DIAMONDS).getSuit());
+    }
+
+    @Test
     public void testCard() {
         Assert.assertEquals("2h", new Card(Rank.TWO, Suit.HEARTS).toString());
         Assert.assertEquals("3h", new Card(Rank.THREE, Suit.HEARTS).toString());
