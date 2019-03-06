@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.table.event.action;
 
+import com.ictpoker.ixi.table.event.info.SetTableDetailsEvent;
 import com.ictpoker.ixi.table.exception.TableException;
 import com.ictpoker.ixi.table.Table;
 import com.ictpoker.ixi.table.event.info.MoveButtonEvent;
@@ -18,6 +19,7 @@ public class CallEventTest {
     public void testNegative1() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new SetSeatEvent("player A", 1000, 0));
         table.addEventLast(new SetSeatEvent("player B", 1000, 1));
@@ -44,6 +46,7 @@ public class CallEventTest {
     public void testNegative2() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new SetSeatEvent("player A", 1000, 0));
         table.addEventLast(new SetSeatEvent("player B", 1000, 1));
@@ -70,6 +73,7 @@ public class CallEventTest {
     public void testNegative3() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new SetSeatEvent("player A", 1000, 0));
         table.addEventLast(new SetSeatEvent("player B", 1000, 1));
@@ -97,6 +101,7 @@ public class CallEventTest {
     public void testNegative4() throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new SetSeatEvent("player A", 1000, 0));
         table.addEventLast(new SetSeatEvent("player B", 1000, 1));

@@ -161,6 +161,10 @@ public class Evaluator {
         return evals;
     }
 
+    public static List<List<Hand>> rankHands(List<Hand> hands) {
+        return rankHands(evaluateHands(hands));
+    }
+
     public static List<List<Hand>> rankHands(Map<Hand, Integer> evals) {
         if (evals.size() == 0)
             return new ArrayList<>();

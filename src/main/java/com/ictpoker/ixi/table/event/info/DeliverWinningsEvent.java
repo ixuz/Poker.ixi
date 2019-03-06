@@ -1,6 +1,5 @@
 package com.ictpoker.ixi.table.event.info;
 
-import com.google.common.collect.Maps;
 import com.ictpoker.ixi.commons.Card;
 import com.ictpoker.ixi.commons.SidePot;
 import com.ictpoker.ixi.table.Seat;
@@ -13,6 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class DeliverWinningsEvent extends TableEvent {
@@ -27,9 +28,7 @@ public class DeliverWinningsEvent extends TableEvent {
         if (table.getNumberOfActiveSeats() == 1) {
             Seat uncontestedWinner = table.getActiveSeats().get(0);
 
-            final int win = table.getSeats().stream()
-                    .mapToInt(Seat::getCollected)
-                    .reduce(0, (a, b) -> a + b);
+            final int win = table.getSeats().stream().mapToInt(Seat::getCollected).sum();
 
             uncontestedWinner.setStack(uncontestedWinner.getStack() + win);
             table.getSeats().forEach(seat -> seat.setCollected(0));
@@ -44,73 +43,53 @@ public class DeliverWinningsEvent extends TableEvent {
         for (Seat activeSeat : table.getActiveSeats()) {
             final ArrayList<Card> cards = new ArrayList<>(table.getBoardCards());
             cards.addAll(activeSeat.getCards());
-
-            try {
-                handSeatMap.put(new Hand(cards), activeSeat);
-            } catch (Exception e) {
-                // TODO: Handle exception
-                LOGGER.warn(e);
-            }
+            handSeatMap.put(new Hand(cards), activeSeat);
         }
 
         // Evaluate all hands
-        final List<List<Hand>> handRankings =
-                Evaluator.rankHands(Evaluator.evaluateHands(new ArrayList<>(handSeatMap.keySet())));
+        final List<List<Hand>> handRankings = Evaluator.rankHands(new ArrayList<>(handSeatMap.keySet()));
 
-        final List<Map.Entry<Seat, Hand>> winners = new ArrayList<>();
-        for (List<Hand> handsWithEqualStrength : handRankings) {
-
-            // Collect all winning hands into a list with corresponding winning seat
-            for (Hand winningHand : handsWithEqualStrength) {
-                Seat winningSeat = handSeatMap.get(winningHand);
-                winners.add(Maps.immutableEntry(winningSeat, winningHand));
-            }
-
-            // Sort the winners by amount collected, this is to deliver the smallest split pot first
-            winners.sort((Map.Entry<Seat, Hand> a, Map.Entry<Seat, Hand> b) -> {
-                if (a.getKey().getCollected() > b.getKey().getCollected()) {
-                    return 1;
-                } else if (a.getKey().getCollected() < b.getKey().getCollected()) {
-                    return -1;
-                }
-                return 0;
-            });
-        }
-
+        // Collect all winning hands into a list with corresponding winning seat
+        // Sort the winners by amount collected, this is to deliver the smallest split pot first
+        final List<SimpleEntry<Seat, Hand>> winners = handRankings.stream()
+                .flatMap(handsWithEqualStrength -> handsWithEqualStrength.stream()
+                        .map(hand -> new SimpleEntry<>(handSeatMap.get(hand), hand))
+                        .sorted(Comparator.comparingInt((SimpleEntry<Seat, Hand> a) -> a.getKey().getCollected())))
+                .collect(Collectors.toList());
 
         // Create list of side pots
         final List<SidePot> sidePots = new ArrayList<>();
-        int lastSidePotSize = 0;
+        final AtomicInteger lastSidePotSize = new AtomicInteger(0);
+        winners.stream()
+                .map(SimpleEntry::getKey)
+                .forEach(seat -> {
+                    sidePots.forEach(sidePot -> sidePot.addContestant(seat));
 
-        for (Map.Entry<Seat, Hand> seatHand : winners) {
-            final Seat contestant = seatHand.getKey();
+                    final int seatMaxWin = table.getSeats().stream()
+                            .mapToInt(Seat::getCollected)
+                            .reduce(0, (a, b) -> a + Math.min(seat.getCollected(), b)) - lastSidePotSize.get();
 
-            sidePots.forEach(sidePot -> sidePot.addContestant(contestant));
+                    if (seatMaxWin > 0) {
+                        final SidePot sidePot = sidePots.stream()
+                                .filter(sp -> sp.getPotSize() == seatMaxWin)
+                                .findFirst()
+                                .orElse(new SidePot(seatMaxWin));
 
-            final int sidePotSize = table.getSeats().stream()
-                    .mapToInt(Seat::getCollected)
-                    .reduce(0, (a, b) -> a + Math.min(contestant.getCollected(), b)) - lastSidePotSize;
+                        sidePot.addContestant(seat);
+                        sidePots.add(sidePot);
+                        lastSidePotSize.addAndGet(sidePot.getPotSize());
+                    }
+                }
+        );
 
-            final Optional<SidePot> sidePot = sidePots.stream()
-                    .filter(sp -> sp.getPotSize() == sidePotSize)
-                    .findFirst();
+        // Distribute winnings to players
+        for (List<Hand> handRanking : handRankings) {
+            for (int potIndex = 0; potIndex < sidePots.size(); potIndex++) {
+                final SidePot sp = sidePots.get(potIndex);
 
-            if (sidePot.isPresent()) {
-                sidePot.get().addContestant(contestant);
-            } else if (sidePotSize != 0) {
-                SidePot sidePot1 = new SidePot(sidePotSize);
-                sidePot1.addContestant(contestant);
-                sidePots.add(sidePot1);
-                lastSidePotSize += sidePot1.getPotSize();
-            }
-        }
-
-        for (int j=0; j<handRankings.size(); j++) {
-            for (int i=0; i<sidePots.size(); i++) {
                 int[] delivered = {0};
-                final SidePot sp = sidePots.get(i);
 
-                final int splitCount = (int)handRankings.get(j).stream()
+                final int splitCount = (int) handRanking.stream()
                         .filter(hand -> sp.getContestants().contains(handSeatMap.get(hand)))
                         .count();
 
@@ -118,14 +97,13 @@ public class DeliverWinningsEvent extends TableEvent {
                     sp.setOddChip(sp.getPotSize() - sp.getPotSize() / splitCount * splitCount);
                 }
 
-                final int potIndex = i;
-                final List<Seat> contestants = handRankings.get(j).stream()
+                final List<Seat> contestants = handRanking.stream()
                         .filter(hand -> sp.getContestants().contains(handSeatMap.get(hand)))
                         .map(handSeatMap::get)
                         .collect(Collectors.toList());
 
-                for (int seatIndex=0; seatIndex<table.getSeats().size(); seatIndex++) {
-                    int wrappingSeatIndex = (1+seatIndex+table.getButtonPosition())%table.getSeats().size();
+                for (int seatIndex = 0; seatIndex < table.getSeats().size(); seatIndex++) {
+                    int wrappingSeatIndex = (1 + seatIndex + table.getButtonPosition()) % table.getSeats().size();
                     Seat seat = table.getSeats().get(wrappingSeatIndex);
                     if (seat.getPlayer() != null && contestants.contains(seat)) {
                         if (sp.getPotSize() == 0) {
@@ -159,7 +137,7 @@ public class DeliverWinningsEvent extends TableEvent {
                     }
                 }
 
-                sp.setPotSize(sp.getPotSize()-delivered[0]);
+                sp.setPotSize(sp.getPotSize() - delivered[0]);
             }
         }
 

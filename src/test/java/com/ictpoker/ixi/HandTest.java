@@ -37,6 +37,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new SetSeatEvent("Adam Broker", 1000, 0));
         table.addEventLast(new SetSeatEvent("Carry Davis", 1000, 1));
@@ -97,6 +98,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -130,6 +132,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 500, 1));
@@ -177,6 +180,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 500, 1));
@@ -206,6 +210,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 500, 1));
@@ -239,6 +244,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -276,6 +282,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -317,6 +324,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -362,6 +370,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -428,6 +437,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 600, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 500, 1));
@@ -473,6 +483,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -529,6 +540,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -563,6 +575,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -596,6 +609,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 750, 1));
@@ -644,6 +658,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 550, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 530, 1));
@@ -709,6 +724,7 @@ public class HandTest {
             throws TableException {
 
         final Table table = new Table(500, 1000, 5,10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 500, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 500, 1));

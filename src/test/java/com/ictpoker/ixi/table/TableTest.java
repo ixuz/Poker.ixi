@@ -1,5 +1,6 @@
 package com.ictpoker.ixi.table;
 
+import com.ictpoker.ixi.table.event.info.SetTableDetailsEvent;
 import com.ictpoker.ixi.table.exception.*;
 import com.ictpoker.ixi.table.event.action.JoinEvent;
 import com.ictpoker.ixi.table.event.action.LeaveEvent;
@@ -12,6 +13,7 @@ public class TableTest {
     public void testJoin() throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
 
@@ -25,6 +27,7 @@ public class TableTest {
 
         try {
             final Table table = new Table(500, 1000, 5, 10);
+            table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
             table.addEventLast(new JoinEvent("Adam Broker", 500, 0));
             table.addEventLast(new JoinEvent("Adam Broker", 500, 0));
@@ -39,6 +42,7 @@ public class TableTest {
     public void testFullTable() throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new JoinEvent("Carry Davis", 1000, 1));
@@ -74,6 +78,7 @@ public class TableTest {
     public void testJoinLeave() throws TableException {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         table.addEventLast(new JoinEvent("Adam Broker", 1000, 0));
         table.addEventLast(new LeaveEvent("Adam Broker"));
@@ -89,6 +94,7 @@ public class TableTest {
     public void testInvalidBuyIn() {
 
         final Table table = new Table(500, 1000, 5, 10);
+        table.addEventLast(new SetTableDetailsEvent("A table name", 6, 0));
 
         try {
             table.addEventLast(new JoinEvent("Adam Broker", 200, 0));

@@ -10,13 +10,9 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toCollection;
 
 public class TableState {
-    protected static final int SEAT_COUNT = 6;
-    protected static final int FLOP = 3;
-    protected static final int TURN = 1;
-    protected static final int RIVER = 1;
 
     private String name = "Unnamed";
-    private List<Seat> seats = Stream.generate(Seat::new).limit(SEAT_COUNT).collect(toCollection(ArrayList::new));
+    private List<Seat> seats;
     private final List<Card> boardCards = new ArrayList<>();
     private Deck deck = new Deck();
     private int buttonPosition = 0;
@@ -40,6 +36,7 @@ public class TableState {
         this.maximumBuyIn = maximumBuyIn;
         this.smallBlindAmount = smallBlindAmount;
         this.bigBlindAmount = bigBlindAmount;
+        setSeatCount(0);
     }
 
     public void reset() {
@@ -58,6 +55,10 @@ public class TableState {
 
     public String getName() {
         return name;
+    }
+
+    public void setSeatCount(int seatCount) {
+        seats = Stream.generate(Seat::new).limit(seatCount).collect(toCollection(ArrayList::new));
     }
 
     public List<Seat> getSeats() {
@@ -162,9 +163,5 @@ public class TableState {
 
     public int getBigBlindAmount() {
         return bigBlindAmount;
-    }
-
-    public void setSeatCount(int seatCount) {
-        seats = Stream.generate(Seat::new).limit(seatCount).collect(toCollection(ArrayList::new));
     }
 }
