@@ -1,8 +1,8 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.table.exception.TableException;
-import com.ictpoker.ixi.table.Table;
-import com.ictpoker.ixi.util.HandHistoryParser;
+import com.ictpoker.ixi.engine.table.exception.TableException;
+import com.ictpoker.ixi.engine.table.Table;
+import com.ictpoker.ixi.engine.util.HandHistoryParser;
 import org.junit.Assert;
 import org.junit.Test;
 

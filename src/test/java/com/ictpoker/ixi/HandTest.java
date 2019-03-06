@@ -1,14 +1,14 @@
 package com.ictpoker.ixi;
 
-import com.ictpoker.ixi.commons.Card;
-import com.ictpoker.ixi.commons.Deck;
-import com.ictpoker.ixi.commons.Rank;
-import com.ictpoker.ixi.commons.Suit;
-import com.ictpoker.ixi.table.Table;
-import com.ictpoker.ixi.table.exception.TableException;
-import com.ictpoker.ixi.table.event.action.*;
-import com.ictpoker.ixi.table.event.info.*;
-import com.ictpoker.ixi.table.event.action.JoinEvent;
+import com.ictpoker.ixi.engine.commons.Card;
+import com.ictpoker.ixi.engine.commons.Deck;
+import com.ictpoker.ixi.engine.commons.Rank;
+import com.ictpoker.ixi.engine.commons.Suit;
+import com.ictpoker.ixi.engine.table.Table;
+import com.ictpoker.ixi.engine.table.exception.TableException;
+import com.ictpoker.ixi.engine.table.event.action.*;
+import com.ictpoker.ixi.engine.table.event.info.*;
+import com.ictpoker.ixi.engine.table.event.action.JoinEvent;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
